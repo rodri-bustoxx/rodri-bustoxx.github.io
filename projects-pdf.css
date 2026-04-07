@@ -1,0 +1,224 @@
+/* ===== PROYECTOS PANEL GRID ===== */
+.projects-panel-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+  padding: 0 2rem;
+}
+
+
+@media (max-width: 900px) {
+  .projects-panel-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 550px) {
+  .projects-panel-grid { grid-template-columns: repeat(2, 1fr); gap: 0.6rem; }
+}
+
+.project-panel {
+  border-radius: 1rem;
+  overflow: hidden;
+  cursor: pointer;
+  background: white;
+  border: 1px solid #e8e2d8;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-panel:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 36px rgba(0,0,0,0.13);
+}
+
+.project-panel-image {
+  position: relative;
+  aspect-ratio: 2 / 3;   /* menos extremo que 1/2 */
+  overflow: hidden;
+}
+
+.project-panel-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.project-panel:hover .project-panel-image img {
+  transform: scale(1.06);
+}
+
+.project-panel-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 55%);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 0.8rem 1rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.project-panel:hover .project-panel-overlay {
+  opacity: 1;
+}
+
+.project-panel-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.9);
+  line-height: 1;
+}
+
+.project-panel-overlay i {
+  color: #e9c896;
+  font-size: 1.3rem;
+}
+
+.project-panel-info {
+  padding: 0.7rem 0.9rem 0.9rem;
+  border-top: 3px solid #b59d6e;
+  flex: 1;
+}
+
+.project-panel-info h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.95rem;
+  color: #2c2a29;
+  margin-bottom: 0.15rem;
+  line-height: 1.3;
+}
+
+.project-panel-info p {
+  font-size: 0.72rem;
+  color: #8c7b65;
+  font-style: italic;
+}
+
+/* ===== VISOR PDF ===== */
+#pdfModal {
+  align-items: center;
+  justify-content: center;
+}
+
+#pdfModal .pdf-modal-container {
+  background: #1a1a1a;
+  border-radius: 1.2rem;
+  width: 94vw;
+  max-width: 1200px;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 40px 80px rgba(0,0,0,0.6);
+}
+
+.pdf-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.7rem 1.2rem;
+  background: #111;
+  color: white;
+  flex-shrink: 0;
+  gap: 1rem;
+}
+
+.pdf-toolbar h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.95rem;
+  color: #e9c896;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 50%;
+}
+
+.pdf-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  flex-shrink: 0;
+}
+
+.pdf-controls button,
+.pdf-controls a {
+  background: #2a2a2a;
+  border: 1px solid #444;
+  color: #ccc;
+  padding: 0.35rem 0.6rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  font-size: 0.82rem;
+  transition: background 0.15s, color 0.15s;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.pdf-controls button:hover,
+.pdf-controls a:hover {
+  background: #b59d6e;
+  border-color: #b59d6e;
+  color: white;
+}
+
+.close-pdf-btn {
+  background: #3a1212 !important;
+  border-color: #7a2222 !important;
+  color: #ff9999 !important;
+  font-size: 1.1rem !important;
+  padding: 0.3rem 0.7rem !important;
+}
+
+.close-pdf-btn:hover {
+  background: #c0392b !important;
+  border-color: #c0392b !important;
+  color: white !important;
+}
+
+.btn-download-pdf {
+  background: #1a3a1a !important;
+  border-color: #3a6a3a !important;
+  color: #90d490 !important;
+}
+
+.pdf-viewer-content {
+  overflow-y: auto;
+  flex: 1;
+  background: #2a2a2a;
+  padding: 20px;
+}
+
+.pdf-viewer-content .page {
+  background: white;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+  border-radius: 3px;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.pdf-viewer-content canvas {
+  display: block;
+  width: 100% !important;
+  height: auto !important;
+}
+
+/* loading spinner */
+.loading-pdf {
+  text-align: center;
+  padding: 60px 20px;
+  color: #b59d6e;
+  font-size: 1.1rem;
+}
+
+.loading-pdf i {
+  margin-bottom: 1rem;
+  display: block;
+}

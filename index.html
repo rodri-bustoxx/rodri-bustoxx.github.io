@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Arquitectura | Portfolio Agustin Girona </title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Botón flotante multisección -->
+<div class="floating-nav">
+    <!-- Botón principal (teléfono) -->
+    <div class="floating-main">
+        <div class="floating-icon">
+            <i class="fas fa-bars"></i>
+        </div>
+        <span class="floating-label">Índice</span>
+    </div>
+    
+    <!-- Menú desplegable horizontal -->
+    <div class="floating-menu">
+        <a href="#sobre-mi" class="floating-item" data-section="sobre-mi">
+            <i class="fas fa-user"></i>
+            <span>Sobre mí</span>
+        </a>
+        <a href="#premios" class="floating-item" data-section="premios">
+            <i class="fas fa-trophy"></i>
+            <span>Premios</span>
+        </a>
+        <a href="#curriculum" class="floating-item" data-section="curriculum">
+            <i class="fas fa-file-alt"></i>
+            <span>Currículum</span>
+        </a>
+        <a href="#portfolio" class="floating-item" data-section="portfolio">
+            <i class="fas fa-images"></i>
+            <span>Portfolio</span>
+        </a>
+        <a href="#certificados" class="floating-item" data-section="certificados">
+            <i class="fas fa-certificate"></i>
+            <span>Certificados</span>
+        </a>
+        <a href="#contacto" class="floating-item" data-section="contacto">
+            <i class="fas fa-envelope"></i>
+            <span>Contacto</span>
+        </a>
+    </div>
+</div>
+
+
+<!-- PORTADA con render y frase -->
+<div class="hero">
+  <img class="hero-bg" src="imagen_portada.jpg" alt="Render arquitectónico">
+  <div class="hero-content">
+    <h1>Agustin Girona · Arquitectura</h1>
+    <div class="frase">"Diseñar espacios que cuentan historias, donde la luz y la materia dialogan"</div>
+  </div>
+</div>
+
+<!-- Introducción estilo "Damilee.com" (sobre mí) -->
+<section id = "sobre-mi" class="about-section">
+  <div class="container">
+    <div class="about-card">
+      
+      <!-- Encabezado con ícono decorativo -->
+      <div class="section-header">
+        <span class="section-badge">Presentación</span>
+        <h2>
+          <!-- <i class="fas fa-drafting-compass"></i> Sobre mí -->
+        </h2>
+        <div class="section-line"></div>
+      </div>
+      
+      <!-- Contenido principal con imagen y texto -->
+      <div class="about-content">
+        <div class="about-text">
+          <h3 class="about-name">Manuel Agustin Girona Lopez</h3>
+          <p class="about-title">MAESTRO MAYOR DE OBRAS · ARQUITECTURA <span class="badge">último año</span></p>
+          
+          <div class="about-description">
+            <p>Soy Maestro mayor de obras con formación técnica, y estudiante de arquitectura (cursando el último año), con conocimiento en documentación / gestión técnica y visualización arquitectónica. De perfil autodidacta y apasionado por el desarrollo técnico, detalles constructivos y el diseño. Busco un espacio de trabajo donde pueda aplicar y expandir mis conocimientos.</p>
+          </div>
+          
+          <div class="about-signature">
+            <div class="sign-line"></div>
+            <p class="about-sign">— Manuel Agustín Girona Lopez, MMO · Arquitectura</p>
+          </div>
+        </div>
+        
+        <div class="about-avatar">
+          <div class="avatar-frame">
+            <img src="imagen_girona.jpg" alt="Manuel Agustín Girona Lopez">
+          </div>
+          <!-- Pequeño detalle decorativo -->
+          <div class="avatar-decoration">
+            <!-- <i class="fas fa-ruler-combined"></i> -->
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+
+<!-- Sección de premios y distinciones -->
+<section id="premios" class="awards-section">
+    <div class="container">
+        
+        <!-- Encabezado de sección (consistente con "Sobre mí") -->
+        <div class="section-header">
+            <span class="section-badge">Logros</span>
+            <h2>
+                <i class="fas fa-trophy"></i> Premios y Distinciones
+            </h2>
+            <div class="section-line"></div>
+        </div>
+        
+        <!-- Grid de premios (más ordenado visualmente) -->
+        <div class="awards-grid">
+            
+            <div class="award-card">
+                <div class="award-year">2020-2021</div>
+                <div class="award-icon">🏅</div>
+                <div class="award-title">Abanderado Bandera Nacional</div>
+                <div class="award-institution">IPET N° 339</div>
+                <div class="award-meta">Promedio: 9,65</div>
+            </div>
+            
+            <div class="award-card">
+                <div class="award-year">2025</div>
+                <div class="award-icon">🎖️</div>
+                <div class="award-title">2do Escolta Bandera Nacional</div>
+                <div class="award-institution">FAUD UNC</div>
+            </div>
+            
+            <div class="award-card">
+                <div class="award-year">2024</div>
+                <div class="award-icon">📌</div>
+                <div class="award-title">Trabajo destacado</div>
+                <div class="award-institution">Cátedra Instalaciones III B - FAUD UNC</div>
+            </div>
+            
+            <div class="award-card">
+                <div class="award-year">2024</div>
+                <div class="award-icon">🏆</div>
+                <div class="award-title">"Proyectar el Fragmento"</div>
+                <div class="award-institution">Muestra "Al Fin Final 2024"</div>
+            </div>
+            
+            <div class="award-card">
+                <div class="award-year">2023</div>
+                <div class="award-icon">📁</div>
+                <div class="award-title">Carpeta Morfología III</div>
+                <div class="award-institution">Muestra "Al Fin Final 2023"</div>
+            </div>
+            
+            <div class="award-card">
+                <div class="award-year">2022</div>
+                <div class="award-icon">🧱</div>
+                <div class="award-title">Trabajo Estructuras</div>
+                <div class="award-institution">Muestra "Al Fin Final 2022"</div>
+            </div>
+            
+        </div>
+        
+        <!-- Botones de acción -->
+        <div class="awards-actions">
+            <button class="btn-rectorado" id="openRectorModalBtn">
+                <i class="fas fa-university"></i> Nota del Rectorado
+            </button>
+            
+        </div>
+        
+    </div>
+</section>
+
+<!-- Sección de curriculum -->
+<section id="curriculum" class="curriculum-section">
+    <div class="container">
+        
+        <!-- Encabezado consistente con las otras secciones -->
+        <div class="section-header">
+            <span class="section-badge">Trayectoria</span>
+            <h2>
+                <i class="fas fa-file-alt"></i> Curriculum · Resumido
+            </h2>
+            <div class="section-line"></div>
+            
+        </div>
+        
+        <!-- Sistema de pestañas mejorado -->
+        <div class="cv-tabs-container">
+            <div class="tabs-header">
+                <button class="tab-btn active" data-tab="formacion">
+                    <i class="fas fa-graduation-cap"></i> Formación
+                </button>
+                <button class="tab-btn" data-tab="experiencia">
+                    <i class="fas fa-briefcase"></i> Experiencia
+                </button>
+                <button class="tab-btn" data-tab="habilidades">
+                    <i class="fas fa-code"></i> Habilidades
+                </button>
+            </div>
+            
+            <!-- Formación -->
+            <div class="tab-content active-tab" id="formacion">
+                <div class="cv-timeline">
+                    <div class="cv-item">
+                        <div class="cv-icon">📘</div>
+                        <div class="cv-content">
+                            <h4>Arquitectura · Universidad Nacional de Córdoba (FAUD)</h4>
+                            <span class="date">Último año en curso</span>
+                            <p>Formación integral con enfoque en proyecto, tecnología y ciudad.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="cv-item">
+                        <div class="cv-icon">🎓</div>
+                        <div class="cv-content">
+                            <h4>Maestro Mayor de Obras</h4>
+                            <span class="date">Instituto Provincial de Enseñanza Técnica (I.P.E.T.) N°339</span>
+                            <p>Título técnico con promedio general de 9,65. Abanderado de la Bandera Nacional.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="cv-item">
+                        <div class="cv-icon">📚</div>
+                        <div class="cv-content">
+                            <h4>Adscripción en Cátedra Urbanismo IB</h4>
+                            <span class="date">FAUD - UNC · 2025 - actualidad</span>
+                            <p>Alumno adscripto bajo la titularidad de la Dra. Arq. Mariana Debat.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Experiencia -->
+            <div class="tab-content" id="experiencia">
+                <div class="cv-timeline">
+                    <div class="cv-item">
+                        <div class="cv-icon">🏛️</div>
+                        <div class="cv-content">
+                            <h4>Pasante · Estudio GPO (Arq. Diana B. Pons)</h4>
+                            <span class="date">2020 – 2024</span>
+                            <p>Dibujo técnico, relevamientos, diseño de proyectos, modelado 3D, gestoría de planos y presupuestos.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="cv-item">
+                        <div class="cv-icon">📐</div>
+                        <div class="cv-content">
+                            <h4>Trabajo Autónomo como Maestro Mayor de Obras</h4>
+                            <span class="date">2021 – actualidad</span>
+                            <p>Confección de planos, gestión municipal, anteproyectos, renders y asesoría técnica en Capilla del Monte, La Cumbre, Villa Giardino, San Esteban, Charbonier.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="cv-item">
+                        <div class="cv-icon">✍️</div>
+                        <div class="cv-content">
+                            <h4>Enseñanza en Clases Particulares</h4>
+                            <span class="date">2018 - 2023</span>
+                            <p>Preparación en Estructuras 1/2/3, Instalaciones, Matemática, Inglés e Historia.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Habilidades (mejor organizadas) -->
+            <div class="tab-content" id="habilidades">
+                <!-- Software avanzado -->
+                <div class="skills-category">
+                    <h4 class="skills-title"><span class="skill-badge advanced">Avanzado</span> Software</h4>
+                    <div class="skills-list">
+                        <span class="skill-tag">AutoCAD</span>
+                        <span class="skill-tag">Sketchup</span>
+                        <span class="skill-tag">Photoshop</span>
+                    </div>
+                </div>
+                
+                <div class="skills-category">
+                    <h4 class="skills-title"><span class="skill-badge intermediate">Intermedio</span> Software</h4>
+                    <div class="skills-list">
+                        <span class="skill-tag">Microsoft Office Pack</span>
+                        <span class="skill-tag">Lumion</span>
+                    </div>
+                </div>
+                
+                <div class="skills-category">
+                    <h4 class="skills-title"><span class="skill-badge basic">Básico</span> Software</h4>
+                    <div class="skills-list">
+                        <span class="skill-tag">Revit</span>
+                        <span class="skill-tag">Adobe Illustrator</span>
+                        <span class="skill-tag">ArchiCAD</span>
+                    </div>
+                </div>
+                
+                <div class="skills-category">
+                    <h4 class="skills-title"><span class="skill-badge soft">🎨</span> Aptitudes</h4>
+                    <div class="skills-list">
+                        <span class="skill-tag soft">Trabajo colaborativo</span>
+                        <span class="skill-tag soft">Creatividad</span>
+                        <span class="skill-tag soft">Adaptabilidad</span>
+                        <span class="skill-tag soft">Compromiso</span>
+                        <span class="skill-tag soft">Responsabilidad</span>
+                        <span class="skill-tag soft">Organización</span>
+                        <span class="skill-tag soft">Fácil aprendizaje</span>
+                        <span class="skill-tag soft">Gestión de tareas</span>
+                    </div>
+                </div>
+            </div>
+
+        </div><div class="awards-actions" style="margin-top: 2rem;">
+            <button class="btn-rectorado btn-cv" id="openCvModalBtn">
+                <i class="fas fa-file-alt"></i> Ver CV Completo
+            </button></div>
+        
+    </div>
+</section>
+
+  <!-- PROYECTOS --  -->
+<section id="portfolio" class="projects-section">
+    <h2 class="section-title"><i class="fas fa-book-open"></i> Proyectos · Colección Girona</h2>
+    
+    <div class="projects-panel-grid">
+        
+        <!-- Proyecto 01 -->
+        <div class="project-panel" onclick="verPDFSpread('pdfs/proyecto_01.pdf', 'Proyecto 01 · Pabellón de exposiciones')">
+            <div class="project-panel-image">
+                <img src="imagenes/imagen_1.jpg" alt="Proyecto 01">
+                <div class="project-panel-overlay">
+                    <span class="project-panel-number">01</span>
+                    <i class="fas fa-search-plus"></i>
+                </div>
+            </div>
+            <div class="project-panel-info">
+                <h3>Pabellón de exposiciones</h3>
+                <p>Centro cultural efímero · 2024</p>
+            </div>
+        </div>
+        
+        <!-- Proyecto 02 -->
+        <div class="project-panel" onclick="verPDFSpread('pdfs/proyecto_02.pdf', 'Proyecto 02 · Rehabilitación de Masía')">
+            <div class="project-panel-image">
+                <img src="imagenes/imagen_2.jpg" alt="Proyecto 02">
+                <div class="project-panel-overlay">
+                    <span class="project-panel-number">02</span>
+                    <i class="fas fa-search-plus"></i>
+                </div>
+            </div>
+            <div class="project-panel-info">
+                <h3>Rehabilitación de Masía</h3>
+                <p>Restauración patrimonial · 2023</p>
+            </div>
+        </div>
+        
+        <!-- Proyecto 03 -->
+        <div class="project-panel" onclick="verPDFSpread('pdfs/proyecto_03.pdf', 'Proyecto 03 · Puente + Mirador')">
+            <div class="project-panel-image">
+                <img src="imagenes/imagen_3.jpg" alt="Proyecto 03">
+                <div class="project-panel-overlay">
+                    <span class="project-panel-number">03</span>
+                    <i class="fas fa-search-plus"></i>
+                </div>
+            </div>
+            <div class="project-panel-info">
+                <h3>Puente + Mirador</h3>
+                <p>Conexión urbana y paisajística · 2024</p>
+            </div>
+        </div>
+        
+        <!-- Proyecto 04 -->
+        <div class="project-panel" onclick="verPDFSpread('pdfs/proyecto_04.pdf', 'Proyecto 04 · Vivienda Colectiva')">
+            <div class="project-panel-image">
+                <img src="imagenes/imagen_4.jpg" alt="Proyecto 04">
+                <div class="project-panel-overlay">
+                    <span class="project-panel-number">04</span>
+                    <i class="fas fa-search-plus"></i>
+                </div>
+            </div>
+            <div class="project-panel-info">
+                <h3>Vivienda Colectiva</h3>
+                <p>Proyecto de arquitectura · 2025</p>
+            </div>
+        </div>
+        
+        <!-- Proyecto 05 -->
+        <div class="project-panel" onclick="verPDFSpread('pdfs/proyecto_05.pdf', 'Proyecto 05 · Espacio Público')">
+            <div class="project-panel-image">
+                <img src="imagenes/imagen_5.jpg" alt="Proyecto 05">
+                <div class="project-panel-overlay">
+                    <span class="project-panel-number">05</span>
+                    <i class="fas fa-search-plus"></i>
+                </div>
+            </div>
+            <div class="project-panel-info">
+                <h3>Espacio Público</h3>
+                <p>Diseño urbano · 2025</p>
+            </div>
+        </div>
+        
+    </div>
+</section>
+
+<!-- CERTIFICADOS: versión mejorada -->
+<section id="certificados" class="certificates-section">
+    <div class="container">
+        
+        <!-- Encabezado consistente con el resto del sitio -->
+        <div class="section-header">
+            <span class="section-badge">Formación continua</span>
+            <h2>
+                <i class="fas fa-certificate"></i> Certificados · Cursos Realizados
+            </h2>
+            <div class="section-line"></div>
+        </div>
+        
+        <div class="cert-list">
+            
+            <!-- Certificado 1 -->
+            <div class="cert-row" onclick="verPDF('certificados/certificado_1.pdf', 'Edificio en altura')">
+                <div class="cert-icon">
+                    <i class="fas fa-building"></i>
+                </div>
+                <div class="cert-info">
+                    <div class="cert-title">Edificio en altura · Pautas iniciales para el abordaje integral del proyecto de Instalaciones</div>
+                    <div class="cert-meta">
+                        <span class="cert-institution">
+                            <i class="fas fa-university"></i> Universidad Nacional de Córdoba
+                        </span>
+                        <span class="cert-year">2022</span>
+                    </div>
+                </div>
+                <div class="cert-action">
+                    <button class="cert-btn">
+                        <i class="fas fa-file-pdf"></i> Ver certificado
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Certificado 2 -->
+            <div class="cert-row" onclick="verPDF('certificados/certificado_2.pdf', 'Introducción Construcción en Seco')">
+                <div class="cert-icon">
+                    <i class="fas fa-dice-d6"></i>
+                </div>
+                <div class="cert-info">
+                    <div class="cert-title">Introducción a la Construcción en Seco</div>
+                    <div class="cert-meta">
+                        <span class="cert-institution">
+                            <i class="fas fa-university"></i> Campus Virtual · Universidad Nacional de Córdoba
+                        </span>
+                        <span class="cert-year">2020</span>
+                    </div>
+                </div>
+                <div class="cert-action">
+                    <button class="cert-btn">
+                        <i class="fas fa-file-pdf"></i> Ver certificado
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Certificado 3 -->
+            <div class="cert-row" onclick="verPDF('certificados/certificado_4.pdf', 'Jornada de Capacitación para Adscripto')">
+                <div class="cert-icon">
+                    <i class="fas fa-chalkboard-user"></i>
+                </div>
+                <div class="cert-info">
+                    <div class="cert-title">Jornada de Capacitación para Adscripto · Rol, crítica y metodologías en Urbanismo IB</div>
+                    <div class="cert-meta">
+                        <span class="cert-institution">
+                            <i class="fas fa-university"></i> FAUD · Universidad Nacional de Córdoba
+                        </span>
+                        <span class="cert-year">2025</span>
+                    </div>
+                </div>
+                <div class="cert-action">
+                    <button class="cert-btn">
+                        <i class="fas fa-file-pdf"></i> Ver certificado
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Certificado 4 -->
+            <div class="cert-row" onclick="verPDF('certificados/certificado_5.pdf', 'Pensamiento crítico disciplinar')">
+                <div class="cert-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <div class="cert-info">
+                    <div class="cert-title">Pensamiento crítico disciplinar · Experiencias de investigación en el grado</div>
+                    <div class="cert-meta">
+                        <span class="cert-institution">
+                            <i class="fas fa-university"></i> FAUD · Universidad Nacional de Córdoba
+                        </span>
+                        <span class="cert-year">2023</span>
+                    </div>
+                </div>
+                <div class="cert-action">
+                    <button class="cert-btn">
+                        <i class="fas fa-file-pdf"></i> Ver certificado
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Certificado 5 -->
+            <div class="cert-row" onclick="verPDF('certificados/certificado_6.pdf', 'Trabajos Instalaciones III B')">
+                <div class="cert-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <div class="cert-info">
+                    <div class="cert-title">Trabajos desarrollados por alumnos de nivel IV · Cátedra de Instalaciones III B</div>
+                    <div class="cert-meta">
+                        <span class="cert-institution">
+                            <i class="fas fa-university"></i> FAUD · Universidad Nacional de Córdoba
+                        </span>
+                        <span class="cert-year">2024</span>
+                    </div>
+                </div>
+                <div class="cert-action">
+                    <button class="cert-btn">
+                        <i class="fas fa-file-pdf"></i> Ver certificado
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Certificado 6 -->
+            <div class="cert-row" onclick="verPDF('certificados/certificado_7.pdf', 'Seguridad en Carpintería')">
+                <div class="cert-icon">
+                    <i class="fas fa-hammer"></i>
+                </div>
+                <div class="cert-info">
+                    <div class="cert-title">Seguridad en el trabajo de Carpintería · Reciclamos Pallets</div>
+                    <div class="cert-meta">
+                        <span class="cert-institution">
+                            <i class="fas fa-clock"></i> 45 horas · Campus Virtual · UNC
+                        </span>
+                        <span class="cert-year">2023</span>
+                    </div>
+                </div>
+                <div class="cert-action">
+                    <button class="cert-btn">
+                        <i class="fas fa-file-pdf"></i> Ver certificado
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Certificado 7 -->
+            <div class="cert-row" onclick="verPDF('certificados/certificado_3.pdf', 'Taller Ideas de Color')">
+                <div class="cert-icon">
+                    <i class="fas fa-palette"></i>
+                </div>
+                <div class="cert-info">
+                    <div class="cert-title">Taller Ideas de Color · Acciones cromáticas urbanas en calle Obispo Salguero</div>
+                    <div class="cert-meta">
+                        <span class="cert-institution">
+                            <i class="fas fa-university"></i> FAUD · Universidad Nacional de Córdoba
+                        </span>
+                        <span class="cert-year">2023</span>
+                    </div>
+                </div>
+                <div class="cert-action">
+                    <button class="cert-btn">
+                        <i class="fas fa-file-pdf"></i> Ver certificado
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+  
+<!-- SECCIÓN DE CONTACTO (mejorada) -->
+<section id="contacto" class="contact-section">
+    <div class="container">
+        <div class="contact-card">
+            
+            <!-- Encabezado consistente -->
+            <div class="section-header">
+                <span class="section-badge">Conectemos</span>
+                <h2>
+                    <i class="fas fa-address-card"></i> Contacto
+                </h2>
+                <div class="section-line"></div>
+            </div>
+            
+            <!-- Grid de contacto -->
+            <div class="contact-grid-modern">
+                
+                <!-- Email -->
+                <div class="contact-item-modern" data-contacto="mmoagustingirona@gmail.com">
+                    <div class="contact-icon-modern">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-info-modern">
+                        <div class="contact-label-modern">Email</div>
+                        <div class="contact-value-modern">mmoagustingirona@gmail.com</div>
+                    </div>
+                    <div class="contact-copy-modern">
+                        <i class="fas fa-copy"></i>
+                        <span>Copiar</span>
+                    </div>
+                </div>
+                
+                <!-- Teléfono -->
+                <div class="contact-item-modern" data-contacto="+5493548436009">
+                    <div class="contact-icon-modern">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <div class="contact-info-modern">
+                        <div class="contact-label-modern">Teléfono</div>
+                        <div class="contact-value-modern">(3548) 43-6009</div>
+                    </div>
+                    <div class="contact-copy-modern">
+                        <i class="fas fa-copy"></i>
+                        <span>Copiar</span>
+                    </div>
+                </div>
+                
+                <!-- LinkedIn -->
+                <a href="https://www.linkedin.com/in/manuel-agust%C3%ADn-girona-l%C3%B3pez-2b66633b3/" target="_blank" class="contact-item-modern contact-link">
+                    <div class="contact-icon-modern">
+                        <i class="fab fa-linkedin"></i>
+                    </div>
+                    <div class="contact-info-modern">
+                        <div class="contact-label-modern">LinkedIn</div>
+                        <div class="contact-value-modern">Manuel Agustín Girona López</div>
+                    </div>
+                    <div class="contact-arrow">
+                        <i class="fas fa-external-link-alt"></i>
+                    </div>
+                </a>
+                
+                <!-- Behance -->
+                <a href="https://www.behance.net/manuelgirona" target="_blank" class="contact-item-modern contact-link">
+                    <div class="contact-icon-modern">
+                        <i class="fab fa-behance"></i>
+                    </div>
+                    <div class="contact-info-modern">
+                        <div class="contact-label-modern">Behance</div>
+                        <div class="contact-value-modern">manuelgirona</div>
+                    </div>
+                    <div class="contact-arrow">
+                        <i class="fas fa-external-link-alt"></i>
+                    </div>
+                </a>                
+                
+            </div>
+            
+            <!-- Información adicional -->
+            <div class="contact-footer">
+                <div class="location-badge">
+                    <i class="fas fa-map-marker-alt"></i> Córdoba Capital
+                </div>
+                <div class="availability-badge">
+                    <i class="fas fa-clock"></i> Disponibilidad Full time / Part time
+                </div>
+                <div class="portfolio-badge">
+                    <i class="fas fa-folder-open"></i> Portfolio disponible
+                </div>
+            </div>
+            
+            <!-- Toast de notificación -->
+            <div class="contact-toast" id="copyToast">
+                <i class="fas fa-check-circle"></i>
+                <span>¡Copiado al portapapeles!</span>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="modern-footer">
+    <div class="footer-content">
+        <p>© 2026 Rodrigo Emanuel San Martin Bustos · Técnico Económico en ERSeP · Estudiante de Economía · Apasionado por el Software y Datos</p>
+    </div>
+</footer>
+
+
+<!-- MODAL para nota del rectorado (centro) actualizada con los datos del Rectorado de la UNC -->
+<div id="rectorModal" class="modal-overlay">
+<div class="modal-card">
+    <h3><i class="fas fa-gavel"></i> Nota del Rectorado</h3>
+    
+    <div class="modal-two-columns">
+        <!-- Columna principal: texto completo -->
+        <div class="modal-main">
+            <div class="letter-head">
+                <p>A quien corresponda<br>S ______ / ______ D</p>
+            </div>
+            <div class="letter-body">
+                <p>A través de la presente, como Rector y Vicerrectora de la Universidad Nacional de Córdoba, Argentina, es de nuestro agrado poder dar aval académico al estudiante <strong>Manuel Agustín GIRONA LÓPEZ, DNI 43674714</strong>, quien está realizando sus estudios de grado, en la carrera de Arquitectura de la Facultad de Arquitectura, Urbanismo y Diseño, con un promedio de carrera de <strong>9.19</strong>, mérito que lo lleva a desempeñarse como <strong>Segunda Escolta</strong> de la Facultad antes mencionada, periodo 2025/2026.</p>
+                <p>Estudiantes como <strong>Manuel Agustín</strong> ponen en alto el nombre de nuestra institución por su destacado desempeño académico. Sus convicciones, inteligencia y calidad humana se pusieron de manifiesto a lo largo de su paso por nuestra universidad, participó permanentemente en espacios de trabajo colaborativo, de reflexión y de compromiso social donde siempre ha demostrado, aparte de vocación y pasión, ser una persona reflexiva, de gran carácter intelectual, que entiende las prácticas desde la participación, el consenso y la construcción colectiva e interdisciplinaria y ávida por seguir aprendiendo y perfeccionando su compromiso con la educación y la sociedad.</p>
+                <p>Por todo lo mencionado, recomendamos a <strong>Manuel Agustín</strong> ante quien corresponda, con la certeza de que por su compromiso, responsabilidad e idoneidad representará un gran aporte a vuestra Institución y los honrará plenamente como estudiante y persona.</p>
+                <p>Quedamos a disposición para ampliar estas referencias si fuera necesario. Sin otro particular, saludamos a Uds. con nuestra más distinguida consideración.</p>
+            </div>
+        </div>
+        
+        <!-- Columna lateral: datos + firma + dirección -->
+        <div class="modal-sidebar">
+            <div class="signature">
+                <p><strong>Jhon Boreto</strong><br>Rector UNC<br>Argentina</p>
+            </div>
+            <div class="letter-footer">
+                Avda. Haya de la Torre S/N – 3er piso<br>
+                Pabellón Argentina – Ciudad Universitaria<br>
+                X 5000GYA – Córdoba – Argentina<br>
+                Tel: +54 351 5353778 int. 3
+            </div>
+        </div>
+    </div>
+    
+    <!-- Botones -->
+    <div style="display: flex; justify-content: flex-end; gap: 1rem; margin-top: 1.5rem;">
+        <button id="verPdfNotaBtn" class="btn-pdf-nota"><i class="fas fa-file-pdf"></i> Ver PDF original</button>
+        <button class="close-modal" id="closeModalBtn">Cerrar</button>
+    </div>
+</div>
+</div>
+
+
+<!-- MODAL para CV COMPLETO (similar al del rectorado) -->
+<div id="cvModal" class="modal-overlay">
+    <div class="modal-card" style="max-width: 950px;">
+        <h3><i class="fas fa-file-alt"></i> Currículum Vitae · Manuel Agustín Girona Lopez</h3>
+        
+        <div class="modal-two-columns">
+            <!-- Columna principal: formación y experiencia -->
+            <div class="modal-main">
+                <div class="letter-head">
+                    <p><strong>MANUEL AGUSTÍN GIRONA LOPEZ</strong><br>
+                    Maestro Mayor de Obras · Estudiante de Arquitectura (último año)</p>
+                </div>
+                
+                <div class="letter-body">
+                    <h4>📘 Formación Académica</h4>
+                    <p><strong>Arquitectura</strong> · FAUD · Universidad Nacional de Córdoba (Último año en curso)<br>
+                    <strong>Maestro Mayor de Obras</strong> · IPET N°339 · Promedio general: 9,65 · Abanderado Nacional</p>
+                    
+                    <h4>🏛️ Experiencia Profesional</h4>
+                    <p><strong>Pasante · Estudio GPO</strong> (Arq. Diana B. Pons) · 2020-2024<br>
+                    Dibujo técnico, relevamientos, diseño de proyectos, modelado 3D, gestoría de planos y presupuestos.</p>
+                    
+                    <p><strong>Trabajo Autónomo como MMO</strong> · 2021-actualidad<br>
+                    Confección de planos, gestión municipal, anteproyectos, renders y asesoría técnica en Capilla del Monte, La Cumbre, Villa Giardino, San Esteban, Charbonier.</p>
+                    
+                    <h4>📚 Actividad Vinculada a la Educación</h4>
+                    <p><strong>Adscripción en Cátedra Urbanismo IB</strong> · FAUD · UNC · 2025-actualidad<br>
+                    Alumno adscripto bajo la titularidad de la Dra. Arq. Mariana Debat.</p>
+                    
+                    <p><strong>Enseñanza en Clases Particulares</strong> · 2018-2023<br>
+                    Estructuras 1/2/3, Instalaciones, Matemática, Inglés e Historia.</p>
+                    
+                    <h4>🎖️ Premios y Distinciones</h4>
+                    <p><strong>2020-2021</strong> · Abanderado Bandera Nacional · IPET N°339 (Prom. 9,65)<br>
+                    <strong>2025</strong> · 2do Escolta Bandera Nacional · FAUD · UNC<br>
+                    <strong>2024</strong> · Trabajo destacado · Cátedra Instalaciones III B · FAUD · UNC<br>
+                    <strong>2024</strong> · "Proyectar el Fragmento" · Muestra "Al Fin Final 2024"<br>
+                    <strong>2023</strong> · Carpeta Morfología III · Muestra "Al Fin Final 2023"<br>
+                    <strong>2022</strong> · Trabajo Estructuras · Muestra "Al Fin Final 2022"</p>
+                    
+                    <h4>🖥️ Habilidades Técnicas</h4>
+                    <p><strong>Avanzado:</strong> AutoCAD, Sketchup, Photoshop<br>
+                    <strong>Intermedio:</strong> Microsoft Office Pack, Lumion<br>
+                    <strong>Básico:</strong> Revit, Adobe Illustrator, ArchiCAD</p>
+                    
+                    <h4>🌍 Idiomas</h4>
+                    <p><strong>Inglés:</strong> Formación continua · School of English, Capilla del Monte (2010-2020)<br>
+                    <strong>Italiano:</strong> Certificado B1 · Dante Alighieri · Abanderado de Italia (2014-2019) · Promedio: 9,00</p>
+                </div>
+            </div>
+            
+
+        </div>
+        
+        <!-- Botones -->
+        <div style="display: flex; justify-content: flex-end; gap: 1rem; margin-top: 1.5rem;">
+            <button id="verPdfCvBtn" class="btn-pdf-nota"><i class="fas fa-file-pdf"></i> Ver CV en PDF</button>
+            <button class="close-modal" id="closeCvModalBtn">Cerrar</button>
+        </div>
+    </div>
+</div>
+
+
+<!-- Script para funcionalidades: pestañas, modal rectorado, apertura de PDFs simulada con ventana nueva (dado que en entorno real se requiere el archivo, mostramos alerta con instrucción) -->
+<div id="toast-message" style="position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); background: #2c3e2f; color: white; padding: 10px 20px; border-radius: 40px; font-size: 0.9rem; opacity: 0; transition: opacity 0.3s; pointer-events: none; z-index: 1000;">
+    📋 Copiado al portapapeles
+</div>
+
+<div id="pdfModal" class="modal-overlay">
+    <div class="modal-card" style="max-width: 90%; width: 900px; max-height: 90vh;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <h3 id="pdfModalTitle" style="margin: 0;"><i class="fas fa-file-pdf"></i> Visualizando documento</h3>
+            <button id="closePdfModalBtn" style="background: none; border: none; font-size: 1.8rem; cursor: pointer; color: #666;">&times;</button>
+        </div>
+        <iframe id="pdfIframe" src="" style="width: 100%; height: 65vh; border: none; border-radius: 0.8rem;"></iframe>
+        <div style="display: flex; justify-content: flex-end; gap: 1rem; margin-top: 1rem;">
+<a id="pdfDownloadLink" href="#" target="_blank" class="btn-pdf-nota" style="text-decoration: none;">
+    <i class="fas fa-external-link-alt"></i> Abrir en nueva pestaña
+</a>            <button id="closePdfModalBtn2" class="close-modal">Cerrar</button>
+        </div>
+    </div>
+</div>
+<script src="script.js"></script>
+
+</body>
+</html>
