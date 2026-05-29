@@ -1,821 +1,719 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>Arquitectura | Portfolio Agustin Girona </title>
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-  <!-- Font Awesome 6 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link rel="stylesheet" href="style.css">
-<link rel="icon" type="image/x-icon" href="icono_web.ico">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>DESCONECTADOS</title>
+<style>
+/* ── RESET & BASE ── */
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{
+  --bg:#0f0e0c;--surface:#1c1b18;--card-bg:#f5f0e8;--card-text:#1a1916;
+  --accent:#c84b2f;--text:#e8e4dc;--muted:#6b6760;--border:#2e2c28;
+  --yo:#c84b2f;--otros:#2f7dc8;--mundo:#2fb87c;--humor:#c8962f;--profundo:#8b2fc8;--pareja:#c82f7d;
+}
+html,body{height:100%;background:var(--bg);color:var(--text);font-family:Georgia,serif;overflow-x:hidden}
+body{display:flex;flex-direction:column;min-height:100vh}
 
+/* ── HEADER ── */
+.header{display:flex;align-items:center;justify-content:space-between;padding:18px 20px 10px}
+.brand{display:flex;flex-direction:column;gap:3px;min-width:0}
+.logo{font-size:17px;letter-spacing:.1em;font-style:italic;color:var(--text)}
+.logo b{font-style:normal;color:var(--accent);font-weight:700}
+.dedication{font-size:11px;color:var(--muted);font-family:Arial,sans-serif;letter-spacing:.04em;line-height:1.25}
+.icon-btn{width:36px;height:36px;border-radius:50%;border:1px solid var(--border);background:var(--surface);
+  color:var(--text);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.icon-btn:active{background:var(--border)}
+
+/* ── CATS ── */
+.cats-wrap{padding:0 20px 14px;overflow-x:auto;scrollbar-width:none}
+.cats-wrap::-webkit-scrollbar{display:none}
+.cats{display:flex;gap:8px;width:max-content}
+.cat-pill{padding:7px 14px;border-radius:100px;font-size:12px;font-family:Arial,sans-serif;
+  font-weight:600;letter-spacing:.04em;cursor:pointer;border:1.5px solid var(--border);
+  background:var(--surface);color:var(--muted);white-space:nowrap;user-select:none;transition:all .15s}
+.cat-pill:active{opacity:.7}
+.cat-pill.active{color:#fff;border-color:transparent}
+.cat-pill[data-cat="all"].active{background:var(--accent)}
+.cat-pill[data-cat="yo"].active{background:var(--yo)}
+.cat-pill[data-cat="otros"].active{background:var(--otros)}
+.cat-pill[data-cat="mundo"].active{background:var(--mundo)}
+.cat-pill[data-cat="humor"].active{background:var(--humor)}
+.cat-pill[data-cat="profundo"].active{background:var(--profundo)}
+.cat-pill[data-cat="pareja"].active{background:var(--pareja)}
+
+/* ── COUNTER ── */
+.counter-bar{display:flex;align-items:center;justify-content:space-between;padding:0 20px 18px;
+  font-size:12px;color:var(--muted);font-family:Arial,sans-serif}
+.counter-bar strong{color:var(--text);font-weight:600}
+.progress-track{flex:1;margin:0 12px;height:2px;background:var(--border);border-radius:2px;overflow:hidden}
+.progress-fill{height:100%;background:var(--accent);border-radius:2px;transition:width .4s ease}
+
+/* ── SCENE / CARD ── */
+.scene{padding:0 20px;margin-bottom:20px}
+.card-wrap{position:relative;width:100%;min-height:320px;perspective:1000px}
+.card-inner{position:relative;width:100%;min-height:320px;
+  transform-style:preserve-3d;transition:transform .5s cubic-bezier(.4,0,.2,1);cursor:pointer}
+.card-inner.flipped{transform:rotateY(180deg)}
+.card-face{position:absolute;inset:0;border-radius:20px;backface-visibility:hidden;-webkit-backface-visibility:hidden;min-height:320px;overflow:hidden}
+
+/* FRONT */
+.card-front{background:var(--accent);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px}
+.card-front:active{filter:brightness(.9)}
+.cf-diamond{font-size:44px;opacity:.2;line-height:1}
+.cf-title{font-size:26px;color:#fff;letter-spacing:.06em;font-style:italic}
+.cf-hint{font-size:11px;color:rgba(255,255,255,.55);letter-spacing:.14em;text-transform:uppercase;font-family:Arial,sans-serif}
+.cf-dedication{font-size:12px;color:rgba(255,255,255,.70);font-family:Arial,sans-serif;letter-spacing:.06em;margin-top:2px;text-align:center}
+.card-front::before,.card-front::after{content:'';position:absolute;left:22px;right:22px;height:1px;background:rgba(255,255,255,.18)}
+.card-front::before{top:22px}.card-front::after{bottom:22px}
+
+/* BACK */
+.card-back{background:var(--card-bg);transform:rotateY(180deg);display:flex;flex-direction:column;padding:26px 24px 22px}
+.cb-tag{display:inline-flex;align-items:center;gap:5px;padding:4px 12px;border-radius:100px;
+  font-size:10px;font-weight:700;letter-spacing:.12em;color:#fff;margin-bottom:18px;font-family:Arial,sans-serif;width:fit-content}
+.cb-q{font-size:clamp(19px,5.2vw,25px);line-height:1.45;color:var(--card-text);flex:1;display:flex;align-items:center}
+.cb-footer{display:flex;justify-content:space-between;margin-top:18px;padding-top:14px;border-top:1px solid rgba(0,0,0,.08)}
+.cb-num{font-size:11px;color:rgba(26,25,22,.3);font-family:Arial,sans-serif}
+.cb-brand{font-size:10px;color:rgba(26,25,22,.28);font-family:Arial,sans-serif;letter-spacing:.05em}
+
+/* cat colors on back */
+.tag-yo{background:var(--yo)}.tag-otros{background:var(--otros)}.tag-mundo{background:var(--mundo)}
+.tag-humor{background:var(--humor)}.tag-profundo{background:var(--profundo)}.tag-pareja{background:var(--pareja)}
+
+/* ── ACTIONS ── */
+.actions{padding:0 20px;display:flex;flex-direction:column;gap:10px}
+.btn-main{width:100%;padding:16px;border-radius:14px;border:none;
+  background:var(--accent);color:#fff;font-size:15px;font-family:Arial,sans-serif;
+  font-weight:600;cursor:pointer;letter-spacing:.02em;transition:all .15s}
+.btn-main:active{filter:brightness(.85);transform:scale(.98)}
+.btn-main:disabled{opacity:.3;cursor:default}
+.btn-main:disabled:active{filter:none;transform:none}
+.empty-msg{text-align:center;padding:10px 0;font-size:13px;color:var(--muted);font-family:Arial,sans-serif;display:none}
+
+/* ── MODAL ── */
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.72);z-index:200;
+  display:flex;align-items:flex-end;opacity:0;pointer-events:none;transition:opacity .25s;backdrop-filter:blur(4px)}
+.overlay.open{opacity:1;pointer-events:all}
+.sheet{background:var(--surface);border-radius:24px 24px 0 0;padding:24px 22px 44px;
+  width:100%;border-top:1px solid var(--border);transform:translateY(100%);transition:transform .32s cubic-bezier(.4,0,.2,1)}
+.overlay.open .sheet{transform:translateY(0)}
+.handle{width:36px;height:4px;background:var(--border);border-radius:2px;margin:0 auto 22px}
+.modal-title{font-size:21px;margin-bottom:6px}
+.modal-sub{font-size:13px;color:var(--muted);margin-bottom:20px;font-family:Arial,sans-serif;line-height:1.6}
+.reset-opts{display:flex;flex-direction:column;gap:10px}
+.ropt{display:flex;align-items:center;gap:12px;padding:15px;border-radius:14px;
+  border:1.5px solid var(--border);background:var(--bg);cursor:pointer;font-family:Arial,sans-serif}
+.ropt:active{background:var(--border)}
+.ropt-icon{font-size:22px}
+.ropt-label{font-size:14px;color:var(--text);font-weight:600}
+.ropt-sub{font-size:11px;color:var(--muted);margin-top:2px}
+.modal-cancel{margin-top:10px;width:100%;padding:13px;background:transparent;border:none;
+  color:var(--muted);font-size:14px;font-family:Arial,sans-serif;cursor:pointer}
+
+/* ── TOAST ── */
+.toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%) translateY(70px);
+  background:var(--text);color:var(--bg);padding:9px 20px;border-radius:100px;
+  font-size:13px;font-weight:600;font-family:Arial,sans-serif;transition:transform .28s ease;z-index:300;white-space:nowrap}
+.toast.show{transform:translateX(-50%) translateY(0)}
+
+.safe{height:20px}
+
+@keyframes pop{0%{transform:scale(1)}50%{transform:scale(.96)}100%{transform:scale(1)}}
+.pop{animation:pop .28s ease}
+</style>
 </head>
 <body>
 
-<!-- Botón flotante multisección -->
-<div class="floating-nav">
-    <!-- Botón principal (teléfono) -->
-    <div class="floating-main">
-        <div class="floating-icon">
-            <i class="fas fa-bars"></i>
-        </div>
-        <span class="floating-label">Índice</span>
-    </div>
-    
-    <!-- Menú desplegable horizontal -->
-    <div class="floating-menu">
-        <a href="#sobre-mi" class="floating-item" data-section="sobre-mi">
-            <i class="fas fa-user"></i>
-            <span>Sobre mí</span>
-        </a>
-        <a href="#premios" class="floating-item" data-section="premios">
-            <i class="fas fa-trophy"></i>
-            <span>Premios</span>
-        </a>
-        <a href="#curriculum" class="floating-item" data-section="curriculum">
-            <i class="fas fa-file-alt"></i>
-            <span>Currículum</span>
-        </a>
-        <a href="#portfolio" class="floating-item" data-section="portfolio">
-            <i class="fas fa-images"></i>
-            <span>Portfolio</span>
-        </a>
-        <a href="#certificados" class="floating-item" data-section="certificados">
-            <i class="fas fa-certificate"></i>
-            <span>Certificados</span>
-        </a>
-        <a href="#contacto" class="floating-item" data-section="contacto">
-            <i class="fas fa-envelope"></i>
-            <span>Contacto</span>
-        </a>
-    </div>
+<div class="header">
+  <div class="brand">
+    <div class="logo"><b>DES</b>conectados</div>
+    <div class="dedication">Una excusa para conversar</div>
+  </div>
+  <button class="icon-btn" onclick="openModal()">↺</button>
 </div>
 
-
-<!-- PORTADA con render y frase -->
-<div class="hero">
-  <img class="hero-bg" src="imagen_portada.jpg" alt="Render arquitectónico">
-  <div class="hero-content">
-    <h1>Agustin Girona · Arquitectura</h1>
-    <div class="frase">"Diseñar espacios que cuentan historias, donde la luz y la materia dialogan"</div>
+<div class="cats-wrap">
+  <div class="cats">
+    <div class="cat-pill active" data-cat="all"      onclick="selectCat(this)">✦ Todas</div>
+    <div class="cat-pill"        data-cat="yo"       onclick="selectCat(this)">🙋 Sobre mí</div>
+    <div class="cat-pill"        data-cat="otros"    onclick="selectCat(this)">👥 Otros</div>
+    <div class="cat-pill"        data-cat="mundo"    onclick="selectCat(this)">🌍 Mundo</div>
+    <div class="cat-pill"        data-cat="humor"    onclick="selectCat(this)">😄 Humor</div>
+    <div class="cat-pill"        data-cat="profundo" onclick="selectCat(this)">🔮 Profundo</div>
+    <div class="cat-pill"        data-cat="pareja"   onclick="selectCat(this)">❤️ Pareja</div>
   </div>
 </div>
 
-<!-- Introducción estilo "Damilee.com" (sobre mí) -->
-<section id = "sobre-mi" class="about-section">
-  <div class="container">
-    <div class="about-card">
-      
-      <!-- Encabezado con ícono decorativo -->
-      <div class="section-header">
-        <span class="section-badge">Presentación</span>
-        <h2>
-          <!-- <i class="fas fa-drafting-compass"></i> Sobre mí -->
-        </h2>
-        <div class="section-line"></div>
+<div class="counter-bar">
+  <strong id="used-count">0</strong>
+  <div class="progress-track"><div class="progress-fill" id="prog" style="width:0%"></div></div>
+  <span id="total-count">— cartas</span>
+</div>
+
+<div class="scene">
+  <div class="card-wrap">
+    <div class="card-inner" id="card" onclick="flipCard()">
+      <div class="card-face card-front" id="card-front">
+        <div class="cf-diamond">◈</div>
+        <div class="cf-title">Desconectados</div>
+        <div class="cf-hint">Tocá para revelar</div>
       </div>
-      
-      <!-- Contenido principal con imagen y texto -->
-      <div class="about-content">
-        <div class="about-text">
-          <h3 class="about-name">Manuel Agustin Girona Lopez</h3>
-          <p class="about-title">MAESTRO MAYOR DE OBRAS · ARQUITECTURA <span class="badge">último año</span></p>
-          
-          <div class="about-description">
-            <p>Soy Maestro mayor de obras con formación técnica, y estudiante de arquitectura (cursando el último año), con conocimiento en documentación / gestión técnica y visualización arquitectónica. De perfil autodidacta y apasionado por el desarrollo técnico, detalles constructivos y el diseño. Busco un espacio de trabajo donde pueda aplicar y expandir mis conocimientos.</p>
-          </div>
-          
-          <div class="about-signature">
-            <div class="sign-line"></div>
-            <p class="about-sign">— Manuel Agustín Girona Lopez, MMO · Arquitectura</p>
-          </div>
-        </div>
-        
-        <div class="about-avatar">
-          <div class="avatar-frame">
-            <img src="imagen_girona.jpg" alt="Manuel Agustín Girona Lopez">
-          </div>
-          <!-- Pequeño detalle decorativo -->
-          <div class="avatar-decoration">
-            <!-- <i class="fas fa-ruler-combined"></i> -->
-          </div>
+      <div class="card-face card-back">
+        <div class="cb-tag" id="cb-tag">—</div>
+        <div class="cb-q"   id="cb-q">—</div>
+        <div class="cb-footer">
+          <span class="cb-num"   id="cb-num">#0</span>
+          <span class="cb-brand">@enpalabrass</span>
         </div>
       </div>
-      
     </div>
   </div>
-</section>
-
-
-<!-- Sección de premios y distinciones -->
-<section id="premios" class="awards-section">
-    <div class="container">
-        
-        <!-- Encabezado de sección (consistente con "Sobre mí") -->
-        <div class="section-header">
-            <span class="section-badge">Logros</span>
-            <h2>
-                <i class="fas fa-trophy"></i> Premios y Distinciones
-            </h2>
-            <div class="section-line"></div>
-        </div>
-        
-        <!-- Grid de premios (más ordenado visualmente) -->
-        <div class="awards-grid">
-            
-            <div class="award-card">
-                <div class="award-year">2020-2021</div>
-                <div class="award-icon">🏅</div>
-                <div class="award-title">Abanderado Bandera Nacional</div>
-                <div class="award-institution">IPET N° 339</div>
-                <div class="award-meta">Promedio: 9,65</div>
-            </div>
-            
-            <div class="award-card">
-                <div class="award-year">2025</div>
-                <div class="award-icon">🎖️</div>
-                <div class="award-title">2do Escolta Bandera Nacional</div>
-                <div class="award-institution">FAUD UNC</div>
-            </div>
-            
-            <div class="award-card">
-                <div class="award-year">2024</div>
-                <div class="award-icon">📌</div>
-                <div class="award-title">Trabajo destacado</div>
-                <div class="award-institution">Cátedra Instalaciones III B - FAUD UNC</div>
-            </div>
-            
-            <div class="award-card">
-                <div class="award-year">2024</div>
-                <div class="award-icon">🏆</div>
-                <div class="award-title">"Proyectar el Fragmento"</div>
-                <div class="award-institution">Muestra "Al Fin Final 2024"</div>
-            </div>
-            
-            <div class="award-card">
-                <div class="award-year">2023</div>
-                <div class="award-icon">📁</div>
-                <div class="award-title">Carpeta Morfología III</div>
-                <div class="award-institution">Muestra "Al Fin Final 2023"</div>
-            </div>
-            
-            <div class="award-card">
-                <div class="award-year">2022</div>
-                <div class="award-icon">🧱</div>
-                <div class="award-title">Trabajo Estructuras</div>
-                <div class="award-institution">Muestra "Al Fin Final 2022"</div>
-            </div>
-            
-        </div>
-        
-        <!-- Botones de acción -->
-        <div class="awards-actions">
-            <button class="btn-rectorado" id="openRectorModalBtn">
-                <i class="fas fa-university"></i> Nota del Rectorado
-            </button>
-            
-        </div>
-        
-    </div>
-</section>
-
-<!-- Sección de curriculum -->
-<section id="curriculum" class="curriculum-section">
-    <div class="container">
-        
-        <!-- Encabezado consistente con las otras secciones -->
-        <div class="section-header">
-            <span class="section-badge">Trayectoria</span>
-            <h2>
-                <i class="fas fa-file-alt"></i> Curriculum · Resumido
-            </h2>
-            <div class="section-line"></div>
-            
-        </div>
-        
-        <!-- Sistema de pestañas mejorado -->
-        <div class="cv-tabs-container">
-            <div class="tabs-header">
-                <button class="tab-btn active" data-tab="formacion">
-                    <i class="fas fa-graduation-cap"></i> Formación
-                </button>
-                <button class="tab-btn" data-tab="experiencia">
-                    <i class="fas fa-briefcase"></i> Experiencia
-                </button>
-                <button class="tab-btn" data-tab="habilidades">
-                    <i class="fas fa-code"></i> Habilidades
-                </button>
-            </div>
-            
-            <!-- Formación -->
-            <div class="tab-content active-tab" id="formacion">
-                <div class="cv-timeline">
-                    <div class="cv-item">
-                        <div class="cv-icon">📘</div>
-                        <div class="cv-content">
-                            <h4>Arquitectura · Universidad Nacional de Córdoba (FAUD)</h4>
-                            <span class="date">Último año en curso</span>
-                            <p>Formación integral con enfoque en proyecto, tecnología y ciudad.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="cv-item">
-                        <div class="cv-icon">🎓</div>
-                        <div class="cv-content">
-                            <h4>Maestro Mayor de Obras</h4>
-                            <span class="date">Instituto Provincial de Enseñanza Técnica (I.P.E.T.) N°339</span>
-                            <p>Título técnico con promedio general de 9,65. Abanderado de la Bandera Nacional.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="cv-item">
-                        <div class="cv-icon">📚</div>
-                        <div class="cv-content">
-                            <h4>Adscripción en Cátedra Urbanismo IB</h4>
-                            <span class="date">FAUD - UNC · 2025 - actualidad</span>
-                            <p>Alumno adscripto bajo la titularidad de la Dra. Arq. Mariana Debat.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Experiencia -->
-            <div class="tab-content" id="experiencia">
-                <div class="cv-timeline">
-                    <div class="cv-item">
-                        <div class="cv-icon">🏛️</div>
-                        <div class="cv-content">
-                            <h4>Pasante · Estudio GPO (Arq. Diana B. Pons)</h4>
-                            <span class="date">2020 – 2024</span>
-                            <p>Dibujo técnico, relevamientos, diseño de proyectos, modelado 3D, gestoría de planos y presupuestos.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="cv-item">
-                        <div class="cv-icon">📐</div>
-                        <div class="cv-content">
-                            <h4>Trabajo Autónomo como Maestro Mayor de Obras</h4>
-                            <span class="date">2021 – actualidad</span>
-                            <p>Confección de planos, gestión municipal, anteproyectos, renders y asesoría técnica en Capilla del Monte, La Cumbre, Villa Giardino, San Esteban, Charbonier.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="cv-item">
-                        <div class="cv-icon">✍️</div>
-                        <div class="cv-content">
-                            <h4>Enseñanza en Clases Particulares</h4>
-                            <span class="date">2018 - 2023</span>
-                            <p>Preparación en Estructuras 1/2/3, Instalaciones, Matemática, Inglés e Historia.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Habilidades (mejor organizadas) -->
-            <div class="tab-content" id="habilidades">
-                <!-- Software avanzado -->
-                <div class="skills-category">
-                    <h4 class="skills-title"><span class="skill-badge advanced">Avanzado</span> Software</h4>
-                    <div class="skills-list">
-                        <span class="skill-tag">AutoCAD</span>
-                        <span class="skill-tag">Sketchup</span>
-                        <span class="skill-tag">Photoshop</span>
-                    </div>
-                </div>
-                
-                <div class="skills-category">
-                    <h4 class="skills-title"><span class="skill-badge intermediate">Intermedio</span> Software</h4>
-                    <div class="skills-list">
-                        <span class="skill-tag">Microsoft Office Pack</span>
-                        <span class="skill-tag">Lumion</span>
-                    </div>
-                </div>
-                
-                <div class="skills-category">
-                    <h4 class="skills-title"><span class="skill-badge basic">Básico</span> Software</h4>
-                    <div class="skills-list">
-                        <span class="skill-tag">Revit</span>
-                        <span class="skill-tag">Adobe Illustrator</span>
-                        <span class="skill-tag">ArchiCAD</span>
-                    </div>
-                </div>
-                
-                <div class="skills-category">
-                    <h4 class="skills-title"><span class="skill-badge soft">🎨</span> Aptitudes</h4>
-                    <div class="skills-list">
-                        <span class="skill-tag soft">Trabajo colaborativo</span>
-                        <span class="skill-tag soft">Creatividad</span>
-                        <span class="skill-tag soft">Adaptabilidad</span>
-                        <span class="skill-tag soft">Compromiso</span>
-                        <span class="skill-tag soft">Responsabilidad</span>
-                        <span class="skill-tag soft">Organización</span>
-                        <span class="skill-tag soft">Fácil aprendizaje</span>
-                        <span class="skill-tag soft">Gestión de tareas</span>
-                    </div>
-                </div>
-            </div>
-
-        </div><div class="awards-actions" style="margin-top: 2rem;">
-            <button class="btn-rectorado btn-cv" id="openCvModalBtn">
-                <i class="fas fa-file-alt"></i> Ver CV Completo
-            </button></div>
-        
-    </div>
-</section>
-
-  <!-- PROYECTOS --  -->
-<section id="portfolio" class="projects-section">
-    <h2 class="section-title"><i class="fas fa-book-open"></i> Proyectos · Colección Girona</h2>
-    
-    <div class="projects-panel-grid">
-        
-        <!-- Proyecto 01 -->
-        <div class="project-panel" onclick="verPDFSpread('pdfs/proyecto_01.pdf', 'Proyecto 01 · Pabellón de exposiciones')">
-            <div class="project-panel-image">
-                <img src="imagenes/Imagen_1.jpg" alt="Proyecto 01">
-                <div class="project-panel-overlay">
-                    <span class="project-panel-number">01</span>
-                    <i class="fas fa-search-plus"></i>
-                </div>
-            </div>
-            <div class="project-panel-info">
-                <h3>Proyecto 1</h3>
-                <p> Proyecto de arquitectura · 2024</p>
-            </div>
-        </div>
-        
-        <!-- Proyecto 02 -->
-        <div class="project-panel" onclick="verPDFSpread('pdfs/proyecto_02.pdf', 'Uniendo Cerdanyola · España')">
-            <div class="project-panel-image">
-                <img src="imagenes/Imagen_2.jpg" alt="Proyecto 02">
-                <div class="project-panel-overlay">
-                    <span class="project-panel-number">02</span>
-                    <i class="fas fa-search-plus"></i>
-                </div>
-            </div>
-            <div class="project-panel-info">
-                <h3>Uniendo Cerdanyola</h3>
-                <p>Cerdanyola de Valles, Catalunia, España · 2023</p>
-            </div>
-        </div>
-        
-        <!-- Proyecto 03 -->
-        <div class="project-panel" onclick="verPDFSpread('pdfs/proyecto_03.pdf', 'Marea Co-Work · Proyecto')">
-            <div class="project-panel-image">
-                <img src="imagenes/Imagen_3.jpg" alt="Proyecto 03">
-                <div class="project-panel-overlay">
-                    <span class="project-panel-number">03</span>
-                    <i class="fas fa-search-plus"></i>
-                </div>
-            </div>
-            <div class="project-panel-info">
-                <h3>Marea Co-Work</h3>
-                <p>Proyecto de arquitectura · 2024</p>
-            </div>
-        </div>
-        
-        <!-- Proyecto 04 -->
-        <div class="project-panel" onclick="verPDFSpread('pdfs/proyecto_04.pdf', 'Universo de bolsillo · Proyecto')">
-            <div class="project-panel-image">
-                <img src="imagenes/Imagen_4.jpg" alt="Proyecto 04">
-                <div class="project-panel-overlay">
-                    <span class="project-panel-number">04</span>
-                    <i class="fas fa-search-plus"></i>
-                </div>
-            </div>
-            <div class="project-panel-info">
-                <h3>Universo de bolsillo</h3>
-                <p>Proyecto de arquitectura · 2025</p>
-            </div>
-        </div>
-        
-        <!-- Proyecto 05 -->
-        <div class="project-panel" onclick="verPDFSpread('pdfs/proyecto_05.pdf', 'Aldea urbana · Diseño urbano')">
-            <div class="project-panel-image">
-                <img src="imagenes/Imagen_5.jpg" alt="Proyecto 05">
-                <div class="project-panel-overlay">
-                    <span class="project-panel-number">05</span>
-                    <i class="fas fa-search-plus"></i>
-                </div>
-            </div>
-            <div class="project-panel-info">
-                <h3>Aldea urbana</h3>
-                <p>Diseño urbano · 2025</p>
-            </div>
-        </div>
-        
-    </div>
-</section>
-
-<!-- CERTIFICADOS: versión mejorada -->
-<section id="certificados" class="certificates-section">
-    <div class="container">
-        
-        <!-- Encabezado consistente con el resto del sitio -->
-        <div class="section-header">
-            <span class="section-badge">Formación continua</span>
-            <h2>
-                <i class="fas fa-certificate"></i> Certificados · Cursos Realizados
-            </h2>
-            <div class="section-line"></div>
-        </div>
-        
-        <div class="cert-list">
-            
-            <!-- Certificado 1 -->
-            <div class="cert-row" onclick="verPDF('certificados/certificado_1.pdf', 'Edificio en altura')">
-                <div class="cert-icon">
-                    <i class="fas fa-building"></i>
-                </div>
-                <div class="cert-info">
-                    <div class="cert-title">Edificio en altura · Pautas iniciales para el abordaje integral del proyecto de Instalaciones</div>
-                    <div class="cert-meta">
-                        <span class="cert-institution">
-                            <i class="fas fa-university"></i> Universidad Nacional de Córdoba
-                        </span>
-                        <span class="cert-year">2022</span>
-                    </div>
-                </div>
-                <div class="cert-action">
-                    <button class="cert-btn">
-                        <i class="fas fa-file-pdf"></i> Ver certificado
-                        <i class="fas fa-arrow-right"></i>
-                    </button>
-                </div>
-            </div>
-            
-            <!-- Certificado 2 -->
-            <div class="cert-row" onclick="verPDF('certificados/certificado_2.pdf', 'Introducción Construcción en Seco')">
-                <div class="cert-icon">
-                    <i class="fas fa-dice-d6"></i>
-                </div>
-                <div class="cert-info">
-                    <div class="cert-title">Introducción a la Construcción en Seco</div>
-                    <div class="cert-meta">
-                        <span class="cert-institution">
-                            <i class="fas fa-university"></i> Campus Virtual · Universidad Nacional de Córdoba
-                        </span>
-                        <span class="cert-year">2020</span>
-                    </div>
-                </div>
-                <div class="cert-action">
-                    <button class="cert-btn">
-                        <i class="fas fa-file-pdf"></i> Ver certificado
-                        <i class="fas fa-arrow-right"></i>
-                    </button>
-                </div>
-            </div>
-            
-            <!-- Certificado 3 -->
-            <div class="cert-row" onclick="verPDF('certificados/certificado_4.pdf', 'Jornada de Capacitación para Adscripto')">
-                <div class="cert-icon">
-                    <i class="fas fa-chalkboard-user"></i>
-                </div>
-                <div class="cert-info">
-                    <div class="cert-title">Jornada de Capacitación para Adscripto · Rol, crítica y metodologías en Urbanismo IB</div>
-                    <div class="cert-meta">
-                        <span class="cert-institution">
-                            <i class="fas fa-university"></i> FAUD · Universidad Nacional de Córdoba
-                        </span>
-                        <span class="cert-year">2025</span>
-                    </div>
-                </div>
-                <div class="cert-action">
-                    <button class="cert-btn">
-                        <i class="fas fa-file-pdf"></i> Ver certificado
-                        <i class="fas fa-arrow-right"></i>
-                    </button>
-                </div>
-            </div>
-            
-            <!-- Certificado 4 -->
-            <div class="cert-row" onclick="verPDF('certificados/certificado_5.pdf', 'Pensamiento crítico disciplinar')">
-                <div class="cert-icon">
-                    <i class="fas fa-brain"></i>
-                </div>
-                <div class="cert-info">
-                    <div class="cert-title">Pensamiento crítico disciplinar · Experiencias de investigación en el grado</div>
-                    <div class="cert-meta">
-                        <span class="cert-institution">
-                            <i class="fas fa-university"></i> FAUD · Universidad Nacional de Córdoba
-                        </span>
-                        <span class="cert-year">2023</span>
-                    </div>
-                </div>
-                <div class="cert-action">
-                    <button class="cert-btn">
-                        <i class="fas fa-file-pdf"></i> Ver certificado
-                        <i class="fas fa-arrow-right"></i>
-                    </button>
-                </div>
-            </div>
-            
-            <!-- Certificado 5 -->
-            <div class="cert-row" onclick="verPDF('certificados/certificado_6.pdf', 'Trabajos Instalaciones III B')">
-                <div class="cert-icon">
-                    <i class="fas fa-bolt"></i>
-                </div>
-                <div class="cert-info">
-                    <div class="cert-title">Trabajos desarrollados por alumnos de nivel IV · Cátedra de Instalaciones III B</div>
-                    <div class="cert-meta">
-                        <span class="cert-institution">
-                            <i class="fas fa-university"></i> FAUD · Universidad Nacional de Córdoba
-                        </span>
-                        <span class="cert-year">2024</span>
-                    </div>
-                </div>
-                <div class="cert-action">
-                    <button class="cert-btn">
-                        <i class="fas fa-file-pdf"></i> Ver certificado
-                        <i class="fas fa-arrow-right"></i>
-                    </button>
-                </div>
-            </div>
-            
-            <!-- Certificado 6 -->
-            <div class="cert-row" onclick="verPDF('certificados/certificado_7.pdf', 'Seguridad en Carpintería')">
-                <div class="cert-icon">
-                    <i class="fas fa-hammer"></i>
-                </div>
-                <div class="cert-info">
-                    <div class="cert-title">Seguridad en el trabajo de Carpintería · Reciclamos Pallets</div>
-                    <div class="cert-meta">
-                        <span class="cert-institution">
-                            <i class="fas fa-clock"></i> 45 horas · Campus Virtual · UNC
-                        </span>
-                        <span class="cert-year">2023</span>
-                    </div>
-                </div>
-                <div class="cert-action">
-                    <button class="cert-btn">
-                        <i class="fas fa-file-pdf"></i> Ver certificado
-                        <i class="fas fa-arrow-right"></i>
-                    </button>
-                </div>
-            </div>
-            
-            <!-- Certificado 7 -->
-            <div class="cert-row" onclick="verPDF('certificados/certificado_3.pdf', 'Taller Ideas de Color')">
-                <div class="cert-icon">
-                    <i class="fas fa-palette"></i>
-                </div>
-                <div class="cert-info">
-                    <div class="cert-title">Taller Ideas de Color · Acciones cromáticas urbanas en calle Obispo Salguero</div>
-                    <div class="cert-meta">
-                        <span class="cert-institution">
-                            <i class="fas fa-university"></i> FAUD · Universidad Nacional de Córdoba
-                        </span>
-                        <span class="cert-year">2023</span>
-                    </div>
-                </div>
-                <div class="cert-action">
-                    <button class="cert-btn">
-                        <i class="fas fa-file-pdf"></i> Ver certificado
-                        <i class="fas fa-arrow-right"></i>
-                    </button>
-                </div>
-            </div>
-            
-        </div>
-    </div>
-</section>
-
-  
-<!-- SECCIÓN DE CONTACTO (mejorada) -->
-<section id="contacto" class="contact-section">
-    <div class="container">
-        <div class="contact-card">
-            
-            <!-- Encabezado consistente -->
-            <div class="section-header">
-                <span class="section-badge">Conectemos</span>
-                <h2>
-                    <i class="fas fa-address-card"></i> Contacto
-                </h2>
-                <div class="section-line"></div>
-            </div>
-            
-            <!-- Grid de contacto -->
-            <div class="contact-grid-modern">
-                
-                <!-- Email -->
-                <div class="contact-item-modern" data-contacto="mmoagustingirona@gmail.com">
-                    <div class="contact-icon-modern">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <div class="contact-info-modern">
-                        <div class="contact-label-modern">Email</div>
-                        <div class="contact-value-modern">mmoagustingirona@gmail.com</div>
-                    </div>
-                    <div class="contact-copy-modern">
-                        <i class="fas fa-copy"></i>
-                        <span>Copiar</span>
-                    </div>
-                </div>
-                
-                <!-- Teléfono -->
-                <div class="contact-item-modern" data-contacto="+5493548436009">
-                    <div class="contact-icon-modern">
-                        <i class="fas fa-phone-alt"></i>
-                    </div>
-                    <div class="contact-info-modern">
-                        <div class="contact-label-modern">Teléfono</div>
-                        <div class="contact-value-modern">(3548) 43-6009</div>
-                    </div>
-                    <div class="contact-copy-modern">
-                        <i class="fas fa-copy"></i>
-                        <span>Copiar</span>
-                    </div>
-                </div>
-                
-                <!-- LinkedIn -->
-                <a href="https://www.linkedin.com/in/manuel-agust%C3%ADn-girona-l%C3%B3pez-2b66633b3/" target="_blank" class="contact-item-modern contact-link">
-                    <div class="contact-icon-modern">
-                        <i class="fab fa-linkedin"></i>
-                    </div>
-                    <div class="contact-info-modern">
-                        <div class="contact-label-modern">LinkedIn</div>
-                        <div class="contact-value-modern">Manuel Agustín Girona López</div>
-                    </div>
-                    <div class="contact-arrow">
-                        <i class="fas fa-external-link-alt"></i>
-                    </div>
-                </a>
-                
-                <!-- Behance -->
-                <a href="https://www.behance.net/manuelgirona" target="_blank" class="contact-item-modern contact-link">
-                    <div class="contact-icon-modern">
-                        <i class="fab fa-behance"></i>
-                    </div>
-                    <div class="contact-info-modern">
-                        <div class="contact-label-modern">Behance</div>
-                        <div class="contact-value-modern">manuelgirona</div>
-                    </div>
-                    <div class="contact-arrow">
-                        <i class="fas fa-external-link-alt"></i>
-                    </div>
-                </a>                
-                
-            </div>
-            
-            <!-- Información adicional -->
-            <div class="contact-footer">
-                <div class="location-badge">
-                    <i class="fas fa-map-marker-alt"></i> Córdoba Capital
-                </div>
-                <div class="availability-badge">
-                    <i class="fas fa-clock"></i> Disponibilidad Full time / Part time
-                </div>
-                <div class="portfolio-badge">
-                    <i class="fas fa-folder-open"></i> Portfolio disponible
-                </div>
-            </div>
-            
-            <!-- Toast de notificación -->
-            <div class="contact-toast" id="copyToast">
-                <i class="fas fa-check-circle"></i>
-                <span>¡Copiado al portapapeles!</span>
-            </div>
-            
-        </div>
-    </div>
-</section>
-
-<!-- FOOTER -->
-<footer class="modern-footer">
-    <div class="footer-content">
-        <p>© 2026 Rodrigo Emanuel San Martin Bustos · Técnico Económico en ERSeP · Estudiante de Economía · Apasionado por el Software y Datos</p>
-    </div>
-</footer>
-
-
-<!-- MODAL para nota del rectorado (centro) actualizada con los datos del Rectorado de la UNC -->
-<div id="rectorModal" class="modal-overlay">
-<div class="modal-card">
-    <h3><i class="fas fa-gavel"></i> Nota del Rectorado</h3>
-    
-    <div class="modal-two-columns">
-        <!-- Columna principal: texto completo -->
-        <div class="modal-main">
-            <div class="letter-head">
-                <p>A quien corresponda<br>S ______ / ______ D</p>
-            </div>
-            <div class="letter-body">
-                <p>A través de la presente, como Rector y Vicerrectora de la Universidad Nacional de Córdoba, Argentina, es de nuestro agrado poder dar aval académico al estudiante <strong>Manuel Agustín GIRONA LÓPEZ, DNI 43674714</strong>, quien está realizando sus estudios de grado, en la carrera de Arquitectura de la Facultad de Arquitectura, Urbanismo y Diseño, con un promedio de carrera de <strong>9.19</strong>, mérito que lo lleva a desempeñarse como <strong>Segunda Escolta</strong> de la Facultad antes mencionada, periodo 2025/2026.</p>
-                <p>Estudiantes como <strong>Manuel Agustín</strong> ponen en alto el nombre de nuestra institución por su destacado desempeño académico. Sus convicciones, inteligencia y calidad humana se pusieron de manifiesto a lo largo de su paso por nuestra universidad, participó permanentemente en espacios de trabajo colaborativo, de reflexión y de compromiso social donde siempre ha demostrado, aparte de vocación y pasión, ser una persona reflexiva, de gran carácter intelectual, que entiende las prácticas desde la participación, el consenso y la construcción colectiva e interdisciplinaria y ávida por seguir aprendiendo y perfeccionando su compromiso con la educación y la sociedad.</p>
-                <p>Por todo lo mencionado, recomendamos a <strong>Manuel Agustín</strong> ante quien corresponda, con la certeza de que por su compromiso, responsabilidad e idoneidad representará un gran aporte a vuestra Institución y los honrará plenamente como estudiante y persona.</p>
-                <p>Quedamos a disposición para ampliar estas referencias si fuera necesario. Sin otro particular, saludamos a Uds. con nuestra más distinguida consideración.</p>
-            </div>
-        </div>
-        
-        <!-- Columna lateral: datos + firma + dirección -->
-        <div class="modal-sidebar">
-            <div class="signature">
-                <p><strong>Jhon Boreto</strong><br>Rector UNC<br>Argentina</p>
-            </div>
-            <div class="letter-footer">
-                Avda. Haya de la Torre S/N – 3er piso<br>
-                Pabellón Argentina – Ciudad Universitaria<br>
-                X 5000GYA – Córdoba – Argentina<br>
-                Tel: +54 351 5353778 int. 3
-            </div>
-        </div>
-    </div>
-    
-    <!-- Botones -->
-    <div style="display: flex; justify-content: flex-end; gap: 1rem; margin-top: 1.5rem;">
-        <button id="verPdfNotaBtn" class="btn-pdf-nota"><i class="fas fa-file-pdf"></i> Ver PDF original</button>
-        <button class="close-modal" id="closeModalBtn">Cerrar</button>
-    </div>
-</div>
 </div>
 
+<div class="actions">
+  <button class="btn-main" id="btn-next" onclick="nextCard()">Nueva carta</button>
+  <div class="empty-msg" id="empty-msg">🎉 ¡Usaste todas las cartas! Reiniciá para seguir jugando.</div>
+</div>
 
-<!-- MODAL para CV COMPLETO (similar al del rectorado) -->
-<div id="cvModal" class="modal-overlay">
-    <div class="modal-card" style="max-width: 950px;">
-        <h3><i class="fas fa-file-alt"></i> Currículum Vitae · Manuel Agustín Girona Lopez</h3>
-        
-        <div class="modal-two-columns">
-            <!-- Columna principal: formación y experiencia -->
-            <div class="modal-main">
-                <div class="letter-head">
-                    <p><strong>MANUEL AGUSTÍN GIRONA LOPEZ</strong><br>
-                    Maestro Mayor de Obras · Estudiante de Arquitectura (último año)</p>
-                </div>
-                
-                <div class="letter-body">
-                    <h4>📘 Formación Académica</h4>
-                    <p><strong>Arquitectura</strong> · FAUD · Universidad Nacional de Córdoba (Último año en curso)<br>
-                    <strong>Maestro Mayor de Obras</strong> · IPET N°339 · Promedio general: 9,65 · Abanderado Nacional</p>
-                    
-                    <h4>🏛️ Experiencia Profesional</h4>
-                    <p><strong>Pasante · Estudio GPO</strong> (Arq. Diana B. Pons) · 2020-2024<br>
-                    Dibujo técnico, relevamientos, diseño de proyectos, modelado 3D, gestoría de planos y presupuestos.</p>
-                    
-                    <p><strong>Trabajo Autónomo como MMO</strong> · 2021-actualidad<br>
-                    Confección de planos, gestión municipal, anteproyectos, renders y asesoría técnica en Capilla del Monte, La Cumbre, Villa Giardino, San Esteban, Charbonier.</p>
-                    
-                    <h4>📚 Actividad Vinculada a la Educación</h4>
-                    <p><strong>Adscripción en Cátedra Urbanismo IB</strong> · FAUD · UNC · 2025-actualidad<br>
-                    Alumno adscripto bajo la titularidad de la Dra. Arq. Mariana Debat.</p>
-                    
-                    <p><strong>Enseñanza en Clases Particulares</strong> · 2018-2023<br>
-                    Estructuras 1/2/3, Instalaciones, Matemática, Inglés e Historia.</p>
-                    
-                    <h4>🎖️ Premios y Distinciones</h4>
-                    <p><strong>2020-2021</strong> · Abanderado Bandera Nacional · IPET N°339 (Prom. 9,65)<br>
-                    <strong>2025</strong> · 2do Escolta Bandera Nacional · FAUD · UNC<br>
-                    <strong>2024</strong> · Trabajo destacado · Cátedra Instalaciones III B · FAUD · UNC<br>
-                    <strong>2024</strong> · "Proyectar el Fragmento" · Muestra "Al Fin Final 2024"<br>
-                    <strong>2023</strong> · Carpeta Morfología III · Muestra "Al Fin Final 2023"<br>
-                    <strong>2022</strong> · Trabajo Estructuras · Muestra "Al Fin Final 2022"</p>
-                    
-                    <h4>🖥️ Habilidades Técnicas</h4>
-                    <p><strong>Avanzado:</strong> AutoCAD, Sketchup, Photoshop<br>
-                    <strong>Intermedio:</strong> Microsoft Office Pack, Lumion<br>
-                    <strong>Básico:</strong> Revit, Adobe Illustrator, ArchiCAD</p>
-                    
-                    <h4>🌍 Idiomas</h4>
-                    <p><strong>Inglés:</strong> Formación continua · School of English, Capilla del Monte (2010-2020)<br>
-                    <strong>Italiano:</strong> Certificado B1 · Dante Alighieri · Abanderado de Italia (2014-2019) · Promedio: 9,00</p>
-                </div>
-            </div>
-            
+<div class="safe"></div>
 
-        </div>
-        
-        <!-- Botones -->
-        <div style="display: flex; justify-content: flex-end; gap: 1rem; margin-top: 1.5rem;">
-            <button id="verPdfCvBtn" class="btn-pdf-nota"><i class="fas fa-file-pdf"></i> Ver CV en PDF</button>
-            <button class="close-modal" id="closeCvModalBtn">Cerrar</button>
-        </div>
+<!-- MODAL -->
+<div class="overlay" id="overlay" onclick="closeOutside(event)">
+  <div class="sheet">
+    <div class="handle"></div>
+    <div class="modal-title">Reiniciar cartas</div>
+    <div class="modal-sub">¿Qué querés reiniciar?</div>
+    <div class="reset-opts">
+      <div class="ropt" onclick="resetCurrent()">
+        <span class="ropt-icon">🔁</span>
+        <div><div class="ropt-label">Categoría actual</div><div class="ropt-sub">Solo las cartas del filtro activo</div></div>
+      </div>
+      <div class="ropt" onclick="resetAll()">
+        <span class="ropt-icon">✨</span>
+        <div><div class="ropt-label">Todo</div><div class="ropt-sub">Empezar desde cero completamente</div></div>
+      </div>
     </div>
+    <button class="modal-cancel" onclick="closeModal()">Cancelar</button>
+  </div>
 </div>
 
+<div class="toast" id="toast"></div>
 
-<!-- Script para funcionalidades: pestañas, modal rectorado, apertura de PDFs simulada con ventana nueva (dado que en entorno real se requiere el archivo, mostramos alerta con instrucción) -->
-<div id="toast-message" style="position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); background: #2c3e2f; color: white; padding: 10px 20px; border-radius: 40px; font-size: 0.9rem; opacity: 0; transition: opacity 0.3s; pointer-events: none; z-index: 1000;">
-    📋 Copiado al portapapeles
-</div>
+<script>
+(function() {
+"use strict";
 
-<div id="pdfModal" class="modal-overlay">
-    <div class="modal-card" style="max-width: 90%; width: 900px; max-height: 90vh;">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-            <h3 id="pdfModalTitle" style="margin: 0;"><i class="fas fa-file-pdf"></i> Visualizando documento</h3>
-            <button id="closePdfModalBtn" style="background: none; border: none; font-size: 1.8rem; cursor: pointer; color: #666;">&times;</button>
-        </div>
-        <iframe id="pdfIframe" src="" style="width: 100%; height: 65vh; border: none; border-radius: 0.8rem;"></iframe>
-        <div style="display: flex; justify-content: flex-end; gap: 1rem; margin-top: 1rem;">
-<a id="pdfDownloadLink" href="#" target="_blank" class="btn-pdf-nota" style="text-decoration: none;">
-    <i class="fas fa-external-link-alt"></i> Abrir en nueva pestaña
-</a>            <button id="closePdfModalBtn2" class="close-modal">Cerrar</button>
-        </div>
-    </div>
-</div>
-<script src="script.js"></script>
+var CARDS = [
+  {id:1,cat:"yo",q:"¿Qué amás y la mayoría de la gente no?"},
+  {id:2,cat:"yo",q:"¿De qué halago estás más orgulloso/a?"},
+  {id:4,cat:"yo",q:"¿Sos idealista o realista? ¿Cómo impacta en tu vida y en tus relaciones?"},
+  {id:5,cat:"yo",q:"¿Qué actividades te divertían antes y ahora no?"},
+  {id:7,cat:"yo",q:"¿Reconocés tus defectos? ¿Y tus virtudes? ¿Cuáles son?"},
+  {id:9,cat:"yo",q:"¿Te gusta reflexionar solo/a o con otras personas? ¿Qué temas despiertan tu curiosidad últimamente?"},
+  {id:10,cat:"yo",q:"¿Qué actividad tendés a dejar para después?"},
+  {id:11,cat:"yo",q:"¿Qué momentos del día elegís para reflexionar?"},
+  {id:15,cat:"yo",q:"¿Tenés alguna fuente de motivación hoy en día? ¿Cuál es o podría ser?"},
+  {id:16,cat:"yo",q:"¿Te dedicás tiempo a vos mismo/a? ¿Qué hacés en esos momentos?"},
+  {id:18,cat:"yo",q:"¿Qué primera impresión creés que das?"},
+  {id:23,cat:"yo",q:"Si pudieses ser exitoso/a en lo que quieras, ¿en qué elegirías serlo?"},
+  {id:24,cat:"yo",q:"¿Un momento simple que disfrutes?"},
+  {id:25,cat:"yo",q:"¿Pensás más en el 'por qué' o en el 'para qué' de las cosas?"},
+  {id:26,cat:"yo",q:"¿Te considerás una persona prejuiciosa? ¿Por qué?"},
+  {id:27,cat:"yo",q:"Nombrá tres características que te definan."},
+  {id:30,cat:"yo",q:"¿Tomás decisiones porque te sentís preparado/a o porque son las esperadas para tu edad?"},
+  {id:32,cat:"yo",q:"¿Te sentís libre de tomar tus propias decisiones?"},
+  {id:35,cat:"yo",q:"Quiero o tengo. ¿Cuál de las dos está más presente en tu cotidianidad?"},
+  {id:37,cat:"yo",q:"¿Cómo reaccionás ante una actitud que te molesta?"},
+  {id:39,cat:"yo",q:"Perdonar o pedir perdón. ¿Cuál te cuesta más?"},
+  {id:41,cat:"yo",q:"¿Te permitís mostrarte vulnerable? ¿Con quién?"},
+  {id:43,cat:"yo",q:"¿Una situación que te incomode?"},
+  {id:44,cat:"yo",q:"¿Te define la opinión de los/as demás?"},
+  {id:45,cat:"yo",q:"La razón o la emoción. ¿Cuál tiene más peso en vos? ¿Te gusta que sea así?"},
+  {id:46,cat:"yo",q:"Un talento inútil que te dé orgullo es ________."},
+  {id:64,cat:"yo",q:"¿Tu película preferida?"},
+  {id:67,cat:"yo",q:"¿Un sueño recurrente?"},
+  {id:68,cat:"yo",q:"¿Un pensamiento recurrente?"},
+  {id:70,cat:"yo",q:"¿Tu libro preferido?"},
+  {id:71,cat:"yo",q:"¿En qué momento del día tenés tus mejores ideas?"},
+  {id:72,cat:"yo",q:"Si fueras un objeto, ¿cuál te gustaría ser?"},
+  {id:73,cat:"yo",q:"Si fueras un animal, ¿cuál serías? ¿Por qué?"},
+  {id:75,cat:"yo",q:"Compartí un miedo absurdo que tengas."},
+  {id:82,cat:"yo",q:"¿En qué te gustaría haber sido bueno/a?"},
+  {id:83,cat:"yo",q:"¿Qué título le pondrías a una película sobre tu vida?"},
+  {id:86,cat:"yo",q:"Si escribieras un libro, ¿de qué sería? ¿Cómo lo titularías?"},
+  {id:87,cat:"yo",q:"¿Qué es lo primero que mirás en una persona?"},
+  {id:88,cat:"yo",q:"¿Te asusta el futuro? ¿Por qué?"},
+  {id:100,cat:"yo",q:"La educación que recibí me enseñó a ______."},
+  {id:103,cat:"yo",q:"¿Qué es el éxito para vos? ¿Evaluás diferentes formas de sentirte exitoso/a?"},
+  {id:137,cat:"yo",q:"¿Qué es el 'amor propio'?"},
+  {id:140,cat:"yo",q:"Si mirás al pasado, ¿cómo ves al/a la adolescente que fuiste?"},
+  {id:142,cat:"yo",q:"¿Sos obsesivo/a? ¿En qué sentido?"},
+  {id:143,cat:"yo",q:"¿Qué mandatos traés y padecés?"},
+  {id:145,cat:"yo",q:"¿Qué creencia te gustaría desaprender?"},
+  {id:146,cat:"yo",q:"¿Qué estás trabajando en tu interior y te gustaría compartir?"},
+  {id:147,cat:"yo",q:"¿Cuál es el sueño más grande que tenés?"},
+  {id:150,cat:"yo",q:"¿Cómo te ves en esta etapa?"},
+  {id:151,cat:"yo",q:"¿Qué aprendiste de vos este último año?"},
+  {id:152,cat:"yo",q:"¿Un recuerdo valioso de tu infancia?"},
+  {id:154,cat:"yo",q:"Si pudieses volver al pasado y cambiar algo, ¿qué sería? ¿Por qué?"},
+  {id:156,cat:"yo",q:"¿Dejaste de hacer cosas por miedo a fracasar? ¿Cuáles?"},
+  {id:157,cat:"yo",q:"Describí tu relación con vos mismo/a."},
+  {id:158,cat:"yo",q:"Si pudieras volver al pasado, ¿qué te dirías?"},
+  {id:164,cat:"yo",q:"¿Cuál es tu mayor miedo?"},
+  {id:165,cat:"yo",q:"¿Qué te da culpa?"},
+  {id:169,cat:"yo",q:"¿Qué exigencias te imponés? ¿Hacés algo para suavizarlas?"},
+  {id:170,cat:"yo",q:"¿Qué estás listo/a para soltar?"},
+  {id:176,cat:"yo",q:"¿Qué es la soledad para vos? ¿Te gusta estar solo/a? ¿Por qué?"},
+  {id:179,cat:"yo",q:"Solo yo sé que soy ______."},
+  {id:180,cat:"yo",q:"¿Hay algún aspecto de tu personalidad que te cuesta aceptar? ¿Buscás rechazarlo o integrarlo?"},
+  {id:181,cat:"yo",q:"¿Qué lugar ocupa el deseo en tu vida?"},
+  {id:184,cat:"yo",q:"¿Te mentís a vos mismo/a sobre algo? ¿Por qué?"},
+  {id:3,cat:"otros",q:"¿Una buena decisión?"},
+  {id:6,cat:"otros",q:"¿Qué sensaciones tuviste en tu primer día de universidad/trabajo?"},
+  {id:8,cat:"otros",q:"¿Solés culpar a otras personas por lo que te pasa? ¿En qué situaciones?"},
+  {id:13,cat:"otros",q:"¿Una persona que te alivie en momentos tristes?"},
+  {id:17,cat:"otros",q:"¿Cuál fue tu primera impresión de la persona que tenés a tu izquierda?"},
+  {id:19,cat:"otros",q:"¿Qué destacás de las personas que te criaron?"},
+  {id:22,cat:"otros",q:"¿Qué destacás de tus amistades?"},
+  {id:31,cat:"otros",q:"¿Con qué tipo de personalidad solés conectar?"},
+  {id:33,cat:"otros",q:"Nombrá a alguien que te inspire."},
+  {id:34,cat:"otros",q:"Si tuvieras que elegir una persona para acompañarte en una experiencia espiritual, ¿quién sería?"},
+  {id:38,cat:"otros",q:"Cuando te sentís bien con vos mismo/a, ¿con quién te gusta estar?"},
+  {id:40,cat:"otros",q:"¿Qué actitudes no te gustan pero tolerás en una persona? ¿Y cuáles valorás?"},
+  {id:76,cat:"otros",q:"¿Cuál es el mejor lugar que conociste?"},
+  {id:77,cat:"otros",q:"Si fueses embajador/a, ¿qué lugar elegirías para vivir? ¿A dónde no irías?"},
+  {id:78,cat:"otros",q:"¿Quién de las personas presentes sería mejor comediante?"},
+  {id:94,cat:"otros",q:"Cuando ayudás a alguien, ¿lo hacés por vos o por la otra persona? ¿Existen las acciones desinteresadas?"},
+  {id:95,cat:"otros",q:"¿Creés que todos/as tenemos un propósito? ¿Cuál sentís que es el tuyo?"},
+  {id:98,cat:"otros",q:"¿Qué pensás sobre la demostración afectiva en público?"},
+  {id:120,cat:"otros",q:"¿Creés que hay alguna razón por la que naciste en tu familia?"},
+  {id:141,cat:"otros",q:"¿Sentís que te quedó algo pendiente con alguna persona? ¿Por qué no hiciste nada?"},
+  {id:144,cat:"otros",q:"Destacá una virtud de alguna de las personas presentes."},
+  {id:148,cat:"otros",q:"¿Tuviste amistades que no fueron sanas? ¿Cómo lo manejaste?"},
+  {id:153,cat:"otros",q:"¿Alguna vez tuviste un acto valioso del que no presumís pero te hace sentir orgulloso/a?"},
+  {id:155,cat:"otros",q:"¿Una persona o experiencia que te haya marcado?"},
+  {id:161,cat:"otros",q:"¿Qué cambiarías de tu crianza si tuvieras que educar a alguien?"},
+  {id:162,cat:"otros",q:"¿Qué etiqueta sentís que acarreás y no te identifica?"},
+  {id:163,cat:"otros",q:"¿Alguna vez escuchaste una conversación sin permiso? ¿Por qué?"},
+  {id:167,cat:"otros",q:"¿Te gustaría hacerle una pregunta a alguien presente? Hacésela."},
+  {id:168,cat:"otros",q:"¿Cómo manejás los desencuentros en los vínculos?"},
+  {id:171,cat:"otros",q:"¿Cuál es el mejor consejo que te dieron? ¿Lo transmitiste?"},
+  {id:172,cat:"otros",q:"Pensá en alguien que te gustaría abrazar. ¿Quién es?"},
+  {id:174,cat:"otros",q:"¿Qué rol cumplís en tu familia? ¿Cómo te hace sentir?"},
+  {id:182,cat:"otros",q:"¿Hay momentos en que te sentís solo/a estando acompañado/a?"},
+  {id:183,cat:"otros",q:"¿Cuándo fue la última vez que lloraste? ¿Por qué?"},
+  {id:185,cat:"otros",q:"¿Alguna vez fingiste afecto por una persona? ¿Por qué?"},
+  {id:12,cat:"mundo",q:"Los domingos... ¿Deprimentes o disfrutables? ¿Te gusta arrancar la semana?"},
+  {id:28,cat:"mundo",q:"Si tuvieses que elegir una profesión distinta, ¿cuál sería?"},
+  {id:29,cat:"mundo",q:"Cuando eras chico/a, ¿cómo te imaginabas siendo adulto/a?"},
+  {id:51,cat:"mundo",q:"¿Volver al pasado o ir al futuro? ¿Por qué?"},
+  {id:56,cat:"mundo",q:"¿Elegirías otra época para vivir? ¿Cuál? ¿Por qué?"},
+  {id:60,cat:"mundo",q:"¿Te animarías a vivir una experiencia en el extranjero? ¿Cuál?"},
+  {id:89,cat:"mundo",q:"¿Qué es lo que más te gusta del barrio donde vivís?"},
+  {id:91,cat:"mundo",q:"¿Sobre qué tema considerás que tenés mucho conocimiento?"},
+  {id:93,cat:"mundo",q:"Si pudieses crear un feriado, ¿por qué motivo sería?"},
+  {id:101,cat:"mundo",q:"'Elegí un trabajo que te guste y no trabajarás ni un día'. ¿Qué pensás?"},
+  {id:102,cat:"mundo",q:"'Dime con quién andas y te diré quién eres'. ¿Qué pensás?"},
+  {id:106,cat:"mundo",q:"¿El fin justifica los medios?"},
+  {id:112,cat:"mundo",q:"¿Considerás importante la educación sexual? ¿Quiénes deberían abordarla?"},
+  {id:113,cat:"mundo",q:"¿Qué cambiarías del mundo?"},
+  {id:114,cat:"mundo",q:"¿Casualidad o causalidad?"},
+  {id:115,cat:"mundo",q:"¿Qué pensás sobre la monogamia?"},
+  {id:116,cat:"mundo",q:"Un buen resultado sin esfuerzo, ¿vale menos?"},
+  {id:117,cat:"mundo",q:"¿Qué o quién influye en la forma en que pensás? ¿Por qué?"},
+  {id:118,cat:"mundo",q:"¿La educación escolar nos prepara para la adultez?"},
+  {id:119,cat:"mundo",q:"¿Qué mandatos creés que se imponen entre varones?"},
+  {id:121,cat:"mundo",q:"¿Elegimos lo que somos o nos lo impone el entorno?"},
+  {id:122,cat:"mundo",q:"¿Se puede estar bien con los demás sin estar bien con uno/a mismo/a?"},
+  {id:123,cat:"mundo",q:"¿Creés que vamos camino a una sociedad sin estereotipos?"},
+  {id:124,cat:"mundo",q:"¿Qué pensás sobre la educación sin distinción de géneros?"},
+  {id:126,cat:"mundo",q:"¿Qué creencias se les imponen a los/as niños/as con las que no estás de acuerdo?"},
+  {id:127,cat:"mundo",q:"¿Todo lo que pensamos es lo que deseamos? ¿Por qué?"},
+  {id:128,cat:"mundo",q:"Lo que una persona piensa, ¿la define? ¿En qué medida?"},
+  {id:129,cat:"mundo",q:"¿Creés que una persona adulta puede aprender de una joven? ¿En qué sentido?"},
+  {id:134,cat:"mundo",q:"El lenguaje, ¿cómplice o enemigo de la inclusión social?"},
+  {id:136,cat:"mundo",q:"¿Creés que se puede hacer humor con todo?"},
+  {id:138,cat:"mundo",q:"Una mujer toma la iniciativa en una relación heterosexual. ¿Qué pensás?"},
+  {id:139,cat:"mundo",q:"'Detrás de un gran hombre hay una gran mujer'. ¿Qué pensás?"},
+  {id:55,cat:"humor",q:"¿Algo ridículo por lo que te gustaría que te paguen?"},
+  {id:20,cat:"humor",q:"¿Qué aventura tenés pendiente por realizar?"},
+  {id:21,cat:"humor",q:"¿Cuándo fue la última vez que hiciste algo por primera vez? ¿Qué fue?"},
+  {id:47,cat:"humor",q:"Si fueses de otro género, ¿qué sería lo primero que harías?"},
+  {id:48,cat:"humor",q:"¿Qué personaje de película o serie te gustaría ser? ¿Por qué?"},
+  {id:50,cat:"humor",q:"Si algo te gusta, ¿asumirias cualquier riesgo?"},
+  {id:52,cat:"humor",q:"¿Qué fantasía te gustaría bajar a la realidad?"},
+  {id:53,cat:"humor",q:"¿Qué actividad extrema te gustaría hacer?"},
+  {id:54,cat:"humor",q:"¿Tuviste alguna experiencia paranormal? ¿Cómo fue?"},
+  {id:57,cat:"humor",q:"¿El último regalo que hiciste? ¿Y el último que recibiste?"},
+  {id:58,cat:"humor",q:"¿Qué canción elegirías para cantar en un karaoke?"},
+  {id:62,cat:"humor",q:"Tres cosas que te hacen sentir feliz."},
+  {id:63,cat:"humor",q:"¿Una canción que te alegre?"},
+  {id:65,cat:"humor",q:"¿Qué comida te recuerda a tu hogar?"},
+  {id:66,cat:"humor",q:"Tres cosas que te gusta hacer y sentís que te salen mal."},
+  {id:69,cat:"humor",q:"Si pudieras crear tu lugar en el mundo, ¿cómo sería?"},
+  {id:74,cat:"humor",q:"¿Qué recuerdo tenés de tu primera cita?"},
+  {id:79,cat:"humor",q:"¿Una situación vergonzosa que recuerdes?"},
+  {id:80,cat:"humor",q:"¿Cuáles son tus tres placeres culposos?"},
+  {id:81,cat:"humor",q:"¿Un viaje pendiente?"},
+  {id:84,cat:"humor",q:"¿Qué tres deseos pedías cuando eras niño/a? ¿Y ahora?"},
+  {id:85,cat:"humor",q:"¿Tres cosas que te den vergüenza ajena?"},
+  {id:90,cat:"humor",q:"¿Qué cuento te relataban en la infancia?"},
+  {id:92,cat:"humor",q:"Si fueses una persona famosa, ¿quién serías? ¿Por qué?"},
+  {id:160,cat:"humor",q:"Siendo grande, ¿cómo te hubiese gustado ser de chico/a?"},
+  {id:14,cat:"profundo",q:"¿Hay alguna actividad que te guste tanto que te haga perder la noción del tiempo?"},
+  {id:42,cat:"profundo",q:"¿Qué disfrutás de tu cotidianidad? ¿Y qué no?"},
+  {id:49,cat:"profundo",q:"¿Creés en el amor a primera vista?"},
+  {id:61,cat:"profundo",q:"¿Cuál es tu lugar preferido en tu casa? ¿Por qué?"},
+  {id:96,cat:"profundo",q:"Si tuvieses que volver a elegir tu género, ¿cuál elegirías? ¿Por qué?"},
+  {id:97,cat:"profundo",q:"'Es mejor pedir perdón que permiso'. ¿Qué opinás?"},
+  {id:99,cat:"profundo",q:"¿Vivir sin amor de amistad o sin amor de pareja?"},
+  {id:130,cat:"profundo",q:"¿Creés que existe una razón por la que te rodeás de ciertas personas?"},
+  {id:131,cat:"profundo",q:"¿Cómo definís una relación tóxica?"},
+  {id:132,cat:"profundo",q:"¿Qué temas considerás tabú? ¿Por qué?"},
+  {id:133,cat:"profundo",q:"¿Alguna vez dejaste de hacer algo por tu género?"},
+  {id:135,cat:"profundo",q:"¿Cuándo creés que es importante empezar a tener noción sobre la sexualidad?"},
+  {id:149,cat:"profundo",q:"¿Qué pensabas el día que nació tu primer/a hijo/a? ¿O te gustaría tener?"},
+  {id:173,cat:"profundo",q:"¿Qué tan cómodo/a te sentís hablando sobre la sexualidad?"},
+  {id:175,cat:"profundo",q:"Si pudieses conocer los sentimientos más profundos de alguien, ¿a quién elegirías?"},
+  {id:177,cat:"profundo",q:"¿Una decisión difícil?"},
+  {id:178,cat:"profundo",q:"¿Cuáles son tus próximos objetivos por cumplir?"},
+  {id:186,cat:"profundo",q:"¿Cómo empezaste a tener conocimiento sobre la sexualidad? ¿Te hubiese gustado que sea diferente?"},
+  {id:187,cat:"profundo",q:"¿Cómo canalizás tu enojo? ¿Y tu tristeza?"},
+  {id:36,cat:"pareja",q:"¿Te enamoraste alguna vez? ¿Quién fue y qué te gustó de ella?"},
+  {id:59,cat:"pareja",q:"¿Con quién fue tu primer beso? ¿Qué sentiste?"},
+  {id:104,cat:"pareja",q:"¿Qué diferencias creés que hay entre el amor y el enamoramiento?"},
+  {id:105,cat:"pareja",q:"¿Creés que existe el momento indicado para empezar o terminar algo? ¿Cómo te das cuenta?"},
+  {id:107,cat:"pareja",q:"¿Existe la media naranja? ¿Necesitamos algo externo para sentirnos completos/as?"},
+  {id:108,cat:"pareja",q:"'Si no te cela no te quiere'. ¿Qué opinás?"},
+  {id:109,cat:"pareja",q:"¿Qué es ser libre en una relación de pareja?"},
+  {id:110,cat:"pareja",q:"¿Creés en las segundas oportunidades?"},
+  {id:111,cat:"pareja",q:"¿Creés que las personas pueden cambiar?"},
+  {id:125,cat:"pareja",q:"¿Qué es la sexualidad para vos?"},
+  {id:159,cat:"pareja",q:"¿Cuándo fue la última vez que dijiste 'Te quiero'? ¿A quién?"},
+  {id:166,cat:"pareja",q:"¿Qué pensabas el día de tu casamiento? Si no te casaste, ¿te gustaría?"},
+];
 
+var CAT = {
+  yo:       {label:"🙋 Sobre mí",  cls:"tag-yo"},
+  otros:    {label:"👥 Otros",     cls:"tag-otros"},
+  mundo:    {label:"🌍 Mundo",     cls:"tag-mundo"},
+  humor:    {label:"😄 Humor",     cls:"tag-humor"},
+  profundo: {label:"🔮 Profundo",  cls:"tag-profundo"},
+  pareja:   {label:"❤️ Pareja",   cls:"tag-pareja"}
+};
+
+var CAT_COLORS = {
+  yo:"#c84b2f", otros:"#2f7dc8", mundo:"#2fb87c",
+  humor:"#c8962f", profundo:"#8b2fc8", pareja:"#c82f7d"
+};
+
+var STORAGE_KEY = "desconectados_usedIds_v3";
+var usedIds = [];
+var currentCat = "all";
+var isFlipped = false;
+var currentCard = null;
+var initialized = false;
+
+function byId(id) {
+  return document.getElementById(id);
+}
+
+function toIdNumber(value) {
+  var n = Number(value);
+  return isNaN(n) ? value : n;
+}
+
+function uniqueArray(arr) {
+  var out = [];
+  for (var i = 0; i < arr.length; i++) {
+    if (out.indexOf(arr[i]) === -1) out.push(arr[i]);
+  }
+  return out;
+}
+
+function loadState() {
+  try {
+    var raw = window.localStorage ? localStorage.getItem(STORAGE_KEY) : null;
+    if (!raw) {
+      usedIds = [];
+      return;
+    }
+    var parsed = JSON.parse(raw);
+    if (!Array.isArray(parsed)) {
+      usedIds = [];
+      return;
+    }
+    usedIds = uniqueArray(parsed.map(toIdNumber)).filter(function(id) {
+      return CARDS.some(function(c) { return c.id === id; });
+    });
+  } catch (e) {
+    usedIds = [];
+  }
+}
+
+function saveState() {
+  try {
+    if (window.localStorage) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(usedIds));
+    }
+  } catch (e) {
+    // En algunos Android con archivo local, localStorage puede fallar.
+    // La app sigue funcionando en memoria.
+  }
+}
+
+function getCardsForCategory(cat) {
+  if (cat === "all") return CARDS.slice();
+  return CARDS.filter(function(c) { return c.cat === cat; });
+}
+
+function getPool() {
+  return getCardsForCategory(currentCat).filter(function(c) {
+    return usedIds.indexOf(c.id) === -1;
+  });
+}
+
+function getTotal() {
+  return getCardsForCategory(currentCat).length;
+}
+
+function getUsed() {
+  return getCardsForCategory(currentCat).filter(function(c) {
+    return usedIds.indexOf(c.id) !== -1;
+  }).length;
+}
+
+function updateCounter() {
+  var used = getUsed();
+  var total = getTotal();
+
+  var usedEl = byId("used-count");
+  var totalEl = byId("total-count");
+  var progEl = byId("prog");
+
+  if (usedEl) usedEl.textContent = String(used);
+  if (totalEl) totalEl.textContent = total + " cartas";
+  if (progEl) progEl.style.width = (total > 0 ? (used / total * 100) : 0) + "%";
+
+  var btn = byId("btn-next");
+  if (btn) {
+    btn.disabled = getPool().length === 0;
+  }
+
+  var emptyMsg = byId("empty-msg");
+  if (emptyMsg) {
+    emptyMsg.style.display = getPool().length === 0 ? "block" : "none";
+  }
+}
+
+function setFrontColor() {
+  var front = byId("card-front");
+  if (!front) return;
+  front.style.background = (currentCat !== "all" && CAT_COLORS[currentCat]) ? CAT_COLORS[currentCat] : "#c84b2f";
+}
+
+function markUsed(id) {
+  if (usedIds.indexOf(id) === -1) {
+    usedIds.push(id);
+    saveState();
+  }
+}
+
+function renderCard(cardData) {
+  currentCard = cardData;
+  markUsed(cardData.id);
+
+  var meta = CAT[cardData.cat] || { label: cardData.cat, cls: "" };
+  var tag = byId("cb-tag");
+  var question = byId("cb-q");
+  var num = byId("cb-num");
+  var card = byId("card");
+
+  if (tag) {
+    tag.textContent = meta.label;
+    tag.className = "cb-tag " + meta.cls;
+  }
+  if (question) question.textContent = cardData.q;
+  if (num) num.textContent = "#" + cardData.id;
+
+  if (card) {
+    card.classList.remove("flipped");
+    card.classList.add("pop");
+    setTimeout(function() { card.classList.remove("pop"); }, 300);
+  }
+
+  isFlipped = false;
+  setFrontColor();
+  updateCounter();
+}
+
+function drawNewCard() {
+  var pool = getPool();
+
+  if (pool.length === 0) {
+    currentCard = null;
+    updateCounter();
+    showToast("🎉 ¡Usaste todas las cartas!");
+    return false;
+  }
+
+  var idx = Math.floor(Math.random() * pool.length);
+  renderCard(pool[idx]);
+  return true;
+}
+
+function flipCard() {
+  var card = byId("card");
+  if (!card) return;
+
+  if (!currentCard) {
+    if (!drawNewCard()) return;
+  }
+
+  isFlipped = !isFlipped;
+  card.classList.toggle("flipped", isFlipped);
+}
+
+function nextCard() {
+  var card = byId("card");
+
+  if (getPool().length === 0) {
+    updateCounter();
+    showToast("🎉 ¡Usaste todas las cartas!");
+    return;
+  }
+
+  if (card && isFlipped) {
+    card.classList.remove("flipped");
+    isFlipped = false;
+    setTimeout(drawNewCard, 260);
+  } else {
+    drawNewCard();
+  }
+}
+
+function selectCat(el) {
+  if (!el) return;
+
+  var pills = document.querySelectorAll(".cat-pill");
+  for (var i = 0; i < pills.length; i++) {
+    pills[i].classList.remove("active");
+  }
+
+  el.classList.add("active");
+  currentCat = el.getAttribute("data-cat") || "all";
+
+  var card = byId("card");
+  if (card) card.classList.remove("flipped");
+
+  isFlipped = false;
+  currentCard = null;
+  setFrontColor();
+  updateCounter();
+
+  // Carga una carta inicial de la categoría para que tocar la carta siempre revele algo.
+  drawNewCard();
+}
+
+function openModal() {
+  var overlay = byId("overlay");
+  if (overlay) overlay.classList.add("open");
+}
+
+function closeModal() {
+  var overlay = byId("overlay");
+  if (overlay) overlay.classList.remove("open");
+}
+
+function closeOutside(e) {
+  var overlay = byId("overlay");
+  if (e && e.target === overlay) closeModal();
+}
+
+function resetCurrent() {
+  var base = getCardsForCategory(currentCat);
+  var ids = base.map(function(c) { return c.id; });
+
+  usedIds = usedIds.filter(function(id) {
+    return ids.indexOf(id) === -1;
+  });
+
+  saveState();
+
+  var card = byId("card");
+  if (card) card.classList.remove("flipped");
+
+  isFlipped = false;
+  currentCard = null;
+  updateCounter();
+  closeModal();
+
+  drawNewCard();
+  showToast("✓ Categoría reiniciada");
+}
+
+function resetAll() {
+  usedIds = [];
+  saveState();
+
+  var card = byId("card");
+  if (card) card.classList.remove("flipped");
+
+  isFlipped = false;
+  currentCard = null;
+  updateCounter();
+  closeModal();
+
+  drawNewCard();
+  showToast("✓ Todo reiniciado");
+}
+
+function showToast(msg) {
+  var t = byId("toast");
+  if (!t) return;
+
+  t.textContent = msg;
+  t.classList.add("show");
+  setTimeout(function() {
+    t.classList.remove("show");
+  }, 2200);
+}
+
+function init() {
+  if (initialized) return;
+  initialized = true;
+
+  loadState();
+
+  if (!Array.isArray(CARDS) || CARDS.length === 0) {
+    var totalEl = byId("total-count");
+    if (totalEl) totalEl.textContent = "0 cartas";
+    showToast("No se cargaron cartas");
+    return;
+  }
+
+  setFrontColor();
+  updateCounter();
+  drawNewCard();
+}
+
+// Funciones globales usadas por los onclick del HTML.
+window.flipCard = flipCard;
+window.nextCard = nextCard;
+window.selectCat = selectCat;
+window.openModal = openModal;
+window.closeModal = closeModal;
+window.closeOutside = closeOutside;
+window.resetCurrent = resetCurrent;
+window.resetAll = resetAll;
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", init, false);
+} else {
+  init();
+}
+
+})();
+</script>
 </body>
 </html>
