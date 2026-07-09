@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rodrigo San Martín | Portfolio</title>
+  <meta name="description" content="Portfolio profesional de Rodrigo Emanuel San Martín Bustos: economía aplicada, regulación económica, datos, automatización y proyectos web." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <style>
+    :root{
+      --bg:#f7f4ee;
+      --bg-soft:#efe8dc;
+      --surface:#fffaf2;
+      --surface-2:#f3eadc;
+      --text:#171512;
+      --muted:#6e665c;
+      --line:#ded2c2;
+      --primary:#1f4e79;
+      --primary-2:#153957;
+      --accent:#c8872b;
+      --accent-soft:rgba(200,135,43,.13);
+      --blue-soft:rgba(31,78,121,.12);
+      --green:#2f7d5a;
+      --shadow:0 24px 60px rgba(31,39,51,.10);
+      --shadow-card:0 18px 38px rgba(31,39,51,.11);
+      --radius-xl:30px;
+      --radius-lg:22px;
+      --radius-md:16px;
+      --max:1180px;
+    }
+
+    [data-theme="dark"]{
+      --bg:#0f1117;
+      --bg-soft:#151925;
+      --surface:#171b28;
+      --surface-2:#111522;
+      --text:#f4efe7;
+      --muted:#a9a19a;
+      --line:#2a3142;
+      --primary:#8ab9ea;
+      --primary-2:#b8d6f5;
+      --accent:#e2a84b;
+      --accent-soft:rgba(226,168,75,.13);
+      --blue-soft:rgba(138,185,234,.13);
+      --green:#65c493;
+      --shadow:0 24px 70px rgba(0,0,0,.34);
+      --shadow-card:0 18px 45px rgba(0,0,0,.28);
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      min-height:100vh;
+      background:
+        radial-gradient(circle at top left, var(--blue-soft), transparent 34rem),
+        radial-gradient(circle at 80% 15%, var(--accent-soft), transparent 26rem),
+        var(--bg);
+      color:var(--text);
+      font-family:Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height:1.6;
+    }
+
+    a{color:inherit;text-decoration:none}
+    .container{width:min(var(--max), calc(100% - 40px));margin:0 auto}
+
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:30;
+      border-bottom:1px solid rgba(128,128,128,.16);
+      background:color-mix(in srgb, var(--bg) 82%, transparent);
+      backdrop-filter:blur(18px);
+    }
+
+    .nav{
+      height:76px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:1rem;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:.75rem;
+      min-width:0;
+    }
+
+    .brand-mark{
+      width:42px;height:42px;border-radius:14px;
+      display:grid;place-items:center;
+      background:linear-gradient(135deg,var(--primary),var(--accent));
+      color:#fff;
+      font-weight:800;
+      box-shadow:0 12px 26px rgba(31,78,121,.22);
+      flex:0 0 auto;
+    }
+
+    .brand-text strong{display:block;font-size:.95rem;letter-spacing:-.02em;line-height:1.15}
+    .brand-text span{display:block;font-size:.78rem;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:44vw}
+
+    .nav-links{display:flex;align-items:center;gap:.4rem}
+    .nav-links a,.theme-btn{
+      border:1px solid transparent;
+      color:var(--muted);
+      padding:.62rem .86rem;
+      border-radius:999px;
+      font-size:.9rem;
+      font-weight:650;
+      background:transparent;
+      cursor:pointer;
+      transition:.2s ease;
+    }
+    .nav-links a:hover,.theme-btn:hover{color:var(--text);background:var(--surface);border-color:var(--line)}
+    .nav-cta{background:var(--primary)!important;color:#fff!important;border-color:transparent!important}
+    .nav-cta:hover{background:var(--primary-2)!important;color:#fff!important;transform:translateY(-1px)}
+
+    .hero{padding:74px 0 40px}
+    .hero-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:2rem;align-items:center}
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:.55rem;
+      padding:.42rem .75rem;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:var(--surface);
+      color:var(--muted);
+      font-size:.84rem;
+      font-weight:700;
+      margin-bottom:1.25rem;
+      box-shadow:0 10px 25px rgba(0,0,0,.04);
+    }
+    .eyebrow i{color:var(--accent)}
+    h1{
+      font-family:"Playfair Display", Georgia, serif;
+      font-size:clamp(2.8rem, 7vw, 5.8rem);
+      line-height:.95;
+      letter-spacing:-.06em;
+      margin-bottom:1.35rem;
+    }
+    .hero-lead{
+      font-size:clamp(1rem, 1.5vw, 1.18rem);
+      color:var(--muted);
+      max-width:760px;
+      margin-bottom:1.7rem;
+    }
+    .hero-lead strong{color:var(--text)}
+    .hero-actions{display:flex;gap:.8rem;flex-wrap:wrap;margin:1.6rem 0 0}
+
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:.6rem;
+      border-radius:999px;
+      padding:.82rem 1.1rem;
+      font-weight:750;
+      font-size:.94rem;
+      border:1px solid var(--line);
+      transition:.2s ease;
+    }
+    .btn.primary{background:var(--primary);border-color:var(--primary);color:#fff}
+    .btn.secondary{background:var(--surface);color:var(--text)}
+    .btn:hover{transform:translateY(-2px);box-shadow:var(--shadow-card)}
+
+    .profile-panel{
+      background:linear-gradient(180deg, var(--surface), var(--surface-2));
+      border:1px solid var(--line);
+      border-radius:var(--radius-xl);
+      padding:1.3rem;
+      box-shadow:var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
+    .profile-panel::before{
+      content:"";position:absolute;inset:-35% -25% auto auto;width:260px;height:260px;
+      background:radial-gradient(circle,var(--accent-soft),transparent 68%);
+      pointer-events:none;
+    }
+    .panel-top{display:flex;align-items:center;gap:1rem;margin-bottom:1.1rem;position:relative}
+    .avatar{
+      width:70px;height:70px;border-radius:22px;
+      background:linear-gradient(135deg,var(--primary),var(--accent));
+      color:#fff;display:grid;place-items:center;
+      font-size:1.5rem;font-weight:850;
+    }
+    .panel-top h2{font-size:1.2rem;line-height:1.15}
+    .panel-top p{font-size:.9rem;color:var(--muted)}
+    .focus-list{display:grid;gap:.75rem;position:relative}
+    .focus-item{background:color-mix(in srgb, var(--surface) 76%, transparent);border:1px solid var(--line);border-radius:18px;padding:.95rem;display:flex;gap:.75rem;align-items:flex-start}
+    .focus-item i{color:var(--primary);margin-top:.22rem}
+    .focus-item strong{display:block;font-size:.95rem}
+    .focus-item span{display:block;color:var(--muted);font-size:.86rem;line-height:1.45}
+
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin:2.4rem 0 0}
+    .stat{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:1rem;box-shadow:0 12px 26px rgba(0,0,0,.04)}
+    .stat strong{display:block;color:var(--primary);font-size:1.65rem;line-height:1}
+    .stat span{display:block;color:var(--muted);font-size:.84rem;margin-top:.45rem}
+
+    .section{padding:56px 0}
+    .section-header{display:flex;justify-content:space-between;gap:2rem;align-items:end;margin-bottom:2rem}
+    .section-kicker{color:var(--accent);font-weight:850;font-size:.82rem;text-transform:uppercase;letter-spacing:.12em;margin-bottom:.4rem}
+    .section h2{font-size:clamp(2rem,4vw,3.2rem);line-height:1;letter-spacing:-.05em;margin-bottom:.65rem}
+    .section p.section-subtitle{color:var(--muted);max-width:780px}
+
+    .filters{display:flex;gap:.55rem;flex-wrap:wrap}
+    .filter-btn{
+      border:1px solid var(--line);background:var(--surface);color:var(--muted);
+      border-radius:999px;padding:.58rem .85rem;font-weight:800;font-size:.84rem;cursor:pointer;transition:.2s ease;
+    }
+    .filter-btn.active,.filter-btn:hover{background:var(--primary);border-color:var(--primary);color:#fff}
+
+    .projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+    .project-card{
+      background:var(--surface);
+      border:1px solid var(--line);
+      border-radius:var(--radius-lg);
+      overflow:hidden;
+      box-shadow:0 13px 31px rgba(0,0,0,.055);
+      transition:.25s ease;
+      display:flex;
+      flex-direction:column;
+      min-height:100%;
+    }
+    .project-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-card);border-color:color-mix(in srgb,var(--primary) 40%,var(--line))}
+    .project-visual{
+      min-height:160px;
+      padding:1.1rem;
+      background:
+        linear-gradient(135deg, color-mix(in srgb,var(--primary) 23%, transparent), transparent),
+        linear-gradient(180deg, var(--surface-2), var(--surface));
+      border-bottom:1px solid var(--line);
+      position:relative;
+      overflow:hidden;
+    }
+    .project-visual::after{
+      content:"";position:absolute;right:-55px;top:-55px;width:150px;height:150px;border-radius:50%;
+      background:var(--accent-soft);
+    }
+    .project-icon{font-size:2.1rem;width:58px;height:58px;border-radius:19px;background:var(--surface);display:grid;place-items:center;border:1px solid var(--line);position:relative;z-index:1}
+    .project-mini{
+      position:absolute;left:1.1rem;right:1.1rem;bottom:1rem;z-index:1;
+      display:grid;gap:.45rem;
+    }
+    .mini-row{height:8px;border-radius:999px;background:color-mix(in srgb,var(--primary) 18%, var(--line));overflow:hidden}
+    .mini-row span{display:block;height:100%;background:linear-gradient(90deg,var(--primary),var(--accent));border-radius:inherit}
+    .project-body{padding:1.25rem;display:flex;flex-direction:column;gap:.85rem;flex:1}
+    .project-meta{display:flex;align-items:center;justify-content:space-between;gap:.75rem;color:var(--muted);font-size:.78rem;font-weight:750;text-transform:uppercase;letter-spacing:.06em}
+    .status{display:inline-flex;align-items:center;gap:.35rem;color:var(--green)}
+    .project-card h3{font-size:1.13rem;line-height:1.18;letter-spacing:-.02em}
+    .project-card p{color:var(--muted);font-size:.93rem;line-height:1.55}
+    .project-tags{display:flex;gap:.45rem;flex-wrap:wrap;margin-top:auto;padding-top:.35rem}
+    .tag{font-size:.74rem;font-weight:800;border-radius:999px;padding:.33rem .58rem;background:var(--blue-soft);color:var(--primary);border:1px solid color-mix(in srgb,var(--primary) 16%,transparent)}
+    .tag.gold{background:var(--accent-soft);color:var(--accent);border-color:color-mix(in srgb,var(--accent) 25%,transparent)}
+    .project-actions{display:flex;gap:.55rem;flex-wrap:wrap;margin-top:.55rem}
+    .project-actions a,.project-actions button{
+      display:inline-flex;align-items:center;gap:.45rem;
+      border:1px solid var(--line);background:var(--surface-2);color:var(--text);
+      padding:.58rem .72rem;border-radius:999px;font-size:.82rem;font-weight:800;cursor:pointer;
+      transition:.2s ease;
+    }
+    .project-actions a:hover,.project-actions button:hover{background:var(--primary);color:#fff;border-color:var(--primary)}
+
+    .callout{
+      margin-top:2rem;
+      background:linear-gradient(135deg, var(--primary), var(--primary-2));
+      color:#fff;
+      border-radius:var(--radius-xl);
+      padding:2rem;
+      display:grid;
+      grid-template-columns:1fr auto;
+      gap:1rem;
+      align-items:center;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+    .callout::after{content:"";position:absolute;right:-80px;top:-80px;width:230px;height:230px;background:rgba(255,255,255,.11);border-radius:50%}
+    .callout h3{font-size:1.45rem;margin-bottom:.35rem}
+    .callout p{color:rgba(255,255,255,.78);max-width:770px}
+    .callout .btn{background:#fff;color:#13253a;border:0;position:relative;z-index:1}
+
+    .skills-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+    .skill-box{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:1.15rem;box-shadow:0 12px 30px rgba(0,0,0,.045)}
+    .skill-box i{color:var(--accent);font-size:1.3rem;margin-bottom:.8rem}
+    .skill-box h3{font-size:1rem;margin-bottom:.45rem}
+    .skill-box p{color:var(--muted);font-size:.9rem;line-height:1.48}
+
+    footer{padding:42px 0;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
+    .footer-row{display:flex;justify-content:space-between;gap:1rem;align-items:center;flex-wrap:wrap}
+    .footer-links{display:flex;gap:.8rem;flex-wrap:wrap}
+    .footer-links a:hover{color:var(--primary)}
+
+    .modal{
+      position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:60;
+      display:none;align-items:center;justify-content:center;padding:22px;
+    }
+    .modal.open{display:flex}
+    .modal-card{width:min(740px,100%);max-height:88vh;overflow:auto;background:var(--surface);border:1px solid var(--line);border-radius:26px;box-shadow:var(--shadow);padding:1.35rem}
+    .modal-top{display:flex;justify-content:space-between;gap:1rem;align-items:flex-start;margin-bottom:.9rem}
+    .modal-top h3{font-size:1.5rem;line-height:1.15}
+    .close{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:var(--surface-2);color:var(--text);cursor:pointer;font-size:1rem}
+    .modal-card p{color:var(--muted);margin:.75rem 0}
+    .modal-card ul{margin:1rem 0 0 1.25rem;color:var(--muted)}
+    .modal-card li{margin:.35rem 0}
+
+    @media (max-width:980px){
+      .hero-grid{grid-template-columns:1fr}
+      .stats,.skills-strip{grid-template-columns:repeat(2,1fr)}
+      .projects-grid{grid-template-columns:repeat(2,1fr)}
+      .section-header{align-items:flex-start;flex-direction:column}
+    }
+    @media (max-width:720px){
+      .container{width:min(100% - 28px,var(--max))}
+      .nav{height:auto;padding:.8rem 0;align-items:flex-start}
+      .nav-links{gap:.25rem;justify-content:flex-end;flex-wrap:wrap}
+      .nav-links a{display:none}
+      .nav-links .nav-cta{display:inline-flex}
+      .brand-text span{max-width:58vw}
+      .hero{padding:44px 0 24px}
+      .stats,.skills-strip,.projects-grid{grid-template-columns:1fr}
+      .callout{grid-template-columns:1fr}
+      .project-visual{min-height:145px}
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="../index.html" aria-label="Volver al inicio">
+        <div class="brand-mark">RS</div>
+        <div class="brand-text">
+          <strong>Rodrigo San Martín</strong>
+          <span>Economía aplicada · Datos · Regulación · Automatización</span>
+        </div>
+      </a>
+      <nav class="nav-links" aria-label="Navegación principal">
+        <a href="#proyectos">Proyectos</a>
+        <a href="#capacidades">Capacidades</a>
+        <a href="../box-archivos/">Box de archivos</a>
+        <button class="theme-btn" type="button" id="themeToggle" aria-label="Cambiar tema"><i class="fa-solid fa-moon"></i></button>
+        <a class="nav-cta" href="mailto:rodrigobustos2003@gmail.com">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow"><i class="fa-solid fa-chart-line"></i> Portfolio profesional</div>
+          <h1>Proyectos que conectan economía, datos y gestión pública.</h1>
+          <p class="hero-lead">
+            Soy estudiante avanzado de Economía con experiencia en <strong>regulación económica, análisis tarifario, ETL, visualización de datos y automatización de procesos</strong>. Este portfolio reúne proyectos institucionales, académicos y personales orientados a convertir información compleja en herramientas claras para la toma de decisiones.
+          </p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#proyectos"><i class="fa-solid fa-layer-group"></i> Ver proyectos</a>
+            <a class="btn secondary" href="https://www.linkedin.com/in/rodrigo-san-martin-106027296/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+            <a class="btn secondary" href="https://github.com/rodri-bustoxx" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a>
+          </div>
+          <div class="stats" aria-label="Indicadores de perfil">
+            <div class="stat"><strong>4</strong><span>líneas de trabajo: economía, datos, automatización y web</span></div>
+            <div class="stat"><strong>2023</strong><span>inicio de proyectos ETL e investigación aplicada</span></div>
+            <div class="stat"><strong>24/36</strong><span>materias aprobadas en Lic. en Economía</span></div>
+            <div class="stat"><strong>+10</strong><span>herramientas técnicas aplicadas en proyectos reales</span></div>
+          </div>
+        </div>
+
+        <aside class="profile-panel" aria-label="Resumen profesional">
+          <div class="panel-top">
+            <div class="avatar">R</div>
+            <div>
+              <h2>Rodrigo Emanuel San Martín Bustos</h2>
+              <p>Córdoba, Argentina · ERSeP · FCE UNC</p>
+            </div>
+          </div>
+          <div class="focus-list">
+            <div class="focus-item"><i class="fa-solid fa-scale-balanced"></i><div><strong>Regulación y tarifas</strong><span>Análisis de costos, cuadros tarifarios, variables regulatorias e información respaldatoria.</span></div></div>
+            <div class="focus-item"><i class="fa-solid fa-database"></i><div><strong>Datos y ETL</strong><span>Extracción, limpieza, validación y actualización de datos desde fuentes públicas, Excel, PDF, APIs y bases internas.</span></div></div>
+            <div class="focus-item"><i class="fa-solid fa-robot"></i><div><strong>Automatización</strong><span>Aplicaciones y flujos con Power Apps, Power Automate, SharePoint, Python y herramientas web.</span></div></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="proyectos">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <div class="section-kicker">Selección principal</div>
+            <h2>Proyectos</h2>
+            <p class="section-subtitle">Una selección de proyectos organizados por impacto: gestión pública, regulación, investigación económica, automatización y desarrollo web.</p>
+          </div>
+          <div class="filters" role="group" aria-label="Filtrar proyectos">
+            <button class="filter-btn active" data-filter="all" type="button">Todos</button>
+            <button class="filter-btn" data-filter="regulacion" type="button">Regulación</button>
+            <button class="filter-btn" data-filter="datos" type="button">Datos</button>
+            <button class="filter-btn" data-filter="automatizacion" type="button">Automatización</button>
+            <button class="filter-btn" data-filter="academico" type="button">Académico</button>
+            <button class="filter-btn" data-filter="web" type="button">Web</button>
+          </div>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card" data-category="regulacion automatizacion datos">
+            <div class="project-visual">
+              <div class="project-icon">⚙️</div>
+              <div class="project-mini"><div class="mini-row"><span style="width:88%"></span></div><div class="mini-row"><span style="width:72%"></span></div><div class="mini-row"><span style="width:57%"></span></div></div>
+            </div>
+            <div class="project-body">
+              <div class="project-meta"><span>ERSeP</span><span class="status">● Institucional</span></div>
+              <h3>Sistema de gestión de expedientes y actas</h3>
+              <p>Aplicaciones y flujos para reemplazar circuitos manuales de actas, expedientes, validaciones internas y generación documental en áreas técnicas y legales.</p>
+              <div class="project-tags"><span class="tag">Power Apps</span><span class="tag">Power Automate</span><span class="tag">SharePoint</span><span class="tag gold">Procesos</span></div>
+              <div class="project-actions"><button type="button" data-modal="expedientes"><i class="fa-solid fa-circle-info"></i> Detalle</button></div>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="regulacion datos web">
+            <div class="project-visual">
+              <div class="project-icon">📊</div>
+              <div class="project-mini"><div class="mini-row"><span style="width:92%"></span></div><div class="mini-row"><span style="width:81%"></span></div><div class="mini-row"><span style="width:68%"></span></div></div>
+            </div>
+            <div class="project-body">
+              <div class="project-meta"><span>ERSeP</span><span class="status">● Datos públicos</span></div>
+              <h3>Plataforma web de estadísticas tarifarias</h3>
+              <p>Sistema interactivo para consulta y actualización de indicadores de costos y tarifas, integrando datos del INDEC, BCRA y DGEC Córdoba mediante scraping, APIs y procesamiento en Python.</p>
+              <div class="project-tags"><span class="tag">Python</span><span class="tag">JavaScript</span><span class="tag">HTML/CSS</span><span class="tag gold">APIs</span></div>
+              <div class="project-actions"><button type="button" data-modal="tarifarias"><i class="fa-solid fa-circle-info"></i> Detalle</button></div>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="regulacion datos">
+            <div class="project-visual">
+              <div class="project-icon">🚌</div>
+              <div class="project-mini"><div class="mini-row"><span style="width:77%"></span></div><div class="mini-row"><span style="width:64%"></span></div><div class="mini-row"><span style="width:85%"></span></div></div>
+            </div>
+            <div class="project-body">
+              <div class="project-meta"><span>ERSeP</span><span class="status">● Control operativo</span></div>
+              <h3>Procesamiento de irregularidades en transporte interurbano</h3>
+              <p>Procesamiento, cruce y análisis de registros para detectar desvíos tarifarios y operativos, priorizar fiscalizaciones y mejorar la trazabilidad del control provincial.</p>
+              <div class="project-tags"><span class="tag">Power BI</span><span class="tag">Python</span><span class="tag">KPIs</span><span class="tag gold">Fiscalización</span></div>
+              <div class="project-actions"><button type="button" data-modal="transporte"><i class="fa-solid fa-circle-info"></i> Detalle</button></div>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="regulacion datos">
+            <div class="project-visual">
+              <div class="project-icon">🗺️</div>
+              <div class="project-mini"><div class="mini-row"><span style="width:70%"></span></div><div class="mini-row"><span style="width:89%"></span></div><div class="mini-row"><span style="width:52%"></span></div></div>
+            </div>
+            <div class="project-body">
+              <div class="project-meta"><span>ERSeP</span><span class="status">● Geodatos</span></div>
+              <h3>Análisis geoespacial para control operativo</h3>
+              <p>Mapas de calor y cruces de coordenadas geográficas para identificar servicios de mayor riesgo y apoyar cronogramas estratégicos de inspección.</p>
+              <div class="project-tags"><span class="tag">Georreferenciación</span><span class="tag">Mapas</span><span class="tag">Python</span><span class="tag gold">Riesgo</span></div>
+              <div class="project-actions"><button type="button" data-modal="geoespacial"><i class="fa-solid fa-circle-info"></i> Detalle</button></div>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="academico datos web">
+            <div class="project-visual">
+              <div class="project-icon">💹</div>
+              <div class="project-mini"><div class="mini-row"><span style="width:94%"></span></div><div class="mini-row"><span style="width:76%"></span></div><div class="mini-row"><span style="width:88%"></span></div></div>
+            </div>
+            <div class="project-body">
+              <div class="project-meta"><span>FCE UNC</span><span class="status">● Académico</span></div>
+              <h3>ETL e indicadores económicos monetarios</h3>
+              <p>Procesos automáticos para series de IPC, cuentas nacionales, agregados monetarios, tasas, tipo de cambio e indicadores financieros, reduciendo tiempos de actualización de horas a minutos.</p>
+              <div class="project-tags"><span class="tag">Python</span><span class="tag">INDEC</span><span class="tag">BCRA</span><span class="tag gold">ETL</span></div>
+              <div class="project-actions"><button type="button" data-modal="monetaria"><i class="fa-solid fa-circle-info"></i> Detalle</button></div>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="academico datos">
+            <div class="project-visual">
+              <div class="project-icon">⚡</div>
+              <div class="project-mini"><div class="mini-row"><span style="width:66%"></span></div><div class="mini-row"><span style="width:79%"></span></div><div class="mini-row"><span style="width:58%"></span></div></div>
+            </div>
+            <div class="project-body">
+              <div class="project-meta"><span>SeCyT UNC</span><span class="status">● Base regulatoria</span></div>
+              <h3>Consolidación de consumo eléctrico residencial y no residencial</h3>
+              <p>Base estandarizada para análisis regulatorio comparativo, con automatización de carga, limpieza y procesamiento mediante Python.</p>
+              <div class="project-tags"><span class="tag">Python</span><span class="tag">ETL</span><span class="tag">Regulación</span><span class="tag gold">Database</span></div>
+              <div class="project-actions"><button type="button" data-modal="consolidar"><i class="fa-solid fa-circle-info"></i> Detalle</button></div>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="academico">
+            <div class="project-visual">
+              <div class="project-icon">📚</div>
+              <div class="project-mini"><div class="mini-row"><span style="width:73%"></span></div><div class="mini-row"><span style="width:61%"></span></div><div class="mini-row"><span style="width:82%"></span></div></div>
+            </div>
+            <div class="project-body">
+              <div class="project-meta"><span>FCE UNC</span><span class="status">● Docencia</span></div>
+              <h3>Material académico en LaTeX para Macroeconomía I</h3>
+              <p>Producción de ejercicios, guías, evaluaciones y material de apoyo para clases teóricas y prácticas, con foco en claridad, estandarización y presentación formal.</p>
+              <div class="project-tags"><span class="tag">LaTeX</span><span class="tag">Macroeconomía</span><span class="tag">Docencia</span><span class="tag gold">Pedagogía</span></div>
+              <div class="project-actions"><button type="button" data-modal="latex"><i class="fa-solid fa-circle-info"></i> Detalle</button></div>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="academico datos">
+            <div class="project-visual">
+              <div class="project-icon">🏭</div>
+              <div class="project-mini"><div class="mini-row"><span style="width:83%"></span></div><div class="mini-row"><span style="width:71%"></span></div><div class="mini-row"><span style="width:49%"></span></div></div>
+            </div>
+            <div class="project-body">
+              <div class="project-meta"><span>UNC / CONICET</span><span class="status">● Investigación</span></div>
+              <h3>Coopetencia tecnológica y PyMEs 4.0</h3>
+              <p>Participación en proyecto de investigación sobre adopción de tecnologías 4.0 en PyMEs industriales, revisión conceptual y análisis de resultados.</p>
+              <div class="project-tags"><span class="tag">Investigación</span><span class="tag">PyMEs</span><span class="tag">Tecnología 4.0</span><span class="tag gold">Metodología</span></div>
+              <div class="project-actions"><button type="button" data-modal="coopetencia"><i class="fa-solid fa-circle-info"></i> Detalle</button></div>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="web">
+            <div class="project-visual">
+              <div class="project-icon">🎴</div>
+              <div class="project-mini"><div class="mini-row"><span style="width:62%"></span></div><div class="mini-row"><span style="width:91%"></span></div><div class="mini-row"><span style="width:74%"></span></div></div>
+            </div>
+            <div class="project-body">
+              <div class="project-meta"><span>Personal</span><span class="status">● Publicado</span></div>
+              <h3>Desconectados</h3>
+              <p>Juego conversacional en HTML, CSS y JavaScript, con cartas, filtros por categoría, progreso y almacenamiento local. Pensado como experiencia simple, móvil y autosuficiente.</p>
+              <div class="project-tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag gold">UX</span></div>
+              <div class="project-actions"><a href="../DESCONECTADOS.html"><i class="fa-solid fa-arrow-up-right-from-square"></i> Abrir</a><button type="button" data-modal="desconectados"><i class="fa-solid fa-circle-info"></i> Detalle</button></div>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="web academico">
+            <div class="project-visual">
+              <div class="project-icon">🗂️</div>
+              <div class="project-mini"><div class="mini-row"><span style="width:81%"></span></div><div class="mini-row"><span style="width:63%"></span></div><div class="mini-row"><span style="width:90%"></span></div></div>
+            </div>
+            <div class="project-body">
+              <div class="project-meta"><span>Personal</span><span class="status">● En desarrollo</span></div>
+              <h3>Box de archivos educativos</h3>
+              <p>Repositorio web para organizar guías, PDFs y recursos de estudio por materia, comenzando por Finanzas Públicas y con estructura escalable para nuevos contenidos.</p>
+              <div class="project-tags"><span class="tag">GitHub Pages</span><span class="tag">HTML/CSS</span><span class="tag">PDFs</span><span class="tag gold">Educación</span></div>
+              <div class="project-actions"><a href="../box-archivos/"><i class="fa-solid fa-arrow-up-right-from-square"></i> Abrir</a><button type="button" data-modal="box"><i class="fa-solid fa-circle-info"></i> Detalle</button></div>
+            </div>
+          </article>
+        </div>
+
+        <div class="callout">
+          <div>
+            <h3>Diseño soluciones con criterio económico y sensibilidad institucional.</h3>
+            <p>No se trata solo de programar: se trata de entender el problema, validar la información, documentar el proceso y construir herramientas que realmente puedan usarse.</p>
+          </div>
+          <a class="btn" href="mailto:rodrigobustos2003@gmail.com"><i class="fa-solid fa-envelope"></i> Contactarme</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="capacidades">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <div class="section-kicker">Stack profesional</div>
+            <h2>Capacidades aplicadas</h2>
+            <p class="section-subtitle">Las herramientas aparecen ordenadas según el tipo de problema que resuelven: análisis económico, datos, visualización, automatización y comunicación técnica.</p>
+          </div>
+        </div>
+        <div class="skills-strip">
+          <div class="skill-box"><i class="fa-solid fa-scale-balanced"></i><h3>Análisis económico</h3><p>Tarifas, estructuras de costos, servicios públicos, inflación, macroeconomía cuantitativa y regulación económica.</p></div>
+          <div class="skill-box"><i class="fa-solid fa-code"></i><h3>Datos y programación</h3><p>Python, pandas, numpy, SQL, ETL, web scraping, APIs, validación y control de calidad de información.</p></div>
+          <div class="skill-box"><i class="fa-solid fa-chart-pie"></i><h3>Visualización</h3><p>Power BI, DAX, Excel avanzado, Power Query, KPIs, dashboards e informes interactivos para toma de decisiones.</p></div>
+          <div class="skill-box"><i class="fa-solid fa-gears"></i><h3>Automatización</h3><p>Power Apps, Power Automate, SharePoint, HTML/CSS/JavaScript, formularios internos y automatización documental.</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-row">
+      <span>© 2026 Rodrigo Emanuel San Martín Bustos.</span>
+      <div class="footer-links">
+        <a href="../index.html">Inicio</a>
+        <a href="../DESCONECTADOS.html">Desconectados</a>
+        <a href="../box-archivos/">Box de archivos</a>
+        <a href="mailto:rodrigobustos2003@gmail.com">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="modal" id="detailModal" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-top">
+        <div>
+          <h3 id="modalTitle">Proyecto</h3>
+          <p id="modalSubtitle"></p>
+        </div>
+        <button class="close" type="button" id="closeModal" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <p id="modalText"></p>
+      <ul id="modalList"></ul>
+    </div>
+  </div>
+
+  <script>
+    const html = document.documentElement;
+    const themeToggle = document.getElementById('themeToggle');
+    const savedTheme = localStorage.getItem('portfolio-theme');
+    if(savedTheme){ html.setAttribute('data-theme', savedTheme); }
+    themeToggle.addEventListener('click', () => {
+      const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      if(next === 'light') html.removeAttribute('data-theme'); else html.setAttribute('data-theme', 'dark');
+      localStorage.setItem('portfolio-theme', next === 'dark' ? 'dark' : 'light');
+      themeToggle.innerHTML = next === 'dark' ? '<i class="fa-solid fa-sun"></i>' : '<i class="fa-solid fa-moon"></i>';
+    });
+    if(html.getAttribute('data-theme') === 'dark') themeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
+
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.project-card');
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        cards.forEach(card => {
+          const visible = filter === 'all' || card.dataset.category.includes(filter);
+          card.style.display = visible ? 'flex' : 'none';
+        });
+      });
+    });
+
+    const details = {
+      expedientes:{title:'Sistema de gestión de expedientes y actas',subtitle:'Power Apps · Power Automate · SharePoint · Procesos regulatorios',text:'Proyecto orientado a reemplazar procedimientos manuales por una solución digital trazable para gestión de actas, expedientes y validaciones internas.',items:['Modelado de listas y estados de proceso en SharePoint.','Aplicaciones internas con validaciones, filtros y reglas de negocio.','Automatización documental y circuitos técnicos-legales.','Mejora de trazabilidad, control y reducción de tareas repetitivas.']},
+      tarifarias:{title:'Plataforma web de estadísticas tarifarias',subtitle:'Python · JavaScript · HTML/CSS · APIs · Scraping',text:'Herramienta de consulta y actualización de indicadores económicos y tarifarios para análisis regulatorio.',items:['Integración de fuentes como INDEC, BCRA y DGEC Córdoba.','Actualización de datos mediante rutinas ETL.','Interfaz web para consulta y difusión interna.','Enfoque en reproducibilidad, consistencia y acceso rápido a indicadores.']},
+      transporte:{title:'Procesamiento de irregularidades en transporte interurbano',subtitle:'Power BI · Python · KPIs · Control operativo',text:'Análisis de registros operativos y tarifarios para asistir tareas de fiscalización y priorización de controles.',items:['Cruce de bases y validación de consistencia.','Identificación de desvíos y patrones de riesgo.','Tableros e informes para seguimiento operativo.','Mejora de trazabilidad para decisiones de control.']},
+      geoespacial:{title:'Análisis geoespacial para control operativo',subtitle:'Mapas de calor · Coordenadas · Fiscalización',text:'Uso de información geográfica para priorizar inspecciones y comprender patrones territoriales de riesgo.',items:['Cruce de coordenadas y ubicación de servicios.','Mapas de calor para concentración de eventos.','Criterios técnicos para definir cronogramas de inspección.','Apoyo visual para gestión y comunicación interna.']},
+      monetaria:{title:'ETL e indicadores económicos monetarios',subtitle:'FCE UNC · Python · INDEC · BCRA · DGEC Córdoba',text:'Automatización de series económicas para investigación y análisis monetario, con foco en actualización rápida y trazable.',items:['Series de IPC, cuentas nacionales, agregados monetarios y tasas.','Procesos de limpieza, normalización y validación.','Reducción de tiempos de actualización de horas a minutos.','Soporte para investigación académica y visualización de coyuntura.']},
+      consolidar:{title:'Consolidación de consumo eléctrico',subtitle:'SeCyT UNC · Python · ETL · Regulación',text:'Base de datos orientada a análisis regulatorio comparativo de consumo eléctrico residencial y no residencial.',items:['Estandarización de bases heterogéneas.','Automatización de carga y limpieza.','Mejora de consistencia y reproducibilidad.','Soporte para análisis regulatorio aplicado.']},
+      latex:{title:'Material académico en LaTeX',subtitle:'Macroeconomía I · FCE UNC',text:'Producción y estandarización de material pedagógico para clases teóricas y prácticas.',items:['Guías, ejercicios y evaluaciones.','Formato claro y profesional con LaTeX.','Apoyo al seguimiento académico.','Mejora en presentación y consistencia del material.']},
+      coopetencia:{title:'Coopetencia tecnológica y PyMEs 4.0',subtitle:'UNC / CONICET · Investigación aplicada',text:'Participación en proyecto de investigación sobre adopción de tecnologías 4.0 en PyMEs industriales.',items:['Revisión conceptual y metodológica.','Análisis de adopción tecnológica.','Discusión de resultados en marco académico.','Contribución a investigación aplicada.']},
+      desconectados:{title:'Desconectados',subtitle:'HTML · CSS · JavaScript · UX móvil',text:'Juego conversacional autosuficiente, diseñado para funcionar como experiencia simple desde una página web estática.',items:['Cartas aleatorias y filtros por categoría.','Estado persistente con localStorage.','Diseño mobile-first.','Experiencia personal, ligera y sin backend.']},
+      box:{title:'Box de archivos educativos',subtitle:'GitHub Pages · PDFs · Organización académica',text:'Sección educativa para compartir guías, documentos y materiales de estudio de manera abierta y ordenada.',items:['Estructura escalable por materia.','Primera sección: Finanzas Públicas.','Acceso directo a PDFs y guías.','Diseño pensado para estudiantes y consulta rápida.']}
+    };
+
+    const modal = document.getElementById('detailModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalSubtitle = document.getElementById('modalSubtitle');
+    const modalText = document.getElementById('modalText');
+    const modalList = document.getElementById('modalList');
+    document.querySelectorAll('[data-modal]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const data = details[btn.dataset.modal];
+        if(!data) return;
+        modalTitle.textContent = data.title;
+        modalSubtitle.textContent = data.subtitle;
+        modalText.textContent = data.text;
+        modalList.innerHTML = data.items.map(item => `<li>${item}</li>`).join('');
+        modal.classList.add('open');
+        modal.setAttribute('aria-hidden','false');
+      });
+    });
+    document.getElementById('closeModal').addEventListener('click', closeModal);
+    modal.addEventListener('click', e => { if(e.target === modal) closeModal(); });
+    document.addEventListener('keydown', e => { if(e.key === 'Escape') closeModal(); });
+    function closeModal(){ modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); }
+  </script>
+</body>
+</html>
