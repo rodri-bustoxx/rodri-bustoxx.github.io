@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Finanzas Públicas | Box de Archivos</title>
+  <meta name="description" content="Guía para aprobar Finanzas Públicas: PDFs, consejos, ejercicios típicos, finales comentados y fórmulas." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$','$$'], ['\\[','\\]']] }, svg: { fontCache: 'global' } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <style>
+    :root{--bg:#f7f4ee;--surface:#fffaf2;--surface-2:#f1e8da;--text:#171512;--muted:#6e665c;--line:#ded2c2;--primary:#1f4e79;--primary-2:#153957;--accent:#c8872b;--accent-soft:rgba(200,135,43,.13);--blue-soft:rgba(31,78,121,.12);--green:#2f7d5a;--red:#ad4632;--shadow:0 24px 60px rgba(31,39,51,.10);--shadow-card:0 18px 38px rgba(31,39,51,.11);--radius-xl:30px;--radius-lg:22px;--max:1140px}
+    [data-theme="dark"]{--bg:#0f1117;--surface:#171b28;--surface-2:#111522;--text:#f4efe7;--muted:#a9a19a;--line:#2a3142;--primary:#8ab9ea;--primary-2:#b8d6f5;--accent:#e2a84b;--accent-soft:rgba(226,168,75,.13);--blue-soft:rgba(138,185,234,.13);--green:#65c493;--red:#e07a62;--shadow:0 24px 70px rgba(0,0,0,.34);--shadow-card:0 18px 45px rgba(0,0,0,.28)}
+    *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{min-height:100vh;background:radial-gradient(circle at top left,var(--blue-soft),transparent 34rem),radial-gradient(circle at 80% 15%,var(--accent-soft),transparent 26rem),var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.62}a{color:inherit;text-decoration:none}.container{width:min(var(--max),calc(100% - 40px));margin:0 auto}
+    .topbar{position:sticky;top:0;z-index:40;border-bottom:1px solid rgba(128,128,128,.16);background:color-mix(in srgb,var(--bg) 84%,transparent);backdrop-filter:blur(18px)}.nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:1rem}.brand{display:flex;align-items:center;gap:.75rem;min-width:0}.brand-mark{width:42px;height:42px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;font-weight:850;box-shadow:0 12px 26px rgba(31,78,121,.22)}.brand-text strong{display:block;font-size:.95rem;line-height:1.15}.brand-text span{display:block;font-size:.78rem;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:52vw}.nav-links{display:flex;align-items:center;gap:.4rem;flex-wrap:wrap}.nav-links a,.theme-btn{border:1px solid transparent;color:var(--muted);padding:.62rem .86rem;border-radius:999px;font-size:.9rem;font-weight:700;background:transparent;cursor:pointer;transition:.2s}.nav-links a:hover,.theme-btn:hover{color:var(--text);background:var(--surface);border-color:var(--line)}.nav-cta{background:var(--primary)!important;color:#fff!important;border-color:transparent!important}.nav-cta:hover{background:var(--primary-2)!important;transform:translateY(-1px)}
+    .hero{padding:70px 0 34px}.breadcrumbs{display:flex;gap:.45rem;flex-wrap:wrap;color:var(--muted);font-size:.88rem;font-weight:750;margin-bottom:1.1rem}.breadcrumbs a:hover{color:var(--primary)}.eyebrow{display:inline-flex;align-items:center;gap:.55rem;padding:.42rem .75rem;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--muted);font-size:.84rem;font-weight:800;margin-bottom:1.15rem;box-shadow:0 10px 25px rgba(0,0,0,.04)}.eyebrow i{color:var(--accent)}h1{font-family:"Playfair Display",Georgia,serif;font-size:clamp(2.7rem,7vw,5.5rem);line-height:.95;letter-spacing:-.06em;margin-bottom:1.25rem;max-width:980px}.lead{font-size:clamp(1rem,1.5vw,1.18rem);color:var(--muted);max-width:850px;margin-bottom:1.55rem}.lead strong{color:var(--text)}.hero-actions{display:flex;gap:.75rem;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;justify-content:center;gap:.58rem;border-radius:999px;padding:.82rem 1.1rem;font-weight:850;font-size:.94rem;border:1px solid var(--line);transition:.2s;background:var(--surface);color:var(--text);cursor:pointer}.btn.primary{background:var(--primary);border-color:var(--primary);color:#fff}.btn:hover{transform:translateY(-2px);box-shadow:var(--shadow-card)}
+    .quick-nav{position:sticky;top:76px;z-index:25;background:color-mix(in srgb,var(--bg) 78%,transparent);backdrop-filter:blur(14px);border-top:1px solid rgba(128,128,128,.08);border-bottom:1px solid rgba(128,128,128,.12)}.quick-nav .container{display:flex;gap:.45rem;overflow:auto;padding:.7rem 0;scrollbar-width:none}.quick-nav .container::-webkit-scrollbar{display:none}.quick-nav a{white-space:nowrap;border:1px solid var(--line);background:var(--surface);color:var(--muted);border-radius:999px;padding:.5rem .72rem;font-size:.82rem;font-weight:850}.quick-nav a:hover{background:var(--primary);border-color:var(--primary);color:#fff}
+    .section{padding:54px 0}.section-header{display:flex;justify-content:space-between;gap:2rem;align-items:end;margin-bottom:1.7rem}.kicker{color:var(--accent);font-weight:900;font-size:.82rem;text-transform:uppercase;letter-spacing:.12em;margin-bottom:.4rem}.section h2{font-size:clamp(2rem,4vw,3.1rem);line-height:1;letter-spacing:-.05em;margin-bottom:.65rem}.section-subtitle{color:var(--muted);max-width:790px}.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:1.18rem;box-shadow:0 12px 30px rgba(0,0,0,.045)}.card h3{font-size:1.08rem;line-height:1.2;margin-bottom:.55rem}.card p{color:var(--muted);font-size:.93rem}.card i{color:var(--accent);font-size:1.25rem;margin-bottom:.7rem}.pill-row{display:flex;gap:.45rem;flex-wrap:wrap;margin-top:.85rem}.pill{font-size:.74rem;font-weight:850;border-radius:999px;padding:.33rem .58rem;background:var(--surface-2);border:1px solid var(--line);color:var(--muted)}
+    .pdf-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}.pdf-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:1.15rem;box-shadow:0 12px 30px rgba(0,0,0,.045);display:flex;flex-direction:column;gap:.8rem;min-height:250px;transition:.22s}.pdf-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-card)}.pdf-icon{width:54px;height:54px;border-radius:18px;background:var(--blue-soft);color:var(--primary);display:grid;place-items:center;font-size:1.4rem}.pdf-card h3{font-size:1.05rem;line-height:1.16}.pdf-card p{color:var(--muted);font-size:.9rem}.pdf-card a{margin-top:auto;display:inline-flex;align-items:center;justify-content:center;gap:.45rem;border:1px solid var(--line);background:var(--surface-2);border-radius:999px;padding:.6rem .72rem;font-size:.84rem;font-weight:850}.pdf-card a:hover{background:var(--primary);border-color:var(--primary);color:#fff}
+    .accordion{display:grid;gap:.8rem}.acc-item{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);overflow:hidden;box-shadow:0 12px 30px rgba(0,0,0,.045)}.acc-btn{width:100%;display:flex;align-items:center;justify-content:space-between;gap:1rem;text-align:left;padding:1rem 1.15rem;border:0;background:transparent;color:var(--text);cursor:pointer;font:inherit;font-weight:850}.acc-btn span{display:flex;align-items:center;gap:.65rem}.acc-btn i:first-child{color:var(--accent)}.acc-content{max-height:0;overflow:hidden;transition:max-height .28s ease}.acc-content-inner{padding:0 1.15rem 1.15rem;color:var(--muted)}.acc-content-inner p{margin:.75rem 0}.acc-content-inner ul{margin:.75rem 0 .75rem 1.25rem}.acc-content-inner li{margin:.35rem 0}.acc-item.open .acc-content{max-height:1600px}.acc-item.open .acc-btn .chev{transform:rotate(180deg)}.chev{transition:.2s}
+    .exercise{background:linear-gradient(180deg,var(--surface),var(--surface-2));border:1px solid var(--line);border-radius:var(--radius-lg);padding:1.15rem;box-shadow:0 12px 30px rgba(0,0,0,.045)}.exercise .label{display:inline-flex;align-items:center;gap:.4rem;color:var(--green);font-size:.78rem;font-weight:900;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.55rem}.formula{margin:1rem 0;padding:1rem;border-radius:18px;background:color-mix(in srgb,var(--blue-soft) 70%,transparent);border:1px solid color-mix(in srgb,var(--primary) 18%,transparent);overflow:auto}.warning{border-left:4px solid var(--accent);padding:.9rem 1rem;background:var(--accent-soft);border-radius:0 16px 16px 0;color:var(--muted)}
+    .callout{margin-top:1.4rem;background:linear-gradient(135deg,var(--primary),var(--primary-2));color:#fff;border-radius:var(--radius-xl);padding:1.8rem;display:grid;grid-template-columns:1fr auto;gap:1rem;align-items:center;box-shadow:var(--shadow);overflow:hidden;position:relative}.callout::after{content:"";position:absolute;right:-85px;top:-85px;width:230px;height:230px;background:rgba(255,255,255,.11);border-radius:50%}.callout h3{font-size:1.35rem;margin-bottom:.35rem}.callout p{color:rgba(255,255,255,.78);max-width:760px}.callout .btn{background:#fff;color:#13253a;border:0;position:relative;z-index:1}
+    footer{padding:42px 0;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}.footer-row{display:flex;justify-content:space-between;gap:1rem;align-items:center;flex-wrap:wrap}.footer-links{display:flex;gap:.8rem;flex-wrap:wrap}.footer-links a:hover{color:var(--primary)}
+    @media(max-width:1020px){.pdf-grid{grid-template-columns:repeat(2,1fr)}.grid-3{grid-template-columns:repeat(2,1fr)}.grid-2{grid-template-columns:1fr}.section-header{align-items:flex-start;flex-direction:column}.callout{grid-template-columns:1fr}}
+    @media(max-width:700px){.container{width:min(100% - 28px,var(--max))}.nav{height:auto;padding:.8rem 0;align-items:flex-start}.nav-links a:not(.nav-cta){display:none}.brand-text span{max-width:58vw}.quick-nav{top:65px}.hero{padding:42px 0 24px}.pdf-grid,.grid-3{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="../" aria-label="Volver al box">
+        <div class="brand-mark">FP</div>
+        <div class="brand-text"><strong>Finanzas Públicas</strong><span>Guía · PDFs · ejercicios · finales comentados</span></div>
+      </a>
+      <nav class="nav-links" aria-label="Navegación principal">
+        <a href="../../index.html">Inicio</a><a href="../">Box</a><a href="../../portfolio/">Portfolio</a>
+        <button class="theme-btn" type="button" id="themeToggle" aria-label="Cambiar tema"><i class="fa-solid fa-moon"></i></button>
+        <a class="nav-cta" href="#pdfs">PDFs</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="breadcrumbs"><a href="../../index.html">Inicio</a><span>/</span><a href="../">Box de archivos</a><span>/</span><span>Finanzas Públicas</span></div>
+        <div class="eyebrow"><i class="fa-solid fa-landmark"></i> Materia prioritaria</div>
+        <h1>Cómo aprobar Finanzas Públicas sin perderse en todo el material.</h1>
+        <p class="lead">La idea de esta página es simple: usar el <strong>Unificado</strong> como mapa general, estudiar fuerte el <strong>Compilado de Ensayos</strong>, practicar los ejercicios típicos y ordenar los temas que más se repiten en finales.</p>
+        <div class="hero-actions"><a class="btn primary" href="#guia"><i class="fa-solid fa-book-open"></i> Leer guía</a><a class="btn" href="#ejercicios"><i class="fa-solid fa-calculator"></i> Ver ejercicios</a><a class="btn" href="#pdfs"><i class="fa-solid fa-file-pdf"></i> Abrir PDFs</a></div>
+      </div>
+    </section>
+
+    <nav class="quick-nav" aria-label="Índice de Finanzas Públicas"><div class="container"><a href="#pdfs">PDFs</a><a href="#guia">Guía</a><a href="#temas">Temas clave</a><a href="#ejercicios">Ejercicios</a><a href="#finales">Final Julio 2026</a><a href="#ia">Prompts IA</a><a href="#aportes">Aportes</a></div></nav>
+
+    <section class="section" id="pdfs">
+      <div class="container">
+        <div class="section-header"><div><div class="kicker">Materiales principales</div><h2>PDFs de la materia</h2><p class="section-subtitle">Usá nombres simples, sin espacios ni tildes. Subilos dentro de <strong>box-archivos/finanzas-publicas/pdf/</strong>.</p></div></div>
+        <div class="pdf-grid">
+          <article class="pdf-card"><div class="pdf-icon"><i class="fa-solid fa-file-lines"></i></div><h3>Unificado</h3><p>Guía general de temas. Sirve como diccionario para entender el esquema completo de la materia.</p><a href="pdf/unificado.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> Abrir PDF</a></article>
+          <article class="pdf-card"><div class="pdf-icon"><i class="fa-solid fa-file-pen"></i></div><h3>Compilado de Ensayos</h3><p>Material central para estudiar. Conviene ordenarlo por unidades y practicar respuestas tipo final.</p><a href="pdf/compilado-ensayos.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> Abrir PDF</a></article>
+          <article class="pdf-card"><div class="pdf-icon"><i class="fa-solid fa-list-check"></i></div><h3>Vago Índice</h3><p>Útil para ver temas, finales y recurrencias. Ideal para arrancar y no perderse.</p><a href="pdf/vago-indice.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> Abrir PDF</a></article>
+          <article class="pdf-card"><div class="pdf-icon"><i class="fa-solid fa-brain"></i></div><h3>GPTliado de Ensayos</h3><p>Complementario. No es el material principal, pero puede servir para ampliar o contrastar enfoques.</p><a href="pdf/gptliado-ensayos.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> Abrir PDF</a></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="guia">
+      <div class="container">
+        <div class="section-header"><div><div class="kicker">Guía para aprobar</div><h2>Método recomendado</h2><p class="section-subtitle">Una versión digitalizada y ordenada de la estrategia de estudio: qué leer, qué practicar y cómo no perderse.</p></div></div>
+        <div class="accordion">
+          <div class="acc-item open"><button class="acc-btn" type="button"><span><i class="fa-solid fa-map"></i> Cómo usar los materiales</span><i class="fa-solid fa-chevron-down chev"></i></button><div class="acc-content"><div class="acc-content-inner"><p>Lo ideal es emplear el <strong>Unificado</strong> como guía principal de temas, pero no como lectura lineal obligatoria. Sirve para entender el esquema general. Lo más importante es trabajar el <strong>Compilado de Ensayos</strong>, porque ahí aparecen las preguntas y enfoques que más se repiten.</p><p>El <strong>Vago Índice</strong> conviene usarlo al principio para ordenar temas y finales. El <strong>GPTliado</strong> queda como apoyo, no como centro del estudio.</p></div></div></div>
+          <div class="acc-item"><button class="acc-btn" type="button"><span><i class="fa-solid fa-calendar-days"></i> Plan posible de 10 a 14 días</span><i class="fa-solid fa-chevron-down chev"></i></button><div class="acc-content"><div class="acc-content-inner"><ul><li>Día 1-2: recorrer Vago Índice y separar temas por unidades.</li><li>Día 3-6: estudiar ensayos frecuentes y armar respuestas modelo.</li><li>Día 7-10: practicar ejercicios típicos: monopolio, Laffer, Ramsey, externalidades, Samuelson, Stiglitz.</li><li>Día 11-14: repaso modo final, respondiendo sin mirar y corrigiendo después.</li></ul></div></div></div>
+          <div class="acc-item"><button class="acc-btn" type="button"><span><i class="fa-solid fa-pen-nib"></i> Cómo responder ensayos</span><i class="fa-solid fa-chevron-down chev"></i></button><div class="acc-content"><div class="acc-content-inner"><p>Una buena respuesta suele tener esta estructura: problema, concepto teórico, intervención estatal o criterio distributivo, ventaja, crítica y conclusión. No hace falta escribir infinito: hace falta ordenar bien.</p><p>En Finanzas Públicas suma mucho justificar con teoría económica: fallas de mercado, externalidades, bienes públicos, equidad, eficiencia, descentralización o incentivos.</p></div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="temas">
+      <div class="container">
+        <div class="section-header"><div><div class="kicker">Prioridades</div><h2>Temas que sí o sí estudiaría</h2><p class="section-subtitle">Una lista de bloques de alta recurrencia para orientar el estudio.</p></div></div>
+        <div class="grid-3">
+          <div class="card"><i class="fa-solid fa-triangle-exclamation"></i><h3>Fallas de mercado</h3><p>Externalidades, Pigou, monopolio, bienes comunes, pérdida social neta y justificación de intervención estatal.</p><div class="pill-row"><span class="pill">Externalidades</span><span class="pill">Monopolio</span><span class="pill">PSN</span></div></div>
+          <div class="card"><i class="fa-solid fa-people-group"></i><h3>Bienes públicos</h3><p>Regla de Samuelson, votación mayoritaria, votante mediano, bienes públicos locales y curva de restos de Stiglitz.</p><div class="pill-row"><span class="pill">Samuelson</span><span class="pill">Stiglitz</span><span class="pill">Votación</span></div></div>
+          <div class="card"><i class="fa-solid fa-receipt"></i><h3>Tributación</h3><p>Laffer, Ramsey, impuestos selectivos, impuestos generales al consumo, distorsiones y exceso de gravamen.</p><div class="pill-row"><span class="pill">Laffer</span><span class="pill">Ramsey</span><span class="pill">Impuestos</span></div></div>
+          <div class="card"><i class="fa-solid fa-hospital"></i><h3>Salud, seguros y HMO</h3><p>Uno de los ensayos que más se repite. Entender riesgo, seguros, selección adversa, riesgo moral y organizaciones HMO.</p><div class="pill-row"><span class="pill">HMO</span><span class="pill">Seguros</span><span class="pill">Salud</span></div></div>
+          <div class="card"><i class="fa-solid fa-building-columns"></i><h3>Federalismo fiscal</h3><p>Descentralización, teorema de Oates, pandemia, funciones por nivel de gobierno y coparticipación federal.</p><div class="pill-row"><span class="pill">Oates</span><span class="pill">Pandemia</span><span class="pill">Coparticipación</span></div></div>
+          <div class="card"><i class="fa-solid fa-graduation-cap"></i><h3>Educación y seguridad social</h3><p>Ensayos frecuentes sobre intervención estatal, equidad, eficiencia, educación superior, primaria/secundaria y previsión.</p><div class="pill-row"><span class="pill">Educación</span><span class="pill">Previsión</span><span class="pill">Equidad</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="ejercicios">
+      <div class="container">
+        <div class="section-header"><div><div class="kicker">Práctica</div><h2>Ejercicios típicos</h2><p class="section-subtitle">Bloques para completar con resoluciones. Ya queda MathJax cargado para renderizar fórmulas.</p></div></div>
+        <div class="grid-2">
+          <div class="exercise"><div class="label"><i class="fa-solid fa-calculator"></i> Monopolio y PSN</div><h3>Pérdida social neta por monopolio</h3><p>Si la demanda es $P=a-bQ$ y el costo marginal es constante, calcular cantidad competitiva, cantidad monopólica, precios y pérdida social neta.</p><div class="formula">$$PSN = \frac{(Q_c - Q_m)(P_m - P_c)}{2}$$</div><p>También puede pedirse cuánto pagarían por la licencia monopólica:</p><div class="formula">$$(P_m - CMg)Q_m$$</div></div>
+          <div class="exercise"><div class="label"><i class="fa-solid fa-chart-line"></i> Curva de Laffer</div><h3>Recaudación y tributación óptima</h3><p>Ejercicios donde se relacionan precio consumidor, precio productor, impuesto y cantidad. Hay que encontrar recaudación y analizar cuándo crece o cae.</p><div class="formula">$$R(T)=T\cdot Q(T)$$</div><p class="warning">No quedarse solo con la cuenta: explicar la intuición económica de por qué la recaudación puede caer cuando la alícuota sube demasiado.</p></div>
+          <div class="exercise"><div class="label"><i class="fa-solid fa-scale-balanced"></i> Bien público</div><h3>Samuelson vs votación mayoritaria</h3><p>Comparar provisión eficiente con resultado político. La regla de Samuelson suma beneficios marginales individuales.</p><div class="formula">$$\sum_i BMg_i(G)=CMg(G)$$</div><p>La votación mayoritaria puede no coincidir porque depende del votante mediano y no de la suma social de disposiciones marginales a pagar.</p></div>
+          <div class="exercise"><div class="label"><i class="fa-solid fa-shuffle"></i> Stiglitz</div><h3>Curva de restos</h3><p>Ejercicio gráfico con bien privado $X$ y bien público $G$. Puede aparecer un agente que considere al bien público como un mal.</p><p class="warning">Si $G$ es un mal para B, sus curvas de indiferencia cambian de forma. La lógica del óptimo no desaparece: cambia la representación gráfica y la interpretación.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="finales">
+      <div class="container">
+        <div class="section-header"><div><div class="kicker">Final comentado</div><h2>Final Julio 2026</h2><p class="section-subtitle">Resumen de temas tomados y cómo conviene encararlos.</p></div></div>
+        <div class="accordion">
+          <div class="acc-item open"><button class="acc-btn" type="button"><span><i class="fa-solid fa-crown"></i> Monopolio por licencia</span><i class="fa-solid fa-chevron-down chev"></i></button><div class="acc-content"><div class="acc-content-inner"><p>Ejercicio con demanda lineal y costo marginal constante. Pedían pérdida social neta, valor de la licencia monopólica y recomendación de política pública.</p><p>Respuesta posible: forzar producción competitiva, regular precio/cantidad o abrir competencia, justificando según eficiencia y bienestar.</p></div></div></div>
+          <div class="acc-item"><button class="acc-btn" type="button"><span><i class="fa-solid fa-virus-covid"></i> Descentralización y pandemia</span><i class="fa-solid fa-chevron-down chev"></i></button><div class="acc-content"><div class="acc-content-inner"><p>Aplicar teorema de descentralización y federalismo fiscal: Nación coordina, financia y define lineamientos generales; provincias adaptan política sanitaria; municipios ejecutan acciones locales y control territorial.</p></div></div></div>
+          <div class="acc-item"><button class="acc-btn" type="button"><span><i class="fa-solid fa-motorcycle"></i> Cascos y bienes públicos</span><i class="fa-solid fa-chevron-down chev"></i></button><div class="acc-content"><div class="acc-content-inner"><p>El casco no es un bien público puro porque es rival y excluible, pero su uso puede generar externalidades positivas al reducir costos sociales de accidentes, salud pública y seguros.</p></div></div></div>
+          <div class="acc-item"><button class="acc-btn" type="button"><span><i class="fa-solid fa-cart-shopping"></i> Impuesto general vs selectivo</span><i class="fa-solid fa-chevron-down chev"></i></button><div class="acc-content"><div class="acc-content-inner"><p>Si se considera ocio-consumo, ambos pueden ser distorsivos. Si solo se analiza mercado de bienes, el impuesto general al consumo no altera precios relativos entre bienes; el selectivo sí.</p><div class="formula">$$TMgSC_{x,y}=\frac{P_x}{P_y}$$</div></div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="ia">
+      <div class="container">
+        <div class="section-header"><div><div class="kicker">IA aplicada al estudio</div><h2>Prompts útiles</h2><p class="section-subtitle">Para usar ChatGPT, Claude o Gemini sin perderse en respuestas gigantes.</p></div></div>
+        <div class="grid-2">
+          <div class="card"><i class="fa-solid fa-wand-magic-sparkles"></i><h3>Ordenar por unidad</h3><p>“Con base en estos documentos, ordename los temas de Finanzas Públicas por unidades, separando ensayos, ejercicios y conceptos clave.”</p></div>
+          <div class="card"><i class="fa-solid fa-clipboard-question"></i><h3>Simular final</h3><p>“Tomame un final de Finanzas Públicas con 3 ejercicios y 2 ensayos. Después corregime con criterio de profesor.”</p></div>
+          <div class="card"><i class="fa-solid fa-pen"></i><h3>Respuesta modelo</h3><p>“Armame una respuesta de final sobre salud, seguros y HMO, con estructura: problema, teoría, intervención estatal, crítica y conclusión.”</p></div>
+          <div class="card"><i class="fa-solid fa-bug"></i><h3>Detectar errores</h3><p>“Esta es mi respuesta. Marcame errores conceptuales, partes incompletas y cómo la mejoraría para aprobar.”</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="aportes">
+      <div class="container">
+        <div class="section-header"><div><div class="kicker">Aportes curados</div><h2>Información para completar</h2><p class="section-subtitle">Este bloque queda listo para que agregues aportes nuevos, finales confirmados, consejos o imágenes enlazadas.</p></div></div>
+        <div class="grid-2">
+          <div class="card"><i class="fa-solid fa-circle-plus"></i><h3>Plantilla de aporte</h3><p><strong>Tipo:</strong> final / ejercicio / ensayo / consejo.<br><strong>Tema:</strong> nombre del tema.<br><strong>Descripción:</strong> qué tomaron o qué conviene saber.<br><strong>Fuente:</strong> estudiante, clase, final, PDF o link.</p></div>
+          <div class="card"><i class="fa-solid fa-image"></i><h3>Imágenes y archivos</h3><p>Para mantener la web liviana, lo mejor es subir imágenes o archivos a un host externo y pegar el enlace. Luego se puede incrustar o dejar como botón.</p></div>
+        </div>
+        <div class="callout"><div><h3>Primero curado, después comunidad.</h3><p>Por ahora lo más sano es que los aportes se revisen antes de publicarse. Así mantenés calidad, evitás abuso y la página sigue siendo confiable.</p></div><a class="btn" href="#pdfs"><i class="fa-solid fa-arrow-up"></i> Volver a PDFs</a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="container footer-row"><span>© 2026 Rodrigo Emanuel San Martín Bustos.</span><div class="footer-links"><a href="../../index.html">Inicio</a><a href="../">Box</a><a href="../../portfolio/">Portfolio</a></div></div></footer>
+
+  <script>
+    const html=document.documentElement;const themeToggle=document.getElementById('themeToggle');const savedTheme=localStorage.getItem('box-theme');if(savedTheme==='dark'){html.setAttribute('data-theme','dark');themeToggle.innerHTML='<i class="fa-solid fa-sun"></i>';}themeToggle.addEventListener('click',()=>{const isDark=html.getAttribute('data-theme')==='dark';if(isDark){html.removeAttribute('data-theme');localStorage.setItem('box-theme','light');themeToggle.innerHTML='<i class="fa-solid fa-moon"></i>';}else{html.setAttribute('data-theme','dark');localStorage.setItem('box-theme','dark');themeToggle.innerHTML='<i class="fa-solid fa-sun"></i>';}});
+    document.querySelectorAll('.acc-btn').forEach(btn=>{btn.addEventListener('click',()=>{btn.closest('.acc-item').classList.toggle('open');});});
+  </script>
+</body>
+</html>
