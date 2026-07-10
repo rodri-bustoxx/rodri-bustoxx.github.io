@@ -3,151 +3,251 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Finanzas Públicas | Box de Archivos</title>
-  <meta name="description" content="Guía para aprobar Finanzas Públicas: PDFs, consejos, ejercicios típicos, finales comentados y fórmulas." />
+  <title>Finanzas Públicas | Box de Apuntes</title>
+  <meta name="description" content="Banco de finales, preguntas frecuentes, consejos y PDFs para preparar Finanzas Públicas." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <script>
-    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$','$$'], ['\\[','\\]']] }, svg: { fontCache: 'global' } };
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\(', '\)']], displayMath: [['$$','$$'], ['\[','\]']] }, svg: { fontCache: 'global' } };
   </script>
   <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
   <style>
-    :root{--bg:#f7f4ee;--surface:#fffaf2;--surface-2:#f1e8da;--text:#171512;--muted:#6e665c;--line:#ded2c2;--primary:#1f4e79;--primary-2:#153957;--accent:#c8872b;--accent-soft:rgba(200,135,43,.13);--blue-soft:rgba(31,78,121,.12);--green:#2f7d5a;--red:#ad4632;--shadow:0 24px 60px rgba(31,39,51,.10);--shadow-card:0 18px 38px rgba(31,39,51,.11);--radius-xl:30px;--radius-lg:22px;--max:1140px}
+    :root{--bg:#f7f4ee;--surface:#fffaf2;--surface-2:#f1e8da;--text:#171512;--muted:#6e665c;--line:#ded2c2;--primary:#1f4e79;--primary-2:#153957;--accent:#c8872b;--accent-soft:rgba(200,135,43,.13);--blue-soft:rgba(31,78,121,.12);--green:#2f7d5a;--red:#ad4632;--shadow:0 24px 60px rgba(31,39,51,.10);--shadow-card:0 18px 38px rgba(31,39,51,.11);--radius-xl:30px;--radius-lg:22px;--max:1160px}
     [data-theme="dark"]{--bg:#0f1117;--surface:#171b28;--surface-2:#111522;--text:#f4efe7;--muted:#a9a19a;--line:#2a3142;--primary:#8ab9ea;--primary-2:#b8d6f5;--accent:#e2a84b;--accent-soft:rgba(226,168,75,.13);--blue-soft:rgba(138,185,234,.13);--green:#65c493;--red:#e07a62;--shadow:0 24px 70px rgba(0,0,0,.34);--shadow-card:0 18px 45px rgba(0,0,0,.28)}
     *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{min-height:100vh;background:radial-gradient(circle at top left,var(--blue-soft),transparent 34rem),radial-gradient(circle at 80% 15%,var(--accent-soft),transparent 26rem),var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.62}a{color:inherit;text-decoration:none}.container{width:min(var(--max),calc(100% - 40px));margin:0 auto}
-    .topbar{position:sticky;top:0;z-index:40;border-bottom:1px solid rgba(128,128,128,.16);background:color-mix(in srgb,var(--bg) 84%,transparent);backdrop-filter:blur(18px)}.nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:1rem}.brand{display:flex;align-items:center;gap:.75rem;min-width:0}.brand-mark{width:42px;height:42px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;font-weight:850;box-shadow:0 12px 26px rgba(31,78,121,.22)}.brand-text strong{display:block;font-size:.95rem;line-height:1.15}.brand-text span{display:block;font-size:.78rem;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:52vw}.nav-links{display:flex;align-items:center;gap:.4rem;flex-wrap:wrap}.nav-links a,.theme-btn{border:1px solid transparent;color:var(--muted);padding:.62rem .86rem;border-radius:999px;font-size:.9rem;font-weight:700;background:transparent;cursor:pointer;transition:.2s}.nav-links a:hover,.theme-btn:hover{color:var(--text);background:var(--surface);border-color:var(--line)}.nav-cta{background:var(--primary)!important;color:#fff!important;border-color:transparent!important}.nav-cta:hover{background:var(--primary-2)!important;transform:translateY(-1px)}
-    .hero{padding:70px 0 34px}.breadcrumbs{display:flex;gap:.45rem;flex-wrap:wrap;color:var(--muted);font-size:.88rem;font-weight:750;margin-bottom:1.1rem}.breadcrumbs a:hover{color:var(--primary)}.eyebrow{display:inline-flex;align-items:center;gap:.55rem;padding:.42rem .75rem;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--muted);font-size:.84rem;font-weight:800;margin-bottom:1.15rem;box-shadow:0 10px 25px rgba(0,0,0,.04)}.eyebrow i{color:var(--accent)}h1{font-family:"Playfair Display",Georgia,serif;font-size:clamp(2.7rem,7vw,5.5rem);line-height:.95;letter-spacing:-.06em;margin-bottom:1.25rem;max-width:980px}.lead{font-size:clamp(1rem,1.5vw,1.18rem);color:var(--muted);max-width:850px;margin-bottom:1.55rem}.lead strong{color:var(--text)}.hero-actions{display:flex;gap:.75rem;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;justify-content:center;gap:.58rem;border-radius:999px;padding:.82rem 1.1rem;font-weight:850;font-size:.94rem;border:1px solid var(--line);transition:.2s;background:var(--surface);color:var(--text);cursor:pointer}.btn.primary{background:var(--primary);border-color:var(--primary);color:#fff}.btn:hover{transform:translateY(-2px);box-shadow:var(--shadow-card)}
-    .quick-nav{position:sticky;top:76px;z-index:25;background:color-mix(in srgb,var(--bg) 78%,transparent);backdrop-filter:blur(14px);border-top:1px solid rgba(128,128,128,.08);border-bottom:1px solid rgba(128,128,128,.12)}.quick-nav .container{display:flex;gap:.45rem;overflow:auto;padding:.7rem 0;scrollbar-width:none}.quick-nav .container::-webkit-scrollbar{display:none}.quick-nav a{white-space:nowrap;border:1px solid var(--line);background:var(--surface);color:var(--muted);border-radius:999px;padding:.5rem .72rem;font-size:.82rem;font-weight:850}.quick-nav a:hover{background:var(--primary);border-color:var(--primary);color:#fff}
-    .section{padding:54px 0}.section-header{display:flex;justify-content:space-between;gap:2rem;align-items:end;margin-bottom:1.7rem}.kicker{color:var(--accent);font-weight:900;font-size:.82rem;text-transform:uppercase;letter-spacing:.12em;margin-bottom:.4rem}.section h2{font-size:clamp(2rem,4vw,3.1rem);line-height:1;letter-spacing:-.05em;margin-bottom:.65rem}.section-subtitle{color:var(--muted);max-width:790px}.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:1.18rem;box-shadow:0 12px 30px rgba(0,0,0,.045)}.card h3{font-size:1.08rem;line-height:1.2;margin-bottom:.55rem}.card p{color:var(--muted);font-size:.93rem}.card i{color:var(--accent);font-size:1.25rem;margin-bottom:.7rem}.pill-row{display:flex;gap:.45rem;flex-wrap:wrap;margin-top:.85rem}.pill{font-size:.74rem;font-weight:850;border-radius:999px;padding:.33rem .58rem;background:var(--surface-2);border:1px solid var(--line);color:var(--muted)}
-    .pdf-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}.pdf-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:1.15rem;box-shadow:0 12px 30px rgba(0,0,0,.045);display:flex;flex-direction:column;gap:.8rem;min-height:250px;transition:.22s}.pdf-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-card)}.pdf-icon{width:54px;height:54px;border-radius:18px;background:var(--blue-soft);color:var(--primary);display:grid;place-items:center;font-size:1.4rem}.pdf-card h3{font-size:1.05rem;line-height:1.16}.pdf-card p{color:var(--muted);font-size:.9rem}.pdf-card a{margin-top:auto;display:inline-flex;align-items:center;justify-content:center;gap:.45rem;border:1px solid var(--line);background:var(--surface-2);border-radius:999px;padding:.6rem .72rem;font-size:.84rem;font-weight:850}.pdf-card a:hover{background:var(--primary);border-color:var(--primary);color:#fff}
-    .accordion{display:grid;gap:.8rem}.acc-item{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);overflow:hidden;box-shadow:0 12px 30px rgba(0,0,0,.045)}.acc-btn{width:100%;display:flex;align-items:center;justify-content:space-between;gap:1rem;text-align:left;padding:1rem 1.15rem;border:0;background:transparent;color:var(--text);cursor:pointer;font:inherit;font-weight:850}.acc-btn span{display:flex;align-items:center;gap:.65rem}.acc-btn i:first-child{color:var(--accent)}.acc-content{max-height:0;overflow:hidden;transition:max-height .28s ease}.acc-content-inner{padding:0 1.15rem 1.15rem;color:var(--muted)}.acc-content-inner p{margin:.75rem 0}.acc-content-inner ul{margin:.75rem 0 .75rem 1.25rem}.acc-content-inner li{margin:.35rem 0}.acc-item.open .acc-content{max-height:1600px}.acc-item.open .acc-btn .chev{transform:rotate(180deg)}.chev{transition:.2s}
-    .exercise{background:linear-gradient(180deg,var(--surface),var(--surface-2));border:1px solid var(--line);border-radius:var(--radius-lg);padding:1.15rem;box-shadow:0 12px 30px rgba(0,0,0,.045)}.exercise .label{display:inline-flex;align-items:center;gap:.4rem;color:var(--green);font-size:.78rem;font-weight:900;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.55rem}.formula{margin:1rem 0;padding:1rem;border-radius:18px;background:color-mix(in srgb,var(--blue-soft) 70%,transparent);border:1px solid color-mix(in srgb,var(--primary) 18%,transparent);overflow:auto}.warning{border-left:4px solid var(--accent);padding:.9rem 1rem;background:var(--accent-soft);border-radius:0 16px 16px 0;color:var(--muted)}
+    .topbar{position:sticky;top:0;z-index:50;border-bottom:1px solid rgba(128,128,128,.16);background:color-mix(in srgb,var(--bg) 84%,transparent);backdrop-filter:blur(18px)}.nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.7rem 0}.brand{display:flex;align-items:center;gap:.75rem;min-width:0}.brand-mark{width:42px;height:42px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;font-weight:900;box-shadow:0 12px 26px rgba(31,78,121,.22)}.brand-text strong{display:block;font-size:.95rem;line-height:1.15}.brand-text span{display:block;font-size:.78rem;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:52vw}.nav-links{display:flex;align-items:center;gap:.4rem;flex-wrap:wrap;justify-content:flex-end}.nav-links a,.theme-btn{border:1px solid transparent;color:var(--muted);padding:.62rem .86rem;border-radius:999px;font-size:.9rem;font-weight:800;background:transparent;cursor:pointer;transition:.2s}.nav-links a:hover,.theme-btn:hover{color:var(--text);background:var(--surface);border-color:var(--line)}.nav-cta{background:var(--primary)!important;color:#fff!important;border-color:transparent!important}.nav-cta:hover{background:var(--primary-2)!important;transform:translateY(-1px)}
+    .hero{padding:70px 0 34px}.breadcrumbs{display:flex;gap:.45rem;flex-wrap:wrap;color:var(--muted);font-size:.88rem;font-weight:800;margin-bottom:1.1rem}.breadcrumbs a:hover{color:var(--primary)}.eyebrow{display:inline-flex;align-items:center;gap:.55rem;padding:.42rem .75rem;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--muted);font-size:.84rem;font-weight:900;margin-bottom:1.15rem;box-shadow:0 10px 25px rgba(0,0,0,.04)}.eyebrow i{color:var(--accent)}h1{font-family:"Playfair Display",Georgia,serif;font-size:clamp(2.7rem,7vw,5.4rem);line-height:.95;letter-spacing:-.06em;margin-bottom:1.25rem;max-width:1020px}.lead{font-size:clamp(1rem,1.5vw,1.18rem);color:var(--muted);max-width:890px;margin-bottom:1.55rem}.lead strong{color:var(--text)}.hero-actions{display:flex;gap:.75rem;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;justify-content:center;gap:.58rem;border-radius:999px;padding:.82rem 1.1rem;font-weight:900;font-size:.94rem;border:1px solid var(--line);transition:.2s;background:var(--surface);color:var(--text);cursor:pointer}.btn.primary{background:var(--primary);border-color:var(--primary);color:#fff}.btn:hover{transform:translateY(-2px);box-shadow:var(--shadow-card)}
+    .quick-nav{position:sticky;top:76px;z-index:30;background:color-mix(in srgb,var(--bg) 78%,transparent);backdrop-filter:blur(14px);border-top:1px solid rgba(128,128,128,.08);border-bottom:1px solid rgba(128,128,128,.12)}.quick-nav .container{display:flex;gap:.45rem;overflow:auto;padding:.7rem 0;scrollbar-width:none}.quick-nav .container::-webkit-scrollbar{display:none}.quick-nav a{white-space:nowrap;border:1px solid var(--line);background:var(--surface);color:var(--muted);border-radius:999px;padding:.5rem .72rem;font-size:.82rem;font-weight:900}.quick-nav a:hover{background:var(--primary);border-color:var(--primary);color:#fff}
+    .section{padding:54px 0}.section-header{display:flex;justify-content:space-between;gap:2rem;align-items:end;margin-bottom:1.7rem}.kicker{color:var(--accent);font-weight:900;font-size:.82rem;text-transform:uppercase;letter-spacing:.12em;margin-bottom:.4rem}.section h2{font-size:clamp(2rem,4vw,3.1rem);line-height:1;letter-spacing:-.05em;margin-bottom:.65rem}.section-subtitle{color:var(--muted);max-width:820px}.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:1.18rem;box-shadow:0 12px 30px rgba(0,0,0,.045)}.card h3{font-size:1.08rem;line-height:1.2;margin-bottom:.55rem}.card p{color:var(--muted);font-size:.93rem}.card i{color:var(--accent);font-size:1.25rem;margin-bottom:.7rem}.pill-row{display:flex;gap:.45rem;flex-wrap:wrap;margin-top:.85rem}.pill{font-size:.74rem;font-weight:900;border-radius:999px;padding:.33rem .58rem;background:var(--surface-2);border:1px solid var(--line);color:var(--muted)}code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:.15rem .35rem;color:var(--muted);font-size:.82rem}
+    .pdf-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}.pdf-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:1.15rem;box-shadow:0 12px 30px rgba(0,0,0,.045);display:flex;flex-direction:column;gap:.8rem;min-height:265px;transition:.22s}.pdf-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-card)}.pdf-icon{width:54px;height:54px;border-radius:18px;background:var(--blue-soft);color:var(--primary);display:grid;place-items:center;font-size:1.4rem}.pdf-card h3{font-size:1.05rem;line-height:1.16}.pdf-card p{color:var(--muted);font-size:.9rem}.pdf-card a{margin-top:auto;display:inline-flex;align-items:center;justify-content:center;gap:.45rem;border:1px solid var(--line);background:var(--surface-2);border-radius:999px;padding:.6rem .72rem;font-size:.84rem;font-weight:900}.pdf-card a:hover{background:var(--primary);border-color:var(--primary);color:#fff}
+    .method-card{background:linear-gradient(180deg,var(--surface),var(--surface-2));border:1px solid var(--line);border-radius:var(--radius-xl);padding:1.5rem;box-shadow:var(--shadow)}.method-card p{color:var(--muted);margin:.8rem 0}.formula{margin:1rem 0;padding:1rem;border-radius:18px;background:color-mix(in srgb,var(--blue-soft) 70%,transparent);border:1px solid color-mix(in srgb,var(--primary) 18%,transparent);overflow:auto}.warning{border-left:4px solid var(--accent);padding:.9rem 1rem;background:var(--accent-soft);border-radius:0 16px 16px 0;color:var(--muted)}
+    .finals-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}.final-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);box-shadow:0 12px 30px rgba(0,0,0,.045);overflow:hidden;transition:.2s}.final-card:hover{border-color:color-mix(in srgb,var(--primary) 35%,var(--line));box-shadow:var(--shadow-card)}.final-top{display:flex;justify-content:space-between;gap:1rem;align-items:flex-start;padding:1.05rem 1.1rem;cursor:pointer}.final-top h3{font-size:1.25rem;letter-spacing:-.03em;margin:.2rem 0}.final-top p{font-size:.84rem;color:var(--muted)}.final-badge{display:inline-flex;border:1px solid var(--line);background:var(--surface-2);border-radius:999px;padding:.25rem .55rem;font-size:.72rem;font-weight:900;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}.mini-toggle{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--surface-2);color:var(--muted);cursor:pointer;flex:0 0 auto;transition:.2s}.final-card.open .mini-toggle{transform:rotate(180deg);color:#fff;background:var(--primary);border-color:var(--primary)}.final-body{max-height:0;overflow:hidden;transition:max-height .28s ease}.final-card.open .final-body{max-height:1200px}.final-body ol{padding:0 1.35rem 1.05rem 2rem;color:var(--muted)}.final-body li{margin:.45rem 0}.final-body .pill-row{padding:0 1.1rem 1.1rem;margin-top:0}
+    .bank-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}.bank-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:1.15rem;box-shadow:0 12px 30px rgba(0,0,0,.045)}.bank-icon{width:46px;height:46px;border-radius:16px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;margin-bottom:.85rem}.bank-card h3{font-size:1.12rem;margin-bottom:.65rem}.bank-card ul{color:var(--muted);margin-left:1.1rem}.bank-card li{margin:.35rem 0}
+    .prompt-box{background:#111827;color:#e9eef8;border-radius:22px;border:1px solid rgba(255,255,255,.12);box-shadow:var(--shadow);overflow:hidden}[data-theme="dark"] .prompt-box{background:#070a11}.prompt-head{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1rem 1.1rem;border-bottom:1px solid rgba(255,255,255,.12)}.prompt-head strong{color:#fff}.copy-btn{border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.08);color:#fff;border-radius:999px;padding:.55rem .78rem;font-weight:900;cursor:pointer}.copy-btn:hover{background:#fff;color:#111827}.prompt-text{white-space:pre-wrap;padding:1.1rem;max-height:560px;overflow:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.82rem;line-height:1.55;color:#d9e2ef}
     .callout{margin-top:1.4rem;background:linear-gradient(135deg,var(--primary),var(--primary-2));color:#fff;border-radius:var(--radius-xl);padding:1.8rem;display:grid;grid-template-columns:1fr auto;gap:1rem;align-items:center;box-shadow:var(--shadow);overflow:hidden;position:relative}.callout::after{content:"";position:absolute;right:-85px;top:-85px;width:230px;height:230px;background:rgba(255,255,255,.11);border-radius:50%}.callout h3{font-size:1.35rem;margin-bottom:.35rem}.callout p{color:rgba(255,255,255,.78);max-width:760px}.callout .btn{background:#fff;color:#13253a;border:0;position:relative;z-index:1}
-    footer{padding:42px 0;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}.footer-row{display:flex;justify-content:space-between;gap:1rem;align-items:center;flex-wrap:wrap}.footer-links{display:flex;gap:.8rem;flex-wrap:wrap}.footer-links a:hover{color:var(--primary)}
-    @media(max-width:1020px){.pdf-grid{grid-template-columns:repeat(2,1fr)}.grid-3{grid-template-columns:repeat(2,1fr)}.grid-2{grid-template-columns:1fr}.section-header{align-items:flex-start;flex-direction:column}.callout{grid-template-columns:1fr}}
-    @media(max-width:700px){.container{width:min(100% - 28px,var(--max))}.nav{height:auto;padding:.8rem 0;align-items:flex-start}.nav-links a:not(.nav-cta){display:none}.brand-text span{max-width:58vw}.quick-nav{top:65px}.hero{padding:42px 0 24px}.pdf-grid,.grid-3{grid-template-columns:1fr}}
+    footer{padding:42px 0;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}.footer-row{display:flex;justify-content:space-between;gap:1rem;align-items:center;flex-wrap:wrap}.footer-links{display:flex;gap:.8rem;flex-wrap:wrap}.footer-links a:hover{color:var(--primary)}.toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,80px);background:var(--text);color:var(--bg);padding:.75rem 1rem;border-radius:999px;font-weight:900;z-index:100;transition:.25s}.toast.show{transform:translate(-50%,0)}
+    @media(max-width:1040px){.pdf-grid{grid-template-columns:repeat(2,1fr)}.finals-grid,.bank-grid,.grid-2{grid-template-columns:1fr}.grid-3{grid-template-columns:repeat(2,1fr)}.section-header{align-items:flex-start;flex-direction:column}}
+    @media(max-width:720px){.container{width:min(100% - 28px,var(--max))}.nav-links a:not(.nav-cta){display:none}.hero{padding:44px 0 24px}.pdf-grid,.grid-3{grid-template-columns:1fr}.callout{grid-template-columns:1fr}.quick-nav{top:70px}h1{font-size:clamp(2.55rem,14vw,4rem)}}
   </style>
 </head>
 <body>
-  <header class="topbar">
-    <div class="container nav">
-      <a class="brand" href="../" aria-label="Volver al box">
-        <div class="brand-mark">FP</div>
-        <div class="brand-text"><strong>Finanzas Públicas</strong><span>Guía · PDFs · ejercicios · finales comentados</span></div>
-      </a>
-      <nav class="nav-links" aria-label="Navegación principal">
-        <a href="../../index.html">Inicio</a><a href="../">Box</a><a href="../../portfolio/">Portfolio</a>
-        <button class="theme-btn" type="button" id="themeToggle" aria-label="Cambiar tema"><i class="fa-solid fa-moon"></i></button>
-        <a class="nav-cta" href="#pdfs">PDFs</a>
-      </nav>
-    </div>
-  </header>
+  <header class="topbar"><div class="container nav"><a class="brand" href="../../index.html" aria-label="Volver al inicio"><div class="brand-mark">FP</div><div class="brand-text"><strong>Finanzas Públicas</strong><span>Finales · preguntas · PDFs · guía viva</span></div></a><nav class="nav-links" aria-label="Navegación principal"><a href="../">Box</a><a href="../../portfolio/">Portfolio</a><a href="#finales">Finales</a><button class="theme-btn" type="button" id="themeToggle" aria-label="Cambiar tema"><i class="fa-solid fa-moon"></i></button><a class="nav-cta" href="#claude">Claude Project</a></nav></div></header>
 
   <main>
-    <section class="hero">
-      <div class="container">
-        <div class="breadcrumbs"><a href="../../index.html">Inicio</a><span>/</span><a href="../">Box de archivos</a><span>/</span><span>Finanzas Públicas</span></div>
-        <div class="eyebrow"><i class="fa-solid fa-landmark"></i> Materia prioritaria</div>
-        <h1>Cómo aprobar Finanzas Públicas sin perderse en todo el material.</h1>
-        <p class="lead">La idea de esta página es simple: usar el <strong>Unificado</strong> como mapa general, estudiar fuerte el <strong>Compilado de Ensayos</strong>, practicar los ejercicios típicos y ordenar los temas que más se repiten en finales.</p>
-        <div class="hero-actions"><a class="btn primary" href="#guia"><i class="fa-solid fa-book-open"></i> Leer guía</a><a class="btn" href="#ejercicios"><i class="fa-solid fa-calculator"></i> Ver ejercicios</a><a class="btn" href="#pdfs"><i class="fa-solid fa-file-pdf"></i> Abrir PDFs</a></div>
-      </div>
-    </section>
+    <section class="hero"><div class="container"><div class="breadcrumbs"><a href="../../index.html">Inicio</a><span>/</span><a href="../">Box de archivos</a><span>/</span><strong>Finanzas Públicas</strong></div><div class="eyebrow"><i class="fa-solid fa-book-open-reader"></i> Cátedra Capello · final orientado a patrones reales</div><h1>Cómo aprobar Finanzas Públicas sin perderse en el caos.</h1><p class="lead">Esta página no separa artificialmente “ensayos” y “ejercicios” cuando forman parte de un mismo final. Primero van los <strong>finales por fecha</strong>; después, un <strong>banco suelto de preguntas frecuentes</strong> para estudiar patrones sin duplicar innecesariamente.</p><div class="hero-actions"><a class="btn primary" href="#finales"><i class="fa-solid fa-calendar-days"></i> Ver finales por fecha</a><a class="btn" href="#banco"><i class="fa-solid fa-list-check"></i> Banco frecuente</a><a class="btn" href="#pdfs"><i class="fa-solid fa-file-pdf"></i> PDFs</a></div></div></section>
 
-    <nav class="quick-nav" aria-label="Índice de Finanzas Públicas"><div class="container"><a href="#pdfs">PDFs</a><a href="#guia">Guía</a><a href="#temas">Temas clave</a><a href="#ejercicios">Ejercicios</a><a href="#finales">Final Julio 2026</a><a href="#ia">Prompts IA</a><a href="#aportes">Aportes</a></div></nav>
+    <nav class="quick-nav" aria-label="Índice rápido"><div class="container"><a href="#uso">Cómo usar</a><a href="#pdfs">PDFs</a><a href="#finales">Finales</a><a href="#banco">Banco frecuente</a><a href="#claude">Claude Project</a><a href="#aportes">Aportes</a></div></nav>
 
-    <section class="section" id="pdfs">
-      <div class="container">
-        <div class="section-header"><div><div class="kicker">Materiales principales</div><h2>PDFs de la materia</h2><p class="section-subtitle">Usá nombres simples, sin espacios ni tildes. Subilos dentro de <strong>box-archivos/finanzas-publicas/pdf/</strong>.</p></div></div>
-        <div class="pdf-grid">
-          <article class="pdf-card"><div class="pdf-icon"><i class="fa-solid fa-file-lines"></i></div><h3>Unificado</h3><p>Guía general de temas. Sirve como diccionario para entender el esquema completo de la materia.</p><a href="pdf/unificado.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> Abrir PDF</a></article>
-          <article class="pdf-card"><div class="pdf-icon"><i class="fa-solid fa-file-pen"></i></div><h3>Compilado de Ensayos</h3><p>Material central para estudiar. Conviene ordenarlo por unidades y practicar respuestas tipo final.</p><a href="pdf/compilado-ensayos.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> Abrir PDF</a></article>
-          <article class="pdf-card"><div class="pdf-icon"><i class="fa-solid fa-list-check"></i></div><h3>Vago Índice</h3><p>Útil para ver temas, finales y recurrencias. Ideal para arrancar y no perderse.</p><a href="pdf/vago-indice.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> Abrir PDF</a></article>
-          <article class="pdf-card"><div class="pdf-icon"><i class="fa-solid fa-brain"></i></div><h3>GPTliado de Ensayos</h3><p>Complementario. No es el material principal, pero puede servir para ampliar o contrastar enfoques.</p><a href="pdf/gptliado-ensayos.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> Abrir PDF</a></article>
-        </div>
-      </div>
-    </section>
+    <section class="section" id="uso"><div class="container"><div class="section-header"><div><div class="kicker">Criterio de estudio</div><h2>Usá la página como mapa, no como manual eterno.</h2><p class="section-subtitle">La idea es estudiar pensando en final: reconocer patrones, practicar preguntas reales y usar los PDFs como fuente de teoría y contraste.</p></div></div><div class="grid-3"><div class="card"><i class="fa-solid fa-map"></i><h3>1. Mirá los finales por fecha</h3><p>Así entendés qué combinaciones toma: teoría, gráfico, verdadero/falso, práctica y federalismo suelen mezclarse.</p></div><div class="card"><i class="fa-solid fa-crosshairs"></i><h3>2. Entrená el banco frecuente</h3><p>El banco suelto no reemplaza los finales: agrupa temas recurrentes que no siempre tienen fecha identificada.</p></div><div class="card"><i class="fa-solid fa-brain"></i><h3>3. Pedí ejercicios escalonados</h3><p>Usá Claude Project con el prompt de abajo para generar práctica progresiva sin perder trazabilidad.</p></div></div><div class="callout"><div><h3>Regla de oro</h3><p>No estudies “por unidad” de forma ciega. Estudiá por patrones de final: pregunta, fórmula, gráfico, intuición y redacción.</p></div><a class="btn" href="#claude"><i class="fa-solid fa-arrow-down"></i> Ver prompt</a></div></div></section>
 
-    <section class="section" id="guia">
-      <div class="container">
-        <div class="section-header"><div><div class="kicker">Guía para aprobar</div><h2>Método recomendado</h2><p class="section-subtitle">Una versión digitalizada y ordenada de la estrategia de estudio: qué leer, qué practicar y cómo no perderse.</p></div></div>
-        <div class="accordion">
-          <div class="acc-item open"><button class="acc-btn" type="button"><span><i class="fa-solid fa-map"></i> Cómo usar los materiales</span><i class="fa-solid fa-chevron-down chev"></i></button><div class="acc-content"><div class="acc-content-inner"><p>Lo ideal es emplear el <strong>Unificado</strong> como guía principal de temas, pero no como lectura lineal obligatoria. Sirve para entender el esquema general. Lo más importante es trabajar el <strong>Compilado de Ensayos</strong>, porque ahí aparecen las preguntas y enfoques que más se repiten.</p><p>El <strong>Vago Índice</strong> conviene usarlo al principio para ordenar temas y finales. El <strong>GPTliado</strong> queda como apoyo, no como centro del estudio.</p></div></div></div>
-          <div class="acc-item"><button class="acc-btn" type="button"><span><i class="fa-solid fa-calendar-days"></i> Plan posible de 10 a 14 días</span><i class="fa-solid fa-chevron-down chev"></i></button><div class="acc-content"><div class="acc-content-inner"><ul><li>Día 1-2: recorrer Vago Índice y separar temas por unidades.</li><li>Día 3-6: estudiar ensayos frecuentes y armar respuestas modelo.</li><li>Día 7-10: practicar ejercicios típicos: monopolio, Laffer, Ramsey, externalidades, Samuelson, Stiglitz.</li><li>Día 11-14: repaso modo final, respondiendo sin mirar y corrigiendo después.</li></ul></div></div></div>
-          <div class="acc-item"><button class="acc-btn" type="button"><span><i class="fa-solid fa-pen-nib"></i> Cómo responder ensayos</span><i class="fa-solid fa-chevron-down chev"></i></button><div class="acc-content"><div class="acc-content-inner"><p>Una buena respuesta suele tener esta estructura: problema, concepto teórico, intervención estatal o criterio distributivo, ventaja, crítica y conclusión. No hace falta escribir infinito: hace falta ordenar bien.</p><p>En Finanzas Públicas suma mucho justificar con teoría económica: fallas de mercado, externalidades, bienes públicos, equidad, eficiencia, descentralización o incentivos.</p></div></div></div>
-        </div>
-      </div>
-    </section>
+    <section class="section" id="pdfs"><div class="container"><div class="section-header"><div><div class="kicker">Materiales</div><h2>PDFs principales</h2><p class="section-subtitle">Subilos con estos nombres exactos dentro de <code>box-archivos/finanzas-publicas/pdf/</code>. Sin espacios, sin tildes y todo en minúsculas.</p></div></div><div class="pdf-grid"><article class="pdf-card"><div class="pdf-icon"><i class="fa-solid fa-file-pdf"></i></div><h3>Unificado</h3><p>Usalo como diccionario teórico: conceptos, modelos, fórmulas y gráficos base.</p><code>unificado.pdf</code><a href="pdf/unificado.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> Abrir PDF</a></article>
+<article class="pdf-card"><div class="pdf-icon"><i class="fa-solid fa-file-pdf"></i></div><h3>Compilado de Ensayos</h3><p>Material central para ensayos, ejercicios y variantes tomadas.</p><code>compilado-ensayos.pdf</code><a href="pdf/compilado-ensayos.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> Abrir PDF</a></article>
+<article class="pdf-card"><div class="pdf-icon"><i class="fa-solid fa-file-pdf"></i></div><h3>Vago Índice</h3><p>Mapa rápido de finales por fecha y banco de preguntas frecuentes.</p><code>vago-indice.pdf</code><a href="pdf/vago-indice.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> Abrir PDF</a></article>
+<article class="pdf-card"><div class="pdf-icon"><i class="fa-solid fa-file-pdf"></i></div><h3>GPTLiado de Ensayos</h3><p>Complemento para prioridades, fórmulas y estructura de respuestas.</p><code>gptliado-ensayos.pdf</code><a href="pdf/gptliado-ensayos.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> Abrir PDF</a></article></div></div></section>
 
-    <section class="section" id="temas">
-      <div class="container">
-        <div class="section-header"><div><div class="kicker">Prioridades</div><h2>Temas que sí o sí estudiaría</h2><p class="section-subtitle">Una lista de bloques de alta recurrencia para orientar el estudio.</p></div></div>
-        <div class="grid-3">
-          <div class="card"><i class="fa-solid fa-triangle-exclamation"></i><h3>Fallas de mercado</h3><p>Externalidades, Pigou, monopolio, bienes comunes, pérdida social neta y justificación de intervención estatal.</p><div class="pill-row"><span class="pill">Externalidades</span><span class="pill">Monopolio</span><span class="pill">PSN</span></div></div>
-          <div class="card"><i class="fa-solid fa-people-group"></i><h3>Bienes públicos</h3><p>Regla de Samuelson, votación mayoritaria, votante mediano, bienes públicos locales y curva de restos de Stiglitz.</p><div class="pill-row"><span class="pill">Samuelson</span><span class="pill">Stiglitz</span><span class="pill">Votación</span></div></div>
-          <div class="card"><i class="fa-solid fa-receipt"></i><h3>Tributación</h3><p>Laffer, Ramsey, impuestos selectivos, impuestos generales al consumo, distorsiones y exceso de gravamen.</p><div class="pill-row"><span class="pill">Laffer</span><span class="pill">Ramsey</span><span class="pill">Impuestos</span></div></div>
-          <div class="card"><i class="fa-solid fa-hospital"></i><h3>Salud, seguros y HMO</h3><p>Uno de los ensayos que más se repite. Entender riesgo, seguros, selección adversa, riesgo moral y organizaciones HMO.</p><div class="pill-row"><span class="pill">HMO</span><span class="pill">Seguros</span><span class="pill">Salud</span></div></div>
-          <div class="card"><i class="fa-solid fa-building-columns"></i><h3>Federalismo fiscal</h3><p>Descentralización, teorema de Oates, pandemia, funciones por nivel de gobierno y coparticipación federal.</p><div class="pill-row"><span class="pill">Oates</span><span class="pill">Pandemia</span><span class="pill">Coparticipación</span></div></div>
-          <div class="card"><i class="fa-solid fa-graduation-cap"></i><h3>Educación y seguridad social</h3><p>Ensayos frecuentes sobre intervención estatal, equidad, eficiencia, educación superior, primaria/secundaria y previsión.</p><div class="pill-row"><span class="pill">Educación</span><span class="pill">Previsión</span><span class="pill">Equidad</span></div></div>
-        </div>
-      </div>
-    </section>
+    <section class="section" id="finales"><div class="container"><div class="section-header"><div><div class="kicker">Banco por fecha</div><h2>Finales identificados</h2><p class="section-subtitle">Cada tarjeta corresponde a un final o a un archivo claramente individualizado. No hay resoluciones acá: solo qué tomaron, para estudiar como banco de preguntas.</p></div></div><div class="finals-grid"><article class="final-card">
+      <div class="final-top"><div><span class="final-badge">Final confirmado</span><h3>Julio 2026</h3><p>Ensayero Julio 2026</p></div><button class="mini-toggle" type="button" aria-label="Abrir final"><i class="fa-solid fa-chevron-down"></i></button></div>
+      <div class="final-body"><ol><li>Monopolio con demanda $P=a-bQ$ y costo marginal constante: calcular pérdida social neta, valor económico de la licencia monopólica y proponer intervención estatal.</li>
+<li>Teorema de la descentralización: explicar qué corresponde al nivel nacional, provincial y municipal para mitigar efectos de una pandemia.</li>
+<li>Curva de restos de Stiglitz con dos agentes: $X$ como bien privado, $G$ como bien público y el agente B considerando a $G$ como un mal.</li>
+<li>Verdadero/Falso sobre uso obligatorio de casco y bienes públicos: distinguir bien público, bien preferente y externalidades.</li>
+<li>Ensayo: impuesto general al consumo vs impuesto selectivo a las ventas. Aclarar diferencia entre análisis ocio-consumo y análisis entre bienes.</li></ol><div class="pill-row"><span class="pill">Monopolio</span><span class="pill">Descentralización</span><span class="pill">Stiglitz</span><span class="pill">Bienes preferentes</span><span class="pill">Impuestos</span></div></div>
+    </article><article class="final-card">
+      <div class="final-top"><div><span class="final-badge">Final confirmado</span><h3>Mayo 2026</h3><p>Compilado de Ensayos + aporte confirmado</p></div><button class="mini-toggle" type="button" aria-label="Abrir final"><i class="fa-solid fa-chevron-down"></i></button></div>
+      <div class="final-body"><ol><li>Política fiscal: distinguir gasto pro-pobre de progresividad y comentar paper/conclusiones de Gasparini respecto de Argentina.</li>
+<li>Con gráfico si es posible: explicar por qué puede subir la desigualdad sin variar la tasa de pobreza utilizando el método de línea de pobreza.</li>
+<li>Explicar el sistema de transferencias de coparticipación en Argentina y sus recomendaciones de diseño según eficiencia y equidad.</li>
+<li>Ejercicio de consumo intertemporal con $U=C_1^2+C_2^2$, ingreso por salario $W$ y renta $R$ en el primer período; comparar impuesto al consumo e impuesto a la renta.</li>
+<li>Bien público con demandas individuales $P_A$, $P_B$ y $P_C$ del tipo $100-2Q$, costo $CMg=70$ y regla de financiamiento: $1/2$ para C y $1/4$ para A y B. Obtener consumo óptimo individual, óptimo social y resultado por votación.</li></ol><div class="pill-row"><span class="pill">Gasparini</span><span class="pill">Kakwani</span><span class="pill">Lorenz</span><span class="pill">Coparticipación</span><span class="pill">Consumo intertemporal</span><span class="pill">Samuelson</span></div></div>
+    </article><article class="final-card">
+      <div class="final-top"><div><span class="final-badge">Final por fecha</span><h3>Noviembre 2023</h3><p>Vago Índice / Compilado</p></div><button class="mini-toggle" type="button" aria-label="Abrir final"><i class="fa-solid fa-chevron-down"></i></button></div>
+      <div class="final-body"><ol><li>Subsidios a tarifas de transporte y electricidad como salario indirecto: efectos en equidad y eficiencia e implicancias si el gasto iguala al déficit primario.</li>
+<li>Crisis del sistema de reparto: causas estructurales, situación argentina y propuestas de solución.</li>
+<li>Bienes comunes, common pool y coparticipación federal: explicar el problema que implica.</li>
+<li>Verdadero/Falso: un impuesto a la renta no causa distorsiones en las decisiones de ahorro si se deja exenta la tasa de interés.</li>
+<li>Ejercicio práctico: tasas impositivas óptimas de consumo a $X$ e $Y$ que recauden un nivel $R$; interpretar en términos de elasticidades.</li></ol><div class="pill-row"><span class="pill">Subsidios</span><span class="pill">Reparto</span><span class="pill">Common pool</span><span class="pill">Ahorro</span><span class="pill">Ramsey</span></div></div>
+    </article><article class="final-card">
+      <div class="final-top"><div><span class="final-badge">Final por fecha</span><h3>Septiembre 2023</h3><p>Vago Índice / Compilado</p></div><button class="mini-toggle" type="button" aria-label="Abrir final"><i class="fa-solid fa-chevron-down"></i></button></div>
+      <div class="final-body"><ol><li>Sistema de reparto y capitalización: en cuál se generan más problemas con tasa de crecimiento poblacional cercana a cero.</li>
+<li>Impuesto sobre la renta personal: justificación, definiciones alternativas de renta, efectos distorsivos, deducciones e impacto de la inflación.</li>
+<li>Ventajas de aplicar IVA en vez de Ingresos Brutos; mencionar piramidación y efecto sobre bienes de capital.</li>
+<li>Ejercicio de recaudación óptima con oferta inelástica; conclusiones en términos de elasticidades.</li>
+<li>Modelo de Buchanan y regla de los dos tercios del Congreso.</li></ol><div class="pill-row"><span class="pill">Seguridad social</span><span class="pill">Renta</span><span class="pill">IVA</span><span class="pill">Elasticidades</span><span class="pill">Buchanan</span></div></div>
+    </article><article class="final-card">
+      <div class="final-top"><div><span class="final-badge">Final por fecha</span><h3>Marzo 2023</h3><p>Vago Índice / Compilado</p></div><button class="mini-toggle" type="button" aria-label="Abrir final"><i class="fa-solid fa-chevron-down"></i></button></div>
+      <div class="final-body"><ol><li>Principales fallas de mercado en servicios de salud. HMO: racionalidad, pros y contras.</li>
+<li>Gráfico y explicación: empeoramiento de la distribución del ingreso sin variación de la tasa de pobreza.</li>
+<li>Sistema de transferencias a provincias en Argentina: características y aspectos de diseño.</li>
+<li>Ejercicio: impuestos óptimos que minimizan pérdida social neta con recaudación requerida $R=100$ y funciones de demanda/oferta de $X$ e $Y$.</li></ol><div class="pill-row"><span class="pill">Salud</span><span class="pill">HMO</span><span class="pill">Lorenz</span><span class="pill">Transferencias</span><span class="pill">Ramsey</span></div></div>
+    </article><article class="final-card">
+      <div class="final-top"><div><span class="final-badge">Final por fecha</span><h3>Febrero 2023</h3><p>Vago Índice / Compilado</p></div><button class="mini-toggle" type="button" aria-label="Abrir final"><i class="fa-solid fa-chevron-down"></i></button></div>
+      <div class="final-body"><ol><li>Justificación teórica de impuestos selectivos sobre combustibles; comparación con impuesto general a las ventas.</li>
+<li>Principales fallas de mercado en pandemia, causas de intervención estatal, soluciones, pros y contras.</li>
+<li>Crítica a la distribución de recursos fiscales entre provincias según la ley de coparticipación y modificaciones.</li>
+<li>Ejercicio de bien público local $Z$ con $CMg=Aw^\alpha$ y votante mediano $U=\ln x+\phi\ln z$: demanda por $Z$, efecto de $w$, efecto flypaper y estimación empírica.</li></ol><div class="pill-row"><span class="pill">Impuestos selectivos</span><span class="pill">Pandemia</span><span class="pill">Coparticipación</span><span class="pill">Flypaper</span></div></div>
+    </article><article class="final-card">
+      <div class="final-top"><div><span class="final-badge">Final por fecha</span><h3>Diciembre 2022</h3><p>Vago Índice / Compilado</p></div><button class="mini-toggle" type="button" aria-label="Abrir final"><i class="fa-solid fa-chevron-down"></i></button></div>
+      <div class="final-body"><ol><li>Condiciones para que el impuesto al ingreso y el impuesto general al consumo generen el mismo efecto; demostración en economía dinámica.</li>
+<li>Bienes de propiedad común.</li>
+<li>Ejercicio: obtener la tasa que maximiza la recaudación y luego plantear la minimización de la pérdida de eficiencia.</li>
+<li>Ejercicio: alícuota que maximiza recaudación con $Q_d=a-bP$ y $Q_o=c+dP$.</li></ol><div class="pill-row"><span class="pill">Economía dinámica</span><span class="pill">Bienes comunes</span><span class="pill">Laffer</span><span class="pill">Ramsey</span></div></div>
+    </article><article class="final-card">
+      <div class="final-top"><div><span class="final-badge">Final por fecha</span><h3>Noviembre 2022</h3><p>Vago Índice / Compilado</p></div><button class="mini-toggle" type="button" aria-label="Abrir final"><i class="fa-solid fa-chevron-down"></i></button></div>
+      <div class="final-body"><ol><li>El gobierno sube tarifas de gas y electricidad muy por debajo de la inflación, acelera el gasto en obras públicas y paga menos intereses por reestructuración: efectos sobre ahorro corriente, resultado primario y financiero.</li>
+<li>Fútbol para Todos: analizar racionalidad desde las funciones asignativa, distributiva y estabilizadora del Estado.</li></ol><div class="pill-row"><span class="pill">Cuentas fiscales</span><span class="pill">Fútbol para Todos</span><span class="pill">Musgrave</span></div></div>
+    </article><article class="final-card">
+      <div class="final-top"><div><span class="final-badge">Final por fecha</span><h3>Julio 2020</h3><p>Vago Índice / Compilado</p></div><button class="mini-toggle" type="button" aria-label="Abrir final"><i class="fa-solid fa-chevron-down"></i></button></div>
+      <div class="final-body"><ol><li>Verdadero/Falso: en economía dinámica de dos períodos es más distorsivo un impuesto a la renta que un impuesto general al consumo.</li>
+<li>Con $Q_d=a-bP$ y $Q_o=c+dP$, obtener la alícuota impositiva que maximiza la recaudación del Estado.</li>
+<li>Explicar con gráfico por qué puede empeorar la distribución del ingreso sin que varíe la tasa de pobreza.</li>
+<li>Características del sistema de transferencias a provincias en Argentina y aspectos de diseño que deberían contemplarse.</li></ol><div class="pill-row"><span class="pill">Consumo intertemporal</span><span class="pill">Laffer</span><span class="pill">Pobreza</span><span class="pill">Transferencias</span></div></div>
+    </article><article class="final-card">
+      <div class="final-top"><div><span class="final-badge">Final por fecha</span><h3>Agosto 2020</h3><p>Vago Índice / Compilado</p></div><button class="mini-toggle" type="button" aria-label="Abrir final"><i class="fa-solid fa-chevron-down"></i></button></div>
+      <div class="final-body"><ol><li>Justificación teórica de impuestos selectivos sobre combustibles y lubricantes; comparación de bienestar con un impuesto general a las ventas.</li>
+<li>Fallas de mercado en servicios de salud. Importancia creciente de las HMO: racionalidad, pros y contras.</li>
+<li>Ejercicio de bien público local $Z$ con $CMg=Aw^\alpha$ y votante mediano $U=\ln x+\phi\ln z$: demanda por $Z$, efecto de $w$, efecto flypaper y estimación empírica.</li></ol><div class="pill-row"><span class="pill">Combustibles</span><span class="pill">Salud</span><span class="pill">HMO</span><span class="pill">Bien público local</span><span class="pill">Flypaper</span></div></div>
+    </article><article class="final-card">
+      <div class="final-top"><div><span class="final-badge">Sin fecha identificada</span><h3>Final sin fecha del ZIP</h3><p>PDF escaneado adicional</p></div><button class="mini-toggle" type="button" aria-label="Abrir final"><i class="fa-solid fa-chevron-down"></i></button></div>
+      <div class="final-body"><ol><li>Ensayo: impuestos selectivos sobre combustibles y lubricantes; comparación con impuesto general a las ventas.</li>
+<li>Ensayo: principales fallas de mercado en salud e importancia de las HMO.</li>
+<li>Ejercicio: bien público local $Z$ con $CMg=Aw^\alpha$ y $U=\ln x+\phi\ln Z$; demanda, efecto de $w$, flypaper y estimación.</li>
+<li>Ejercicio: consumo intertemporal con ingresos salariales $W$ y rentas $R$ en el primer período; utilidad $U=(C_1)^2(C_2)^2$; ahorro bajo impuesto al consumo e impuesto a la renta.</li></ol><div class="pill-row"><span class="pill">Sin fecha</span><span class="pill">Salud</span><span class="pill">HMO</span><span class="pill">Flypaper</span><span class="pill">Intertemporal</span></div></div>
+    </article></div></div></section>
 
-    <section class="section" id="ejercicios">
-      <div class="container">
-        <div class="section-header"><div><div class="kicker">Práctica</div><h2>Ejercicios típicos</h2><p class="section-subtitle">Bloques para completar con resoluciones. Ya queda MathJax cargado para renderizar fórmulas.</p></div></div>
-        <div class="grid-2">
-          <div class="exercise"><div class="label"><i class="fa-solid fa-calculator"></i> Monopolio y PSN</div><h3>Pérdida social neta por monopolio</h3><p>Si la demanda es $P=a-bQ$ y el costo marginal es constante, calcular cantidad competitiva, cantidad monopólica, precios y pérdida social neta.</p><div class="formula">$$PSN = \frac{(Q_c - Q_m)(P_m - P_c)}{2}$$</div><p>También puede pedirse cuánto pagarían por la licencia monopólica:</p><div class="formula">$$(P_m - CMg)Q_m$$</div></div>
-          <div class="exercise"><div class="label"><i class="fa-solid fa-chart-line"></i> Curva de Laffer</div><h3>Recaudación y tributación óptima</h3><p>Ejercicios donde se relacionan precio consumidor, precio productor, impuesto y cantidad. Hay que encontrar recaudación y analizar cuándo crece o cae.</p><div class="formula">$$R(T)=T\cdot Q(T)$$</div><p class="warning">No quedarse solo con la cuenta: explicar la intuición económica de por qué la recaudación puede caer cuando la alícuota sube demasiado.</p></div>
-          <div class="exercise"><div class="label"><i class="fa-solid fa-scale-balanced"></i> Bien público</div><h3>Samuelson vs votación mayoritaria</h3><p>Comparar provisión eficiente con resultado político. La regla de Samuelson suma beneficios marginales individuales.</p><div class="formula">$$\sum_i BMg_i(G)=CMg(G)$$</div><p>La votación mayoritaria puede no coincidir porque depende del votante mediano y no de la suma social de disposiciones marginales a pagar.</p></div>
-          <div class="exercise"><div class="label"><i class="fa-solid fa-shuffle"></i> Stiglitz</div><h3>Curva de restos</h3><p>Ejercicio gráfico con bien privado $X$ y bien público $G$. Puede aparecer un agente que considere al bien público como un mal.</p><p class="warning">Si $G$ es un mal para B, sus curvas de indiferencia cambian de forma. La lógica del óptimo no desaparece: cambia la representación gráfica y la interpretación.</p></div>
-        </div>
-      </div>
-    </section>
+    <section class="section" id="banco"><div class="container"><div class="section-header"><div><div class="kicker">Banco suelto</div><h2>Preguntas frecuentes sin fecha única</h2><p class="section-subtitle">Temas que aparecen en el banco de preguntas, finales anteriores o compilados. Están deduplicados por tema dentro de este bloque, aunque puedan repetirse en finales fechados.</p></div></div><div class="bank-grid"><article class="bank-card"><div class="bank-icon"><i class="fa-solid fa-landmark"></i></div><h3>Sector público y cuentas fiscales</h3><ul><li>Métodos de registración: pagado y devengado; deuda flotante; contabilidad creativa.</li>
+<li>Ahorro corriente, resultado financiero y resultado primario ante shocks fiscales.</li>
+<li>Verdadero/Falso: equilibrio fiscal y aumento de deuda.</li>
+<li>Cálculo de indicadores fiscales con ingresos corrientes, gastos corrientes, intereses, recursos y gastos de capital.</li></ul></article><article class="bank-card"><div class="bank-icon"><i class="fa-solid fa-triangle-exclamation"></i></div><h3>Fallas de mercado y rol del Estado</h3><ul><li>Sanidad y educación como bienes privados/mixtos/preferentes aunque sean provistos públicamente.</li>
+<li>Uso obligatorio de casco: bien público, bien preferente y externalidades.</li>
+<li>Clasificación de agua potable, semáforos, residuos, bomberos, gas natural y cloacas.</li>
+<li>Precios Lindahl y problema de revelación de preferencias.</li>
+<li>Recursos de propiedad común y soluciones: acción colectiva, división/regulación.</li>
+<li>Pandemia como externalidad, bien meritorio, problema de Coase, fondo anticíclico y fallas del Estado.</li>
+<li>Monopolio con $CMg$ constante: PSN, licencia e intervención estatal.</li>
+<li>Impuesto sobre producción en monopolio: traslación, elasticidad y mark-up.</li>
+<li>Curva de restos de Stiglitz cuando un individuo considera al bien público como un mal.</li></ul></article><article class="bank-card"><div class="bank-icon"><i class="fa-solid fa-people-arrows"></i></div><h3>Economía política</h3><ul><li>Votante mediano: condiciones, limitaciones y eficiencia.</li>
+<li>Intercambio de votos y concesiones mutuas: pros, contras e incentivos a la traición.</li>
+<li>Modelo de Buchanan y costos de decisión/costos externos.</li>
+<li>Sistema militar obligatorio: razones de intervención pública.</li></ul></article><article class="bank-card"><div class="bank-icon"><i class="fa-solid fa-hand-holding-heart"></i></div><h3>Gasto público, distribución, salud y educación</h3><ul><li>Índice de Kakwani: gasto pro-pobre vs progresivo.</li>
+<li>Gasparini y política fiscal redistributiva en Argentina.</li>
+<li>Curva de Lorenz y línea de pobreza: desigualdad sin cambio en tasa de pobreza.</li>
+<li>Educación: externalidades, equidad, mercados imperfectos de capitales; primaria/secundaria vs universitaria.</li>
+<li>Seguridad social: reparto y capitalización; tasa de crecimiento poblacional; crisis argentina.</li>
+<li>Salud, seguros, selección adversa, riesgo moral, HMO, copagos y autonomía de centros sanitarios.</li>
+<li>Fútbol para Todos y análisis por funciones de Musgrave.</li>
+<li>Subsidios a energía/transporte como salario indirecto: eficiencia, equidad e impacto fiscal.</li></ul></article><article class="bank-card"><div class="bank-icon"><i class="fa-solid fa-receipt"></i></div><h3>Impuestos, eficiencia e incidencia</h3><ul><li>Impuesto general al consumo vs impuesto selectivo a las ventas.</li>
+<li>Impuesto específico con sustitutos perfectos o complementarios perfectos.</li>
+<li>Evasión y elusión fiscal; presión fiscal legal vs efectiva.</li>
+<li>Financiamiento municipal de recolección de basura: precios voluntarios, tasas o impuestos.</li>
+<li>Impuesto al ingreso y decisión de ahorrar con interés exento.</li>
+<li>Impuesto al consumo e impuesto a la renta en economía dinámica de dos períodos.</li>
+<li>Ocio, trabajo e impuesto al consumo vs impuesto a la renta laboral.</li>
+<li>Ventajas del IVA sobre Ingresos Brutos: piramidación, bienes de capital, competitividad e incentivos a inversión.</li>
+<li>Impuesto sobre la renta personal: concepto de renta, deducciones, inflación y distorsiones.</li></ul></article><article class="bank-card"><div class="bank-icon"><i class="fa-solid fa-calculator"></i></div><h3>Prácticos recurrentes</h3><ul><li>Laffer: alícuota que maximiza recaudación con $Q_d=a-bP$ y $Q_o=c+dP$.</li>
+<li>Ramsey: minimizar pérdida social neta sujeta a recaudación requerida.</li>
+<li>Oferta perfectamente inelástica y tasas óptimas.</li>
+<li>Bien público con demandas individuales $P_A$, $P_B$, $P_C$: Samuelson vs votación mayoritaria.</li>
+<li>Bien público local $Z$ con $CMg=Aw^\alpha$, votante mediano, flypaper y estimación.</li>
+<li>Externalidad negativa: impuesto pigouviano, cantidad eficiente y recaudación.</li>
+<li>Mercado de permisos de contaminación: precio de licencia y ganancia de eficiencia.</li>
+<li>Servicio de taxis/licencias y monopolio: valor del permiso.</li>
+<li>Tasa de retorno previsional: edad jubilatoria, esperanza de vida, informalidad y desempleo.</li></ul></article><article class="bank-card"><div class="bank-icon"><i class="fa-solid fa-building-columns"></i></div><h3>Federalismo fiscal</h3><ul><li>Teorema de la descentralización y funciones de Nación, provincias y municipios en pandemia.</li>
+<li>Efecto flypaper: modelo teórico y estimación empírica.</li>
+<li>Coparticipación federal como common pool; problemas de incentivos.</li>
+<li>Ley 23.548, brecha fiscal vertical y horizontal, armonización tributaria.</li>
+<li>Capacidad y necesidad fiscal; diseño de transferencias a provincias.</li>
+<li>Función distribución: centralizada o descentralizada.</li>
+<li>Función estabilización: nivel de gobierno apropiado.</li></ul></article></div></div></section>
 
-    <section class="section" id="finales">
-      <div class="container">
-        <div class="section-header"><div><div class="kicker">Final comentado</div><h2>Final Julio 2026</h2><p class="section-subtitle">Resumen de temas tomados y cómo conviene encararlos.</p></div></div>
-        <div class="accordion">
-          <div class="acc-item open"><button class="acc-btn" type="button"><span><i class="fa-solid fa-crown"></i> Monopolio por licencia</span><i class="fa-solid fa-chevron-down chev"></i></button><div class="acc-content"><div class="acc-content-inner"><p>Ejercicio con demanda lineal y costo marginal constante. Pedían pérdida social neta, valor de la licencia monopólica y recomendación de política pública.</p><p>Respuesta posible: forzar producción competitiva, regular precio/cantidad o abrir competencia, justificando según eficiencia y bienestar.</p></div></div></div>
-          <div class="acc-item"><button class="acc-btn" type="button"><span><i class="fa-solid fa-virus-covid"></i> Descentralización y pandemia</span><i class="fa-solid fa-chevron-down chev"></i></button><div class="acc-content"><div class="acc-content-inner"><p>Aplicar teorema de descentralización y federalismo fiscal: Nación coordina, financia y define lineamientos generales; provincias adaptan política sanitaria; municipios ejecutan acciones locales y control territorial.</p></div></div></div>
-          <div class="acc-item"><button class="acc-btn" type="button"><span><i class="fa-solid fa-motorcycle"></i> Cascos y bienes públicos</span><i class="fa-solid fa-chevron-down chev"></i></button><div class="acc-content"><div class="acc-content-inner"><p>El casco no es un bien público puro porque es rival y excluible, pero su uso puede generar externalidades positivas al reducir costos sociales de accidentes, salud pública y seguros.</p></div></div></div>
-          <div class="acc-item"><button class="acc-btn" type="button"><span><i class="fa-solid fa-cart-shopping"></i> Impuesto general vs selectivo</span><i class="fa-solid fa-chevron-down chev"></i></button><div class="acc-content"><div class="acc-content-inner"><p>Si se considera ocio-consumo, ambos pueden ser distorsivos. Si solo se analiza mercado de bienes, el impuesto general al consumo no altera precios relativos entre bienes; el selectivo sí.</p><div class="formula">$$TMgSC_{x,y}=\frac{P_x}{P_y}$$</div></div></div></div>
-        </div>
-      </div>
-    </section>
+    <section class="section" id="claude"><div class="container"><div class="section-header"><div><div class="kicker">IA bien usada</div><h2>Claude Project: prompt base</h2><p class="section-subtitle">Abrí Claude, creá un Project, cargá los cuatro PDFs y pegá este prompt como instrucción general del Project. A partir de eso, pedile ejercicios por tema o por final.</p></div></div><div class="prompt-box"><div class="prompt-head"><strong>Prompt para pegar en Claude Project</strong><button class="copy-btn" type="button" id="copyPrompt"><i class="fa-solid fa-copy"></i> Copiar</button></div><pre class="prompt-text" id="promptText">Este Project corresponde a mi preparación para el examen final de Finanzas Públicas, Cátedra Capello.
 
-    <section class="section" id="ia">
-      <div class="container">
-        <div class="section-header"><div><div class="kicker">IA aplicada al estudio</div><h2>Prompts útiles</h2><p class="section-subtitle">Para usar ChatGPT, Claude o Gemini sin perderse en respuestas gigantes.</p></div></div>
-        <div class="grid-2">
-          <div class="card"><i class="fa-solid fa-wand-magic-sparkles"></i><h3>Ordenar por unidad</h3><p>“Con base en estos documentos, ordename los temas de Finanzas Públicas por unidades, separando ensayos, ejercicios y conceptos clave.”</p></div>
-          <div class="card"><i class="fa-solid fa-clipboard-question"></i><h3>Simular final</h3><p>“Tomame un final de Finanzas Públicas con 3 ejercicios y 2 ensayos. Después corregime con criterio de profesor.”</p></div>
-          <div class="card"><i class="fa-solid fa-pen"></i><h3>Respuesta modelo</h3><p>“Armame una respuesta de final sobre salud, seguros y HMO, con estructura: problema, teoría, intervención estatal, crítica y conclusión.”</p></div>
-          <div class="card"><i class="fa-solid fa-bug"></i><h3>Detectar errores</h3><p>“Esta es mi respuesta. Marcame errores conceptuales, partes incompletas y cómo la mejoraría para aprobar.”</p></div>
-        </div>
-      </div>
-    </section>
+Tu función principal es actuar como diseñador riguroso de una grilla progresiva de ejercicios, preguntas de final, casos aplicados y simulacros orales.
 
-    <section class="section" id="aportes">
-      <div class="container">
-        <div class="section-header"><div><div class="kicker">Aportes curados</div><h2>Información para completar</h2><p class="section-subtitle">Este bloque queda listo para que agregues aportes nuevos, finales confirmados, consejos o imágenes enlazadas.</p></div></div>
-        <div class="grid-2">
-          <div class="card"><i class="fa-solid fa-circle-plus"></i><h3>Plantilla de aporte</h3><p><strong>Tipo:</strong> final / ejercicio / ensayo / consejo.<br><strong>Tema:</strong> nombre del tema.<br><strong>Descripción:</strong> qué tomaron o qué conviene saber.<br><strong>Fuente:</strong> estudiante, clase, final, PDF o link.</p></div>
-          <div class="card"><i class="fa-solid fa-image"></i><h3>Imágenes y archivos</h3><p>Para mantener la web liviana, lo mejor es subir imágenes o archivos a un host externo y pegar el enlace. Luego se puede incrustar o dejar como botón.</p></div>
-        </div>
-        <div class="callout"><div><h3>Primero curado, después comunidad.</h3><p>Por ahora lo más sano es que los aportes se revisen antes de publicarse. Así mantenés calidad, evitás abuso y la página sigue siendo confiable.</p></div><a class="btn" href="#pdfs"><i class="fa-solid fa-arrow-up"></i> Volver a PDFs</a></div>
-      </div>
-    </section>
+Fuentes obligatorias de trabajo:
+1. Finanzas Públicas - Unificado.pdf:
+   usarlo como fuente principal de teoría, definiciones, fórmulas, gráficos y modelos.
+2. Compilado de Ensayos.pdf:
+   usarlo como fuente principal de ejercicios, preguntas tomadas y variantes de finales.
+3. GPTLiado de Ensayos.pdf:
+   usarlo como fuente principal de prioridades, matriz de recurrencia, fórmulas, banco de preguntas pendientes y estructura de respuestas.
+4. Vago Índice de Finanzas Públicas.pdf:
+   usarlo como fuente auxiliar para identificar preguntas frecuentes, ejercicios recurrentes y temas que efectivamente fueron tomados.
+
+Reglas de trazabilidad:
+- No inventes que un tema fue tomado en un final si no aparece en los archivos.
+- Cada ejercicio o pregunta debe indicar:
+  [Origen: PDF, página o sección]
+  [Tema]
+  [Tipo: teórico / práctico / gráfico / verdadero-falso / integrador]
+  [Nivel: básico / intermedio / examen / avanzado]
+  [Competencia evaluada]
+- Diferenciá siempre entre:
+  a) ejercicio extraído o adaptado de un final real;
+  b) ejercicio nuevo inspirado en un patrón real;
+  c) ejercicio puramente pedagógico para entrenar una dificultad específica.
+- Conservá fórmulas en LaTeX.
+- No alteres símbolos, datos ni resultados de ejercicios originales sin advertirlo.
+- Si un PDF tiene una fórmula ambigua, ilegible o contradictoria, señalalo antes de usarla.
+- Si existen respuestas previas posiblemente incorrectas, no las reproduzcas automáticamente: verificá algebra, supuestos y lógica económica.
+
+Criterio de diseño de ejercicios:
+- Priorizar primero los temas de frecuencia alta o muy alta en finales.
+- Para cada tema importante, generar ejercicios en escalera:
+  Nivel 1: reconocimiento conceptual.
+  Nivel 2: aplicación directa.
+  Nivel 3: resolución algebraica.
+  Nivel 4: interpretación económica y gráfica.
+  Nivel 5: variante de final integradora o tramposa.
+- No generar ejercicios repetidos con números distintos si evalúan exactamente la misma habilidad.
+- Cada nuevo ejercicio debe variar al menos uno de estos elementos:
+  supuestos, regla de financiamiento, elasticidades, tipo de falla, estructura de costos, información disponible o criterio de eficiencia.
+
+Formato obligatorio de cada ejercicio:
+# Código del ejercicio
+## Tema y objetivo
+## Origen y trazabilidad
+## Enunciado
+## Datos y fórmulas permitidas
+## Qué se evalúa
+## Pistas graduadas
+Pista 1: orientación mínima.
+Pista 2: ecuación o concepto inicial.
+Pista 3: estructura completa del planteo.
+## Resolución verificable
+## Resultado final
+## Interpretación económica
+## Errores frecuentes
+## Variante de examen
+## Criterio de autocorrección
+
+Modo de trabajo:
+- Nunca entregues una grilla masiva sin organización.
+- Primero identificá los temas recurrentes, los ejercicios disponibles y las lagunas.
+- Después proponé una secuencia de estudio de menor a mayor dificultad.
+- Cuando yo responda un ejercicio, corregime con rigor de examen final:
+  1. resultado;
+  2. procedimiento;
+  3. conceptos;
+  4. redacción;
+  5. omisiones;
+  6. errores graves;
+  7. versión corregida.
+- No me reveles la resolución completa salvo que la pida explícitamente.
+- Cuando me des un ejercicio para resolver, primero entregá solo enunciado, datos, consigna y pistas opcionales.</pre></div><div class="callout"><div><h3>Después de pegar el prompt</h3><p>Pedile cosas concretas: “armame una escalera de ejercicios de monopolio”, “tomame oralmente coparticipación”, “dame variantes de final de bien público local”, o “corregime esta respuesta como si fuese examen”.</p></div><a class="btn" href="#finales"><i class="fa-solid fa-calendar-check"></i> Elegir tema</a></div></div></section>
+
+    <section class="section" id="aportes"><div class="container"><div class="section-header"><div><div class="kicker">Aportes curados</div><h2>Bloque para completar después</h2><p class="section-subtitle">Este espacio queda preparado para sumar nuevos finales o consejos sin abrir comentarios públicos ni votaciones.</p></div></div><div class="grid-2"><div class="card"><i class="fa-solid fa-circle-plus"></i><h3>Formato recomendado</h3><p><strong>Fecha:</strong> mes y año del final.<br><strong>Preguntas:</strong> lista limpia, sin resolución.<br><strong>Fuente:</strong> estudiante, PDF, imagen o final confirmado.<br><strong>Estado:</strong> confirmado / dudoso / incompleto.</p></div><div class="card"><i class="fa-solid fa-image"></i><h3>Imágenes y archivos</h3><p>Si alguien manda imagen de consigna, conviene subirla a un host externo y dejar el link. La web principal conserva solo contenido curado y liviano.</p></div></div></div></section>
   </main>
 
-  <footer><div class="container footer-row"><span>© 2026 Rodrigo Emanuel San Martín Bustos.</span><div class="footer-links"><a href="../../index.html">Inicio</a><a href="../">Box</a><a href="../../portfolio/">Portfolio</a></div></div></footer>
+  <footer><div class="container footer-row"><span>© 2026 Rodrigo Emanuel San Martín Bustos.</span><div class="footer-links"><a href="../../index.html">Inicio</a><a href="../">Box</a><a href="../../portfolio/">Portfolio</a><a href="#finales">Finales</a></div></div></footer><div class="toast" id="toast">Copiado</div>
 
   <script>
     const html=document.documentElement;const themeToggle=document.getElementById('themeToggle');const savedTheme=localStorage.getItem('box-theme');if(savedTheme==='dark'){html.setAttribute('data-theme','dark');themeToggle.innerHTML='<i class="fa-solid fa-sun"></i>';}themeToggle.addEventListener('click',()=>{const isDark=html.getAttribute('data-theme')==='dark';if(isDark){html.removeAttribute('data-theme');localStorage.setItem('box-theme','light');themeToggle.innerHTML='<i class="fa-solid fa-moon"></i>';}else{html.setAttribute('data-theme','dark');localStorage.setItem('box-theme','dark');themeToggle.innerHTML='<i class="fa-solid fa-sun"></i>';}});
-    document.querySelectorAll('.acc-btn').forEach(btn=>{btn.addEventListener('click',()=>{btn.closest('.acc-item').classList.toggle('open');});});
+    document.querySelectorAll('.final-top').forEach(top=>{top.addEventListener('click',()=>top.closest('.final-card').classList.toggle('open'));});
+    document.querySelectorAll('.final-card').forEach((card,i)=>{if(i<2) card.classList.add('open');});
+    const toast=document.getElementById('toast');function showToast(msg){toast.textContent=msg;toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),1800);}
+    document.getElementById('copyPrompt').addEventListener('click',async()=>{const text=document.getElementById('promptText').innerText;try{await navigator.clipboard.writeText(text);showToast('Prompt copiado al portapapeles');}catch(e){showToast('No se pudo copiar automáticamente');}});
   </script>
 </body>
 </html>
