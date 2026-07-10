@@ -1,0 +1,28 @@
+CARPETA PDF — ECONOMÍA INTERNACIONAL
+
+Subir a esta carpeta con estos nombres exactos:
+
+1. resumen-economia-internacional.pdf
+   Fuente: Resumen_Economia_Internacional (2).pdf
+   Función: teoría amplia y consulta general.
+
+2. fedu-inter.pdf
+   Fuente: fedu inter-2.pdf / fedu_inter.pdf
+   Función: apuntes alineados con la materia, fórmulas y gráficos.
+
+3. compilado-examenes-economia-internacional.pdf
+   Ya incluido en este paquete.
+   Función: finales, parciales, recuperatorios, CFU y banco sin fecha.
+
+4. modelos-ensayos-vf-ejercicios.pdf
+   Fuente: Modelos de Ensayos, VF, Ejercicios.docx convertido a PDF.
+   Función: práctica y variantes de examen.
+
+OPCIONAL, SOLO SI QUERÉS UN QUINTO ARCHIVO:
+
+5. practica-resuelta.pdf
+   Fuente: practica.pdf
+   Función: gráficos y procedimientos manuscritos. No es una fuente oficial.
+
+No recomiendo subir al sitio libros completos como Feenstra o Markusen: son muy pesados,
+menos orientados al examen y pueden generar más problemas de publicación/copyright.
