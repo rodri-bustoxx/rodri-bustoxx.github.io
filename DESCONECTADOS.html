@@ -1,188 +1,743 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>DESCONECTADOS</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="description" content="Desconectados: cartas para conversar, jugar y conocerse mejor." />
+<title>Desconectados | Cartas para conversar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-/* ── RESET & BASE ── */
+/* ─────────────────────────────────────────────
+   DESCONECTADOS · versión cálida y romántica
+   ───────────────────────────────────────────── */
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 :root{
-  --bg:#0f0e0c;--surface:#1c1b18;--card-bg:#f5f0e8;--card-text:#1a1916;
-  --accent:#c84b2f;--text:#e8e4dc;--muted:#6b6760;--border:#2e2c28;
-  --yo:#c84b2f;--otros:#2f7dc8;--mundo:#2fb87c;--humor:#c8962f;--profundo:#8b2fc8;--pareja:#c82f7d;
+  --bg:#130d12;
+  --bg-2:#1e111d;
+  --surface:rgba(255,255,255,.075);
+  --surface-2:rgba(255,255,255,.115);
+  --surface-3:rgba(255,255,255,.18);
+  --cream:#fff7ee;
+  --cream-2:#f8eadc;
+  --text:#fff5ee;
+  --muted:rgba(255,245,238,.68);
+  --line:rgba(255,255,255,.16);
+  --shadow:0 26px 80px rgba(0,0,0,.38);
+  --shadow-card:0 20px 50px rgba(0,0,0,.25);
+
+  --accent:#ff6f91;
+  --accent-2:#f6a15e;
+  --accent-3:#c05cff;
+  --rose:#f14f7f;
+  --wine:#7f2448;
+  --gold:#f3bd73;
+
+  --yo:#d85a4a;
+  --otros:#3f8ee6;
+  --mundo:#38c28b;
+  --humor:#e3a73a;
+  --profundo:#935bea;
+  --pareja:#e94786;
+
+  --radius-xl:30px;
+  --radius-lg:22px;
+  --max:1120px;
 }
-html,body{height:100%;background:var(--bg);color:var(--text);font-family:Georgia,serif;overflow-x:hidden}
-body{display:flex;flex-direction:column;min-height:100vh}
 
-/* ── HEADER ── */
-.header{display:flex;align-items:center;justify-content:space-between;padding:18px 20px 10px}
-.brand{display:flex;flex-direction:column;gap:3px;min-width:0}
-.logo{font-size:17px;letter-spacing:.1em;font-style:italic;color:var(--text)}
-.logo b{font-style:normal;color:var(--accent);font-weight:700}
-.dedication{font-size:11px;color:var(--muted);font-family:Arial,sans-serif;letter-spacing:.04em;line-height:1.25}
-.icon-btn{width:36px;height:36px;border-radius:50%;border:1px solid var(--border);background:var(--surface);
-  color:var(--text);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center}
-.icon-btn:active{background:var(--border)}
+html,body{min-height:100%;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;overflow-x:hidden}
+body{
+  min-height:100vh;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(255,111,145,.28), transparent 32rem),
+    radial-gradient(circle at 82% 10%, rgba(192,92,255,.24), transparent 30rem),
+    radial-gradient(circle at 50% 105%, rgba(246,161,94,.20), transparent 34rem),
+    linear-gradient(135deg,var(--bg),var(--bg-2));
+}
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:-2;
+  background-image:
+    linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+  background-size:44px 44px;
+  mask-image:linear-gradient(to bottom, rgba(0,0,0,.9), transparent 82%);
+}
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:-1;
+  background:
+    radial-gradient(circle at 24% 22%, rgba(255,255,255,.08), transparent 11rem),
+    radial-gradient(circle at 76% 54%, rgba(255,255,255,.055), transparent 14rem);
+  mix-blend-mode:screen;
+}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
 
-/* ── CATS ── */
-.cats-wrap{padding:0 20px 14px;overflow-x:auto;scrollbar-width:none}
-.cats-wrap::-webkit-scrollbar{display:none}
-.cats{display:flex;gap:8px;width:max-content}
-.cat-pill{padding:7px 14px;border-radius:100px;font-size:12px;font-family:Arial,sans-serif;
-  font-weight:600;letter-spacing:.04em;cursor:pointer;border:1.5px solid var(--border);
-  background:var(--surface);color:var(--muted);white-space:nowrap;user-select:none;transition:all .15s}
-.cat-pill:active{opacity:.7}
-.cat-pill.active{color:#fff;border-color:transparent}
-.cat-pill[data-cat="all"].active{background:var(--accent)}
+.page{width:min(var(--max),calc(100% - 34px));margin:0 auto;padding:18px 0 34px}
+
+/* ── floating details ── */
+.float-layer{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+.float-heart{
+  position:absolute;
+  color:rgba(255,255,255,.18);
+  font-size:clamp(18px,3vw,34px);
+  animation:drift 13s linear infinite;
+  filter:blur(.1px);
+}
+.float-heart:nth-child(1){left:8%;top:82%;animation-duration:14s}
+.float-heart:nth-child(2){left:18%;top:18%;animation-duration:18s;animation-delay:-5s}
+.float-heart:nth-child(3){left:78%;top:72%;animation-duration:16s;animation-delay:-8s}
+.float-heart:nth-child(4){left:90%;top:24%;animation-duration:20s;animation-delay:-4s}
+.float-heart:nth-child(5){left:52%;top:90%;animation-duration:19s;animation-delay:-10s}
+@keyframes drift{
+  0%{transform:translateY(80px) rotate(0deg);opacity:0}
+  12%{opacity:1}
+  80%{opacity:.9}
+  100%{transform:translateY(-105vh) rotate(24deg);opacity:0}
+}
+
+/* ── Header ── */
+.topbar{
+  position:sticky;
+  top:14px;
+  z-index:50;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  padding:12px 13px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:rgba(28,18,29,.62);
+  backdrop-filter:blur(20px);
+  box-shadow:0 12px 38px rgba(0,0,0,.20);
+}
+.brand{display:flex;align-items:center;gap:11px;min-width:0}
+.brand-mark{
+  width:42px;height:42px;border-radius:16px;
+  display:grid;place-items:center;
+  color:#fff;font-weight:950;letter-spacing:-.06em;
+  background:linear-gradient(135deg,var(--accent),var(--accent-3));
+  box-shadow:0 16px 34px rgba(255,111,145,.26);
+  position:relative;overflow:hidden;flex:0 0 auto;
+}
+.brand-mark::after{content:"♥";position:absolute;right:4px;bottom:1px;font-size:13px;color:rgba(255,255,255,.76)}
+.brand-text{min-width:0;line-height:1.08}
+.logo{
+  font-family:"Cormorant Garamond",Georgia,serif;
+  font-size:1.18rem;
+  letter-spacing:.035em;
+  font-weight:700;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.logo b{color:#fff}
+.brand-sub{margin-top:3px;color:var(--muted);font-size:.74rem;font-weight:650;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:58vw}
+.nav-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.nav-btn,.icon-btn{
+  border:1px solid var(--line);
+  background:var(--surface);
+  color:var(--text);
+  border-radius:999px;
+  min-height:42px;
+  padding:10px 13px;
+  cursor:pointer;
+  font-size:.84rem;
+  font-weight:850;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  transition:transform .18s ease, background .18s ease, border-color .18s ease;
+}
+.icon-btn{width:42px;padding:0;font-size:1.02rem}
+.nav-btn:hover,.icon-btn:hover{transform:translateY(-2px);background:var(--surface-2);border-color:rgba(255,255,255,.28)}
+.nav-btn.primary{background:linear-gradient(135deg,var(--accent),var(--accent-2));border-color:transparent;color:#fff}
+
+/* ── Hero ── */
+.hero{
+  position:relative;
+  z-index:1;
+  display:grid;
+  grid-template-columns:1.06fr .94fr;
+  gap:20px;
+  padding:34px 0 18px;
+}
+.hero-copy{
+  border:1px solid var(--line);
+  background:linear-gradient(180deg,rgba(255,255,255,.14),rgba(255,255,255,.06));
+  border-radius:var(--radius-xl);
+  box-shadow:var(--shadow);
+  padding:clamp(24px,4vw,42px);
+  overflow:hidden;
+  position:relative;
+}
+.hero-copy::after{
+  content:"";
+  position:absolute;
+  right:-110px;
+  top:-110px;
+  width:280px;height:280px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,111,145,.30),transparent 68%);
+}
+.kicker{
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  width:fit-content;
+  padding:8px 12px;
+  border-radius:999px;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.075);
+  color:var(--muted);
+  font-size:.78rem;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+}
+.kicker::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 7px rgba(255,111,145,.14)}
+h1{
+  margin-top:20px;
+  font-family:"Cormorant Garamond",Georgia,serif;
+  font-size:clamp(3rem,8vw,6.35rem);
+  line-height:.86;
+  letter-spacing:-.06em;
+  max-width:780px;
+}
+.hero-lead{
+  margin-top:22px;
+  color:var(--muted);
+  font-size:clamp(.98rem,1.4vw,1.1rem);
+  line-height:1.72;
+  max-width:740px;
+}
+.hero-lead strong{color:var(--text);font-weight:850}
+.hero-buttons{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  min-height:48px;
+  padding:13px 17px;
+  border-radius:999px;
+  border:1px solid var(--line);
+  background:var(--surface);
+  color:var(--text);
+  font-weight:900;
+  font-size:.92rem;
+  transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
+}
+.btn:hover{transform:translateY(-3px);box-shadow:0 18px 45px rgba(0,0,0,.22);background:var(--surface-2)}
+.btn.main{background:linear-gradient(135deg,var(--accent),var(--accent-3));color:#fff;border-color:transparent}
+
+.love-note{
+  border:1px solid var(--line);
+  background:linear-gradient(180deg,rgba(255,255,255,.13),rgba(255,255,255,.055));
+  border-radius:var(--radius-xl);
+  box-shadow:var(--shadow-card);
+  padding:clamp(22px,3vw,34px);
+  position:relative;
+  overflow:hidden;
+}
+.love-note::before{
+  content:"Emi";
+  position:absolute;
+  right:-2px;
+  top:-18px;
+  font-family:"Cormorant Garamond",Georgia,serif;
+  font-size:8.2rem;
+  font-weight:700;
+  color:rgba(255,255,255,.055);
+  letter-spacing:-.08em;
+}
+.emi-badge{
+  width:72px;height:72px;border-radius:26px;
+  display:grid;place-items:center;
+  background:linear-gradient(135deg,var(--rose),var(--gold));
+  color:#fff;
+  font-family:"Cormorant Garamond",Georgia,serif;
+  font-size:2.05rem;
+  font-weight:700;
+  box-shadow:0 20px 44px rgba(255,111,145,.22);
+  position:relative;
+}
+.emi-badge::after{content:"♥";position:absolute;right:-7px;bottom:-9px;font-family:Inter,sans-serif;font-size:22px;color:#fff;background:var(--wine);width:33px;height:33px;border-radius:50%;display:grid;place-items:center;border:2px solid rgba(255,255,255,.26)}
+.love-note h2{
+  margin-top:18px;
+  font-family:"Cormorant Garamond",Georgia,serif;
+  font-size:clamp(2rem,4vw,3.05rem);
+  line-height:.95;
+  letter-spacing:-.04em;
+}
+.love-note p{margin-top:14px;color:var(--muted);line-height:1.72;font-size:.96rem}
+.love-note strong{color:var(--text)}
+.signature{
+  margin-top:20px;
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  padding:9px 12px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.16);
+  background:rgba(255,255,255,.07);
+  color:rgba(255,245,238,.82);
+  font-size:.82rem;
+  font-weight:800;
+}
+
+/* ── Game shell ── */
+.game-shell{
+  position:relative;
+  z-index:1;
+  display:grid;
+  grid-template-columns:280px 1fr;
+  gap:18px;
+  align-items:start;
+  padding:14px 0 8px;
+}
+.panel{
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.065);
+  border-radius:var(--radius-xl);
+  box-shadow:var(--shadow-card);
+  backdrop-filter:blur(16px);
+}
+.side-panel{padding:18px;position:sticky;top:92px}
+.panel-title{font-size:.84rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:950;margin-bottom:12px}
+.instructions{
+  color:var(--muted);
+  line-height:1.65;
+  font-size:.91rem;
+  margin-bottom:14px;
+}
+.instructions strong{color:var(--text)}
+.cats{display:flex;flex-direction:column;gap:8px}
+.cat-pill{
+  width:100%;
+  padding:11px 12px;
+  border-radius:15px;
+  font-size:.87rem;
+  font-weight:850;
+  cursor:pointer;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.055);
+  color:var(--muted);
+  white-space:nowrap;
+  user-select:none;
+  transition:transform .15s ease, background .15s ease, color .15s ease, border-color .15s ease;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
+.cat-pill:hover{transform:translateX(3px);background:rgba(255,255,255,.10);color:var(--text)}
+.cat-pill.active{color:#fff;border-color:transparent;box-shadow:0 12px 28px rgba(0,0,0,.15)}
+.cat-pill[data-cat="all"].active{background:linear-gradient(135deg,var(--accent),var(--accent-2))}
 .cat-pill[data-cat="yo"].active{background:var(--yo)}
 .cat-pill[data-cat="otros"].active{background:var(--otros)}
 .cat-pill[data-cat="mundo"].active{background:var(--mundo)}
 .cat-pill[data-cat="humor"].active{background:var(--humor)}
 .cat-pill[data-cat="profundo"].active{background:var(--profundo)}
 .cat-pill[data-cat="pareja"].active{background:var(--pareja)}
+.reset-small{width:100%;margin-top:12px}
 
-/* ── COUNTER ── */
-.counter-bar{display:flex;align-items:center;justify-content:space-between;padding:0 20px 18px;
-  font-size:12px;color:var(--muted);font-family:Arial,sans-serif}
-.counter-bar strong{color:var(--text);font-weight:600}
-.progress-track{flex:1;margin:0 12px;height:2px;background:var(--border);border-radius:2px;overflow:hidden}
-.progress-fill{height:100%;background:var(--accent);border-radius:2px;transition:width .4s ease}
+.play-panel{
+  padding:clamp(18px,3vw,28px);
+  min-height:500px;
+}
+.counter-bar{
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  align-items:center;
+  gap:12px;
+  margin-bottom:18px;
+  color:var(--muted);
+  font-size:.85rem;
+  font-weight:850;
+}
+.counter-bar strong{color:var(--text);font-size:1.05rem}
+.progress-track{height:7px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.09);border-radius:999px;overflow:hidden}
+.progress-fill{height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent-3));border-radius:999px;transition:width .45s ease}
 
-/* ── SCENE / CARD ── */
-.scene{padding:0 20px;margin-bottom:20px}
-.card-wrap{position:relative;width:100%;min-height:320px;perspective:1000px}
-.card-inner{position:relative;width:100%;min-height:320px;
-  transform-style:preserve-3d;transition:transform .5s cubic-bezier(.4,0,.2,1);cursor:pointer}
+/* ── Card ── */
+.scene{width:min(660px,100%);margin:0 auto}
+.card-wrap{position:relative;width:100%;min-height:390px;perspective:1200px}
+.card-inner{
+  position:relative;width:100%;min-height:390px;
+  transform-style:preserve-3d;
+  transition:transform .58s cubic-bezier(.4,0,.2,1);
+  cursor:pointer;
+}
 .card-inner.flipped{transform:rotateY(180deg)}
-.card-face{position:absolute;inset:0;border-radius:20px;backface-visibility:hidden;-webkit-backface-visibility:hidden;min-height:320px;overflow:hidden}
+.card-face{
+  position:absolute;
+  inset:0;
+  border-radius:30px;
+  backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;
+  min-height:390px;
+  overflow:hidden;
+  box-shadow:0 24px 70px rgba(0,0,0,.26);
+}
 
 /* FRONT */
-.card-front{background:var(--accent);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px}
-.card-front:active{filter:brightness(.9)}
-.cf-diamond{font-size:44px;opacity:.2;line-height:1}
-.cf-title{font-size:26px;color:#fff;letter-spacing:.06em;font-style:italic}
-.cf-hint{font-size:11px;color:rgba(255,255,255,.55);letter-spacing:.14em;text-transform:uppercase;font-family:Arial,sans-serif}
-.cf-dedication{font-size:12px;color:rgba(255,255,255,.70);font-family:Arial,sans-serif;letter-spacing:.06em;margin-top:2px;text-align:center}
-.card-front::before,.card-front::after{content:'';position:absolute;left:22px;right:22px;height:1px;background:rgba(255,255,255,.18)}
-.card-front::before{top:22px}.card-front::after{bottom:22px}
+.card-front{
+  background:linear-gradient(135deg,var(--accent),var(--accent-3));
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:16px;
+  padding:26px;
+  text-align:center;
+  isolation:isolate;
+}
+.card-front::before{
+  content:"";
+  position:absolute;
+  inset:20px;
+  border:1px solid rgba(255,255,255,.24);
+  border-radius:24px;
+  pointer-events:none;
+}
+.card-front::after{
+  content:"";
+  position:absolute;
+  width:350px;height:350px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,255,255,.20),transparent 68%);
+  right:-110px;top:-100px;
+  z-index:-1;
+}
+.cf-diamond{
+  width:92px;height:92px;border-radius:32px;
+  display:grid;place-items:center;
+  background:rgba(255,255,255,.16);
+  border:1px solid rgba(255,255,255,.22);
+  font-size:46px;
+  transform:rotate(8deg);
+}
+.cf-title{
+  font-family:"Cormorant Garamond",Georgia,serif;
+  font-size:clamp(2.4rem,6vw,4rem);
+  color:#fff;
+  letter-spacing:-.04em;
+  line-height:.88;
+}
+.cf-hint{
+  font-size:.76rem;
+  color:rgba(255,255,255,.70);
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  font-weight:950;
+}
+.cf-dedication{
+  margin-top:2px;
+  font-size:.92rem;
+  color:rgba(255,255,255,.86);
+  font-weight:800;
+}
 
 /* BACK */
-.card-back{background:var(--card-bg);transform:rotateY(180deg);display:flex;flex-direction:column;padding:26px 24px 22px}
-.cb-tag{display:inline-flex;align-items:center;gap:5px;padding:4px 12px;border-radius:100px;
-  font-size:10px;font-weight:700;letter-spacing:.12em;color:#fff;margin-bottom:18px;font-family:Arial,sans-serif;width:fit-content}
-.cb-q{font-size:clamp(19px,5.2vw,25px);line-height:1.45;color:var(--card-text);flex:1;display:flex;align-items:center}
-.cb-footer{display:flex;justify-content:space-between;margin-top:18px;padding-top:14px;border-top:1px solid rgba(0,0,0,.08)}
-.cb-num{font-size:11px;color:rgba(26,25,22,.3);font-family:Arial,sans-serif}
-.cb-brand{font-size:10px;color:rgba(26,25,22,.28);font-family:Arial,sans-serif;letter-spacing:.05em}
+.card-back{
+  background:linear-gradient(180deg,var(--cream),var(--cream-2));
+  transform:rotateY(180deg);
+  display:flex;
+  flex-direction:column;
+  padding:clamp(24px,4vw,38px);
+}
+.cb-tag{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:7px 13px;
+  border-radius:999px;
+  font-size:.72rem;
+  font-weight:950;
+  letter-spacing:.08em;
+  color:#fff;
+  margin-bottom:18px;
+  width:fit-content;
+  text-transform:uppercase;
+}
+.cb-q{
+  font-family:"Cormorant Garamond",Georgia,serif;
+  font-size:clamp(1.75rem,4.5vw,3.05rem);
+  line-height:1.08;
+  letter-spacing:-.035em;
+  color:#241613;
+  flex:1;
+  display:flex;
+  align-items:center;
+}
+.cb-footer{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  margin-top:24px;
+  padding-top:16px;
+  border-top:1px solid rgba(36,22,19,.12);
+}
+.cb-num{font-size:.8rem;color:rgba(36,22,19,.42);font-weight:850}
+.cb-brand{font-size:.78rem;color:rgba(36,22,19,.38);font-weight:900;letter-spacing:.04em}
 
 /* cat colors on back */
 .tag-yo{background:var(--yo)}.tag-otros{background:var(--otros)}.tag-mundo{background:var(--mundo)}
 .tag-humor{background:var(--humor)}.tag-profundo{background:var(--profundo)}.tag-pareja{background:var(--pareja)}
 
-/* ── ACTIONS ── */
-.actions{padding:0 20px;display:flex;flex-direction:column;gap:10px}
-.btn-main{width:100%;padding:16px;border-radius:14px;border:none;
-  background:var(--accent);color:#fff;font-size:15px;font-family:Arial,sans-serif;
-  font-weight:600;cursor:pointer;letter-spacing:.02em;transition:all .15s}
-.btn-main:active{filter:brightness(.85);transform:scale(.98)}
-.btn-main:disabled{opacity:.3;cursor:default}
-.btn-main:disabled:active{filter:none;transform:none}
-.empty-msg{text-align:center;padding:10px 0;font-size:13px;color:var(--muted);font-family:Arial,sans-serif;display:none}
+/* ── Actions ── */
+.actions{width:min(660px,100%);margin:16px auto 0;display:grid;grid-template-columns:1fr auto;gap:10px}
+.btn-main{
+  width:100%;
+  min-height:56px;
+  padding:15px 18px;
+  border-radius:18px;
+  border:none;
+  background:linear-gradient(135deg,var(--accent),var(--accent-3));
+  color:#fff;
+  font-size:.98rem;
+  font-weight:950;
+  cursor:pointer;
+  letter-spacing:.01em;
+  transition:transform .15s ease, filter .15s ease, box-shadow .15s ease;
+  box-shadow:0 16px 40px rgba(255,111,145,.18);
+}
+.btn-main:hover{transform:translateY(-2px);box-shadow:0 20px 48px rgba(255,111,145,.26)}
+.btn-main:active{filter:brightness(.88);transform:scale(.99)}
+.btn-main:disabled{opacity:.38;cursor:default}
+.btn-main:disabled:hover{transform:none;box-shadow:none}
+.btn-mini{
+  min-width:56px;
+  border:1px solid var(--line);
+  background:var(--surface);
+  color:var(--text);
+  border-radius:18px;
+  font-size:1.15rem;
+  cursor:pointer;
+}
+.empty-msg{
+  grid-column:1/-1;
+  text-align:center;
+  padding:9px 0 0;
+  font-size:.9rem;
+  color:var(--muted);
+  display:none;
+  font-weight:700;
+}
 
-/* ── MODAL ── */
-.overlay{position:fixed;inset:0;background:rgba(0,0,0,.72);z-index:200;
-  display:flex;align-items:flex-end;opacity:0;pointer-events:none;transition:opacity .25s;backdrop-filter:blur(4px)}
+.footer-note{
+  margin-top:20px;
+  color:rgba(255,245,238,.50);
+  text-align:center;
+  font-size:.82rem;
+  line-height:1.5;
+}
+
+/* ── Modal ── */
+.overlay{
+  position:fixed;inset:0;background:rgba(0,0,0,.72);z-index:200;
+  display:flex;align-items:flex-end;opacity:0;pointer-events:none;transition:opacity .25s;backdrop-filter:blur(8px);
+}
 .overlay.open{opacity:1;pointer-events:all}
-.sheet{background:var(--surface);border-radius:24px 24px 0 0;padding:24px 22px 44px;
-  width:100%;border-top:1px solid var(--border);transform:translateY(100%);transition:transform .32s cubic-bezier(.4,0,.2,1)}
+.sheet{
+  background:linear-gradient(180deg,#231425,#160e18);
+  border-radius:28px 28px 0 0;
+  padding:24px 22px 44px;
+  width:100%;
+  border-top:1px solid var(--line);
+  transform:translateY(100%);
+  transition:transform .32s cubic-bezier(.4,0,.2,1);
+  box-shadow:0 -20px 60px rgba(0,0,0,.35);
+}
 .overlay.open .sheet{transform:translateY(0)}
-.handle{width:36px;height:4px;background:var(--border);border-radius:2px;margin:0 auto 22px}
-.modal-title{font-size:21px;margin-bottom:6px}
-.modal-sub{font-size:13px;color:var(--muted);margin-bottom:20px;font-family:Arial,sans-serif;line-height:1.6}
+.handle{width:42px;height:5px;background:rgba(255,255,255,.16);border-radius:999px;margin:0 auto 22px}
+.modal-title{font-size:1.45rem;margin-bottom:6px;font-weight:900}
+.modal-sub{font-size:.92rem;color:var(--muted);margin-bottom:18px;line-height:1.6}
 .reset-opts{display:flex;flex-direction:column;gap:10px}
-.ropt{display:flex;align-items:center;gap:12px;padding:15px;border-radius:14px;
-  border:1.5px solid var(--border);background:var(--bg);cursor:pointer;font-family:Arial,sans-serif}
-.ropt:active{background:var(--border)}
-.ropt-icon{font-size:22px}
-.ropt-label{font-size:14px;color:var(--text);font-weight:600}
-.ropt-sub{font-size:11px;color:var(--muted);margin-top:2px}
-.modal-cancel{margin-top:10px;width:100%;padding:13px;background:transparent;border:none;
-  color:var(--muted);font-size:14px;font-family:Arial,sans-serif;cursor:pointer}
+.ropt{
+  display:flex;align-items:center;gap:12px;
+  padding:15px;border-radius:18px;
+  border:1px solid var(--line);background:rgba(255,255,255,.06);
+  cursor:pointer;
+}
+.ropt:hover{background:rgba(255,255,255,.10)}
+.ropt-icon{font-size:1.45rem}
+.ropt-label{font-size:.95rem;color:var(--text);font-weight:900}
+.ropt-sub{font-size:.78rem;color:var(--muted);margin-top:2px}
+.modal-cancel{margin-top:12px;width:100%;padding:13px;background:transparent;border:none;color:var(--muted);font-size:.95rem;font-weight:800;cursor:pointer}
 
-/* ── TOAST ── */
-.toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%) translateY(70px);
-  background:var(--text);color:var(--bg);padding:9px 20px;border-radius:100px;
-  font-size:13px;font-weight:600;font-family:Arial,sans-serif;transition:transform .28s ease;z-index:300;white-space:nowrap}
+/* ── Toast ── */
+.toast{
+  position:fixed;bottom:30px;left:50%;
+  transform:translateX(-50%) translateY(70px);
+  background:#fff7ee;color:#25161f;
+  padding:10px 18px;border-radius:999px;
+  font-size:.86rem;font-weight:900;
+  transition:transform .28s ease;
+  z-index:300;white-space:nowrap;
+  box-shadow:0 16px 45px rgba(0,0,0,.25);
+}
 .toast.show{transform:translateX(-50%) translateY(0)}
 
-.safe{height:20px}
-
-@keyframes pop{0%{transform:scale(1)}50%{transform:scale(.96)}100%{transform:scale(1)}}
+.safe{height:18px}
+@keyframes pop{0%{transform:scale(1)}50%{transform:scale(.975)}100%{transform:scale(1)}}
 .pop{animation:pop .28s ease}
+
+@media(max-width:930px){
+  .hero{grid-template-columns:1fr}
+  .game-shell{grid-template-columns:1fr}
+  .side-panel{position:relative;top:auto}
+  .cats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:660px){
+  .page{width:min(100% - 24px,var(--max));padding-top:12px}
+  .topbar{top:10px;border-radius:24px;align-items:flex-start}
+  .brand-sub{max-width:42vw}
+  .nav-btn{display:none}
+  .hero{padding-top:22px}
+  .hero-copy,.love-note{border-radius:26px}
+  .hero-buttons{flex-direction:column}
+  .btn{width:100%}
+  .cats{display:flex;flex-direction:row;overflow:auto;padding-bottom:2px;scrollbar-width:none}
+  .cats::-webkit-scrollbar{display:none}
+  .cat-pill{width:auto;flex:0 0 auto}
+  .play-panel{border-radius:26px;padding:14px}
+  .counter-bar{grid-template-columns:auto 1fr auto;font-size:.78rem}
+  .card-wrap,.card-inner,.card-face{min-height:355px}
+  .actions{grid-template-columns:1fr 56px}
+  .cf-diamond{width:78px;height:78px}
+}
 </style>
 </head>
 <body>
-
-<div class="header">
-  <div class="brand">
-    <div class="logo"><b>DES</b>conectados</div>
-    <div class="dedication">Una excusa para conversar con mi mendocina favorita</div>
-  </div>
-  <button class="icon-btn" onclick="openModal()">↺</button>
+<div class="float-layer" aria-hidden="true">
+  <span class="float-heart">♥</span>
+  <span class="float-heart">♡</span>
+  <span class="float-heart">♥</span>
+  <span class="float-heart">♡</span>
+  <span class="float-heart">♥</span>
 </div>
 
-<div class="cats-wrap">
-  <div class="cats">
-    <div class="cat-pill active" data-cat="all"      onclick="selectCat(this)">✦ Todas</div>
-    <div class="cat-pill"        data-cat="yo"       onclick="selectCat(this)">🙋 Sobre mí</div>
-    <div class="cat-pill"        data-cat="otros"    onclick="selectCat(this)">👥 Otros</div>
-    <div class="cat-pill"        data-cat="mundo"    onclick="selectCat(this)">🌍 Mundo</div>
-    <div class="cat-pill"        data-cat="humor"    onclick="selectCat(this)">😄 Humor</div>
-    <div class="cat-pill"        data-cat="profundo" onclick="selectCat(this)">🔮 Profundo</div>
-    <div class="cat-pill"        data-cat="pareja"   onclick="selectCat(this)">❤️ Pareja</div>
-  </div>
-</div>
-
-<div class="counter-bar">
-  <strong id="used-count">0</strong>
-  <div class="progress-track"><div class="progress-fill" id="prog" style="width:0%"></div></div>
-  <span id="total-count">— cartas</span>
-</div>
-
-<div class="scene">
-  <div class="card-wrap">
-    <div class="card-inner" id="card" onclick="flipCard()">
-      <div class="card-face card-front" id="card-front">
-        <div class="cf-diamond">◈</div>
-        <div class="cf-title">Desconectados</div>
-        <div class="cf-hint">Tocá para revelar</div>
+<div class="page">
+  <header class="topbar" aria-label="Navegación principal">
+    <a class="brand" href="./" aria-label="Volver al sitio principal">
+      <div class="brand-mark">D</div>
+      <div class="brand-text">
+        <div class="logo"><b>DES</b>conectados</div>
+        <div class="brand-sub">Cartas para volver a mirarse</div>
       </div>
-      <div class="card-face card-back">
-        <div class="cb-tag" id="cb-tag">—</div>
-        <div class="cb-q"   id="cb-q">—</div>
-        <div class="cb-footer">
-          <span class="cb-num"   id="cb-num">#0</span>
-          <span class="cb-brand">@enpalabrass</span>
+    </a>
+
+    <div class="nav-actions">
+      <a class="nav-btn" href="./">Inicio</a>
+      <a class="nav-btn" href="./portfolio/">Perfil</a>
+      <button class="icon-btn" type="button" onclick="openModal()" aria-label="Reiniciar cartas">↺</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-label="Presentación del juego">
+      <div class="hero-copy">
+        <div class="kicker">Juego de conversación</div>
+        <h1>Desconectados para conectar mejor.</h1>
+        <p class="hero-lead">
+          Un mazo digital de preguntas para jugar de a dos, con amigos o con quien quieras.
+          La consigna es simple: <strong>guardar un rato el ruido de afuera</strong>, sacar una carta y conversar sin apuro.
+        </p>
+        <div class="hero-buttons">
+          <a class="btn main" href="#jugar">Empezar a jugar ♥</a>
+          <a class="btn" href="./portfolio/">Ir a mi perfil</a>
+          <a class="btn" href="./">Volver al inicio</a>
         </div>
       </div>
-    </div>
-  </div>
-</div>
 
-<div class="actions">
-  <button class="btn-main" id="btn-next" onclick="nextCard()">Nueva carta</button>
-  <div class="empty-msg" id="empty-msg">🎉 ¡Usaste todas las cartas! Reiniciá para seguir jugando.</div>
-</div>
+      <aside class="love-note" aria-label="Dedicatoria especial">
+        <div class="emi-badge">Emi</div>
+        <h2>Una excusa para mi mendocina favorita.</h2>
+        <p>
+          Este juego lo puede usar cualquiera, pero nació con una intención bastante simple:
+          tener una excusa linda para jugar con <strong>Emilia</strong>, Emi, mi mendocina favorita.
+        </p>
+        <p>
+          Algunas cartas son profundas, otras son tontas, otras son románticas. La gracia está en que
+          cada respuesta abra una conversación nueva.
+        </p>
+        <div class="signature">Hecho con corazones, mate imaginario y ganas de verla sonreír.</div>
+      </aside>
+    </section>
 
-<div class="safe"></div>
+    <section class="game-shell" id="jugar" aria-label="Juego">
+      <aside class="panel side-panel" aria-label="Categorías">
+        <div class="panel-title">Elegí una categoría</div>
+        <p class="instructions">
+          Tocá una categoría, revelá la carta y respondan por turnos. Podés jugarlo con cualquiera;
+          la dedicatoria a <strong>Emi</strong> queda como el guiño especial de esta versión.
+        </p>
+        <div class="cats">
+          <div class="cat-pill active" data-cat="all"      onclick="selectCat(this)">✦ Todas <span>→</span></div>
+          <div class="cat-pill"        data-cat="yo"       onclick="selectCat(this)">🙋 Sobre mí <span>→</span></div>
+          <div class="cat-pill"        data-cat="otros"    onclick="selectCat(this)">👥 Otros <span>→</span></div>
+          <div class="cat-pill"        data-cat="mundo"    onclick="selectCat(this)">🌍 Mundo <span>→</span></div>
+          <div class="cat-pill"        data-cat="humor"    onclick="selectCat(this)">😄 Humor <span>→</span></div>
+          <div class="cat-pill"        data-cat="profundo" onclick="selectCat(this)">🔮 Profundo <span>→</span></div>
+          <div class="cat-pill"        data-cat="pareja"   onclick="selectCat(this)">❤️ Pareja <span>→</span></div>
+        </div>
+        <button class="btn btn-secondary reset-small" type="button" onclick="openModal()">Reiniciar cartas</button>
+      </aside>
+
+      <div class="panel play-panel">
+        <div class="counter-bar">
+          <strong id="used-count">0</strong>
+          <div class="progress-track"><div class="progress-fill" id="prog" style="width:0%"></div></div>
+          <span id="total-count">— cartas</span>
+        </div>
+
+        <div class="scene">
+          <div class="card-wrap">
+            <div class="card-inner" id="card" onclick="flipCard()">
+              <div class="card-face card-front" id="card-front">
+                <div class="cf-diamond">♥</div>
+                <div class="cf-title">Desconectados</div>
+                <div class="cf-hint">Tocá para revelar</div>
+                <div class="cf-dedication">Para cualquiera que quiera conversar mejor</div>
+              </div>
+              <div class="card-face card-back">
+                <div class="cb-tag" id="cb-tag">—</div>
+                <div class="cb-q" id="cb-q">—</div>
+                <div class="cb-footer">
+                  <span class="cb-num" id="cb-num">#0</span>
+                  <span class="cb-brand">Desconectados ♥ Emi</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button class="btn-main" id="btn-next" onclick="nextCard()">Nueva carta</button>
+          <button class="btn-mini" type="button" onclick="openModal()" aria-label="Reiniciar">↺</button>
+          <div class="empty-msg" id="empty-msg">🎉 ¡Usaste todas las cartas! Reiniciá para seguir jugando.</div>
+        </div>
+
+        <p class="footer-note">
+          Sugerencia: respondan sin mirar el celular. Una carta, una respuesta honesta, una repregunta.
+        </p>
+      </div>
+    </section>
+  </main>
+</div>
 
 <!-- MODAL -->
 <div class="overlay" id="overlay" onclick="closeOutside(event)">
   <div class="sheet">
     <div class="handle"></div>
     <div class="modal-title">Reiniciar cartas</div>
-    <div class="modal-sub">¿Qué querés reiniciar?</div>
+    <div class="modal-sub">Elegí si querés reiniciar solo la categoría actual o empezar desde cero.</div>
     <div class="reset-opts">
       <div class="ropt" onclick="resetCurrent()">
         <span class="ropt-icon">🔁</span>
@@ -190,7 +745,7 @@ body{display:flex;flex-direction:column;min-height:100vh}
       </div>
       <div class="ropt" onclick="resetAll()">
         <span class="ropt-icon">✨</span>
-        <div><div class="ropt-label">Todo</div><div class="ropt-sub">Empezar desde cero completamente</div></div>
+        <div><div class="ropt-label">Todo el mazo</div><div class="ropt-sub">Empezar desde cero completamente</div></div>
       </div>
     </div>
     <button class="modal-cancel" onclick="closeModal()">Cancelar</button>
@@ -198,6 +753,7 @@ body{display:flex;flex-direction:column;min-height:100vh}
 </div>
 
 <div class="toast" id="toast"></div>
+<div class="safe"></div>
 
 <script>
 (function() {
@@ -407,7 +963,7 @@ var CAT_COLORS = {
   humor:"#c8962f", profundo:"#8b2fc8", pareja:"#c82f7d"
 };
 
-var STORAGE_KEY = "desconectados_usedIds_v3";
+var STORAGE_KEY = "desconectados_usedIds_v4";
 var usedIds = [];
 var currentCat = "all";
 var isFlipped = false;
@@ -456,10 +1012,7 @@ function saveState() {
     if (window.localStorage) {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(usedIds));
     }
-  } catch (e) {
-    // En algunos Android con archivo local, localStorage puede fallar.
-    // La app sigue funcionando en memoria.
-  }
+  } catch (e) {}
 }
 
 function getCardsForCategory(cat) {
@@ -496,20 +1049,20 @@ function updateCounter() {
   if (progEl) progEl.style.width = (total > 0 ? (used / total * 100) : 0) + "%";
 
   var btn = byId("btn-next");
-  if (btn) {
-    btn.disabled = getPool().length === 0;
-  }
+  if (btn) btn.disabled = getPool().length === 0;
 
   var emptyMsg = byId("empty-msg");
-  if (emptyMsg) {
-    emptyMsg.style.display = getPool().length === 0 ? "block" : "none";
-  }
+  if (emptyMsg) emptyMsg.style.display = getPool().length === 0 ? "block" : "none";
 }
 
 function setFrontColor() {
   var front = byId("card-front");
   if (!front) return;
-  front.style.background = (currentCat !== "all" && CAT_COLORS[currentCat]) ? CAT_COLORS[currentCat] : "#c84b2f";
+  if (currentCat !== "all" && CAT_COLORS[currentCat]) {
+    front.style.background = "linear-gradient(135deg," + CAT_COLORS[currentCat] + ", #7f2448)";
+  } else {
+    front.style.background = "linear-gradient(135deg,#ff6f91,#c05cff)";
+  }
 }
 
 function markUsed(id) {
@@ -596,9 +1149,7 @@ function selectCat(el) {
   if (!el) return;
 
   var pills = document.querySelectorAll(".cat-pill");
-  for (var i = 0; i < pills.length; i++) {
-    pills[i].classList.remove("active");
-  }
+  for (var i = 0; i < pills.length; i++) pills[i].classList.remove("active");
 
   el.classList.add("active");
   currentCat = el.getAttribute("data-cat") || "all";
@@ -610,8 +1161,6 @@ function selectCat(el) {
   currentCard = null;
   setFrontColor();
   updateCounter();
-
-  // Carga una carta inicial de la categoría para que tocar la carta siempre revele algo.
   drawNewCard();
 }
 
@@ -634,10 +1183,7 @@ function resetCurrent() {
   var base = getCardsForCategory(currentCat);
   var ids = base.map(function(c) { return c.id; });
 
-  usedIds = usedIds.filter(function(id) {
-    return ids.indexOf(id) === -1;
-  });
-
+  usedIds = usedIds.filter(function(id) { return ids.indexOf(id) === -1; });
   saveState();
 
   var card = byId("card");
@@ -674,9 +1220,7 @@ function showToast(msg) {
 
   t.textContent = msg;
   t.classList.add("show");
-  setTimeout(function() {
-    t.classList.remove("show");
-  }, 2200);
+  setTimeout(function() { t.classList.remove("show"); }, 2200);
 }
 
 function init() {
@@ -697,7 +1241,6 @@ function init() {
   drawNewCard();
 }
 
-// Funciones globales usadas por los onclick del HTML.
 window.flipCard = flipCard;
 window.nextCard = nextCard;
 window.selectCat = selectCat;
@@ -712,7 +1255,6 @@ if (document.readyState === "loading") {
 } else {
   init();
 }
-
 })();
 </script>
 </body>
